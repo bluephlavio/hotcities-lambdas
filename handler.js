@@ -1,6 +1,6 @@
 module.exports.run = function(event, context, callback) {
   const res = {
-    message: "Hello World!",
+    message: 'Hello World!',
     event,
     context
   };
