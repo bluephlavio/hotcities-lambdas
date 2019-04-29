@@ -2,19 +2,16 @@ require("dotenv").config();
 
 const _ = require("lodash");
 const { getWeather } = require("./openweathermap");
-const { db } = require("./firebase");
+const { admin, db } = require("./firebase");
 
 const getCities = () => {
   return db
     .collection("cities")
     .get()
     .then(snapshot => {
-      const cities = [];
-      snapshot.forEach(doc => {
-        const city = doc.data();
-        cities.push(city);
+      return _.map(snapshot.docs, doc => {
+        return doc.data();
       });
-      return cities;
     });
 };
 
@@ -28,10 +25,42 @@ const getRecord = async () => {
   const temperatures = _.map(availables, entry => entry.main.temp);
   const maxTemp = _.max(temperatures);
   const candidates = _.filter(availables, entry => entry.main.temp === maxTemp);
-  return candidates[Math.floor(Math.random() * candidates.length)];
+  const {
+    id,
+    main: { temp }
+  } = candidates[Math.floor(Math.random() * candidates.length)];
+  const record = {
+    geonameid: id,
+    temperature: temp
+  };
+  return record;
+};
+
+const saveRecord = (geonameid, temperature) => {
+  return db
+    .collection("records")
+    .add({
+      geonameid,
+      temperature,
+      timestamp: admin.firestore.FieldValue.serverTimestamp()
+    })
+    .then(doc => {
+      return doc.get();
+    })
+    .then(snapshot => {
+      return snapshot.data();
+    });
+};
+
+const getAndSaveRecord = async () => {
+  const { geonameid, temperature } = await getRecord();
+  const record = await saveRecord(geonameid, temperature);
+  return record;
 };
 
 module.exports = {
   getCities,
-  getRecord
+  getRecord,
+  saveRecord,
+  getAndSaveRecord
 };
