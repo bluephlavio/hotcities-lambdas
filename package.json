@@ -1,0 +1,15 @@
+{
+  "name": "hotcities-fetcher",
+  "version": "0.0.1",
+  "description": "backend data fetcher for hotcities.world",
+  "repository": "https://github.com/bluephlavio/hotcities-fetcher.git",
+  "author": "bluephlavio <flavio.grandin@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "firebase-admin": "^7.3.0",
+    "lodash": "^4.17.11",
+    "openweathermap-api-module": "^0.0.1"
+  }
+}

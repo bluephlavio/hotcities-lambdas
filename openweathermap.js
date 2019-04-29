@@ -3,7 +3,7 @@ const config = require("./config");
 
 const getWeather = () => {
   const client = new OpenWeatherMap(config.openweathermap.key);
-  client
+  return client
     .currentWeatherByRectangleZone({
       bbox: {
         lonLeft: "-180",
@@ -13,11 +13,8 @@ const getWeather = () => {
         zoom: "12"
       }
     })
-    .then(data => {
+    .then(res => {
       return res.list;
-    })
-    .catch(err => {
-      console.log(err);
     });
 };
 

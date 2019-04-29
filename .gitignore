@@ -7,3 +7,4 @@ jspm_packages
 
 #private keys
 firebase-keys.json
+.env

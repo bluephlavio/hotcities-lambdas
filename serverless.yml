@@ -20,6 +20,8 @@ service: hotcities-fetcher # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs8.10
+  stage: dev
+  region: eu-west-2
 
 # you can overwrite defaults here
 #  stage: dev
@@ -56,18 +58,16 @@ provider:
 
 functions:
   fetcher:
-    handler: handler.fetcher
+    handler: handler.run
 
     #    The following are a few example events you can configure
     #    NOTE: Please make sure to change your handler code to work with those events
     #    Check the event documentation for details
     events:
-      - http:
-        path: /
-        method: get
+      #   - http: GET hello
       #      - websocket: $connect
       #      - s3: ${env:BUCKET}
-      # - schedule: rate(10 minutes)
+      - schedule: rate(10 minutes)
 #      - sns: greeter-topic
 #      - stream: arn:aws:dynamodb:region:XXXXXX:table/foo/stream/1970-01-01T00:00:00.000
 #      - alexaSkill: amzn1.ask.skill.xx-xx-xx-xx

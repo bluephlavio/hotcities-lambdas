@@ -1,6 +1,8 @@
-module.exports.fetcher = async event => {
-  return {
-    message: "Go Serverless v1.0! Your function executed successfully!",
-    event
+module.exports.run = function(event, context, callback) {
+  const res = {
+    message: "Hello World!",
+    event,
+    context
   };
+  callback(null, res);
 };
