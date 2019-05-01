@@ -5,9 +5,13 @@ provider:
   runtime: nodejs8.10
   stage: dev
   region: eu-west-2
+  environment:
+    GOOGLE_APPLICATION_CREDENTIALS: ${file(./serverless.env.yml):dev.GOOGLE_APPLICATION_CREDENTIALS}
+    FIREBASE_CONFIG: ${file(./serverless.env.yml):dev.FIREBASE_CONFIG}
+    OPENWEATHERMAP_KEY: ${file(./serverless.env.yml):dev.OPENWEATHERMAP_KEY}
 
 functions:
   fetcher:
-    handler: handler.run
+    handler: handler.fetcher
     events:
       - schedule: rate(10 minutes)

@@ -6,5 +6,7 @@ jspm_packages
 .serverless
 
 #private keys
-firebase-keys.json
+serverless.env.yml
+google-app-credentials.json
+firebase-config.json
 .env

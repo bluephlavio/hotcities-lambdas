@@ -16,7 +16,7 @@ const getWeather = async () => {
     const weather = res.list;
     return weather;
   } catch (err) {
-    console.log(err);
+    console.log(`getWeather:error:${err}`);
   }
 };
 

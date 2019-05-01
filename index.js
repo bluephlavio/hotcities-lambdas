@@ -8,7 +8,7 @@ const getCities = async () => {
     const cities = _.map(snapshot.docs, doc => doc.data());
     return cities;
   } catch (err) {
-    console.log(err);
+    console.log(`getCities:error:${err}`);
   }
 };
 
@@ -31,7 +31,7 @@ const getRecord = async () => {
     };
     return record;
   } catch (err) {
-    console.log(err);
+    console.log(`getRecord:error:${err}`);
   }
 };
 
@@ -46,7 +46,7 @@ const saveRecord = async (geonameid, temperature) => {
     const record = snapshot.data();
     return record;
   } catch (err) {
-    console.log(err);
+    console.log(`saveRecord:error:${err}`);
   }
 };
 
@@ -56,7 +56,7 @@ const getAndSaveRecord = async () => {
     const record = await saveRecord(geonameid, temperature);
     return record;
   } catch (err) {
-    console.log(err);
+    console.log(`getAndSaveRecord:error:${err}`);
   }
 };
 
