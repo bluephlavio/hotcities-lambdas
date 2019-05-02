@@ -1,22 +1,26 @@
+const fs = require('fs');
 const _ = require('lodash');
 const { getWeather } = require('./openweathermap');
 const { admin, db } = require('./firebase');
 
-const getCities = async () => {
+const getGeonameids = async () => {
   try {
-    const snapshot = await db.collection('cities').get();
-    const cities = _.map(snapshot.docs, doc => doc.data());
-    return cities;
+    const rawData = fs
+      .readFileSync('./geonameids.csv')
+      .toString()
+      .trim();
+    const lines = rawData.split('\n');
+    const geonameids = _.map(lines, line => parseInt(line.trim()));
+    return geonameids;
   } catch (err) {
-    console.log(`getCities:error:${err}`);
+    console.log(`getGeonameids:error:${err}`);
   }
 };
 
 const getRecord = async () => {
   try {
     const weather = await getWeather();
-    const cities = await getCities();
-    const geonameids = _.map(cities, city => parseInt(city.geonameid));
+    const geonameids = await getGeonameids();
     const availables = _.filter(weather, entry => _.includes(geonameids, parseInt(entry.id)));
     const temperatures = _.map(availables, entry => entry.main.temp);
     const maxTemp = _.max(temperatures);
@@ -61,7 +65,7 @@ const getAndSaveRecord = async () => {
 };
 
 module.exports = {
-  getCities,
+  getGeonameids,
   getRecord,
   saveRecord,
   getAndSaveRecord

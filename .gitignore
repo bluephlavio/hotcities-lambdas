@@ -5,8 +5,11 @@ jspm_packages
 # Serverless directories
 .serverless
 
-#private keys
+# private keys
 serverless.env.yml
 google-app-credentials.json
 firebase-config.json
 .env
+
+# build
+.webpack

@@ -1,5 +1,17 @@
 service: hotcities-fetcher
 
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack:
+    webpackConfig: './webpack.config.js'
+    packExternalModulesMaxBuffer: 1000000
+    includeModules: true
+    packagerOptions:
+      scripts:
+        - npm rebuild grpc --target=8.1.0 --target_arch=x64 --target_platform=linux --target_libc=glibc
+
 provider:
   name: aws
   runtime: nodejs8.10
