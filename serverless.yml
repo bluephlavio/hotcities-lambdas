@@ -26,4 +26,4 @@ functions:
   fetcher:
     handler: handler.fetcher
     events:
-      - schedule: rate(10 minutes)
+      - schedule: cron(0/10 * * * ? *)
