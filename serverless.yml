@@ -25,5 +25,6 @@ provider:
 functions:
   fetcher:
     handler: handler.fetcher
+    timeout: 30
     events:
       - schedule: cron(0/10 * * * ? *)

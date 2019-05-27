@@ -41,10 +41,11 @@ const getRecord = async () => {
 
 const saveRecord = async (geonameid, temperature) => {
   try {
+    const timestamp = admin.firestore.FieldValue.serverTimestamp();
     const doc = await db.collection('records').add({
       geonameid,
       temperature,
-      timestamp: admin.firestore.FieldValue.serverTimestamp()
+      timestamp
     });
     const snapshot = await doc.get();
     const record = snapshot.data();
