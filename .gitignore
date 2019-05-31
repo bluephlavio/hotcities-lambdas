@@ -13,3 +13,6 @@ firebase-config.json
 
 # build
 .webpack
+
+# vscode
+.vscode
