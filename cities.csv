@@ -1,0 +1,806 @@
+geonameid,name,localname,country,countrycode,timezone,population,lang,lng,lat
+292223,Dubai,دبي,United Arab Emirates,AE,Asia/Dubai,1137347,ar-AE,55.17128,25.0657
+292672,Sharjah,إمارة الشارقة,United Arab Emirates,AE,Asia/Dubai,543733,ar-AE,55.41206,25.33737
+292968,Abu Dhabi,أبوظبي,United Arab Emirates,AE,Asia/Dubai,603492,ar-AE,54.36667,24.46667
+1138958,Kabul,کابل,Afghanistan,AF,Asia/Kabul,3043532,fa-AF,69.17233,34.52813
+616052,Yerevan,Երեվան,Armenia,AM,Asia/Yerevan,1093485,hy,44.51361,40.18111
+2240449,Luanda,Luanda,Angola,AO,Africa/Luanda,2776168,pt-AO,13.23432,-8.83682
+3429652,Quilmes,Quilmes,Argentina,AR,America/Argentina/Buenos_Aires,518788,es-AR,-58.26374,-34.72904
+3432043,La Plata,La Plata,Argentina,AR,America/Argentina/Buenos_Aires,694167,es-AR,-57.95453,-34.92145
+3430863,Mar del Plata,Mar del Plata,Argentina,AR,America/Argentina/Buenos_Aires,553935,es-AR,-57.55754,-38.00228
+3435910,Buenos Aires,Ciudad Autónoma de Buenos Aires,Argentina,AR,America/Argentina/Buenos_Aires,13076300,es-AR,-58.37723,-34.61315
+3836873,San Miguel de Tucumán,San Miguel de Tucumán,Argentina,AR,America/Argentina/Tucuman,781023,es-AR,-65.2226,-26.82414
+3838583,Rosario,Rosario,Argentina,AR,America/Argentina/Cordoba,1173533,es-AR,-60.63932,-32.94682
+3838233,Salta,Ciudad de Salta,Argentina,AR,America/Argentina/Salta,512686,es-AR,-65.41166,-24.7859
+3844421,Mendoza,Ciudad de Mendoza,Argentina,AR,America/Argentina/Mendoza,876884,es-AR,-68.82717,-32.89084
+3860259,Córdoba,Ciudad de Córdoba,Argentina,AR,America/Argentina/Cordoba,1428214,es-AR,-64.18105,-31.4135
+2761369,Vienna,Wien,Austria,AT,Europe/Vienna,1691468,de-AT,16.37208,48.20849
+2063523,Perth,Perth,Australia,AU,Australia/Perth,1896548,en-AU,115.8614,-31.95224
+2078025,Adelaide,Adelaide,Australia,AU,Australia/Adelaide,1225235,en-AU,138.59863,-34.92866
+2147714,Sydney,Sydney City,Australia,AU,Australia/Sydney,4627345,en-AU,151.20732,-33.86785
+2158177,Melbourne,Melbourne,Australia,AU,Australia/Melbourne,4246375,en-AU,144.96332,-37.814
+2165087,Gold Coast,Gold Coast,Australia,AU,Australia/Brisbane,591473,en-AU,153.43088,-28.00029
+2174003,Brisbane,Brisbane,Australia,AU,Australia/Brisbane,2189878,en-AU,153.02809,-27.46794
+587084,Baku,Bakı,Azerbaijan,AZ,Asia/Baku,1116513,az,49.89201,40.37767
+3191281,Sarajevo,Sarajevo,Bosnia and Herzegovina,BA,Europe/Sarajevo,696731,bs,18.35644,43.84864
+1185128,Rājshāhi,Rājshāhi,Bangladesh,BD,Asia/Dhaka,700133,bn-BD,88.60114,24.374
+1185241,Dhaka,ঢাকা,Bangladesh,BD,Asia/Dhaka,10356500,bn-BD,90.40744,23.7104
+1205733,Chittagong,চট্টগ্রাম,Bangladesh,BD,Asia/Dhaka,3920222,bn-BD,91.83168,22.3384
+1336135,Khulna,Khulna,Bangladesh,BD,Asia/Dhaka,1342339,bn-BD,89.56439,22.80979
+2800866,Brussels,Brussel,Belgium,BE,Europe/Brussels,1019022,nl-BE,4.34878,50.85045
+2357048,Ouagadougou,Ouagadougou,Burkina Faso,BF,Africa/Ouagadougou,1086505,fr-BF,-1.53388,12.36566
+727011,Sofia,София,Bulgaria,BG,Europe/Sofia,1152556,bg,23.32415,42.69751
+2394819,Cotonou,Cotonou,Benin,BJ,Africa/Porto-Novo,780000,fr-BJ,2.41833,6.36536
+3904906,Santa Cruz de la Sierra,Santa Cruz de la Sierra,Bolivia,BO,America/La_Paz,1364389,es-BO,-63.18117,-17.78629
+3911925,La Paz,Ciudad La Paz,Bolivia,BO,America/La_Paz,812799,es-BO,-68.15,-16.5
+3919968,Cochabamba,Cochabamba,Bolivia,BO,America/La_Paz,900414,es-BO,-66.1568,-17.3895
+3386496,Teresina,Teresina,Brazil,BR,America/Fortaleza,744512,pt-BR,-42.80194,-5.08917
+3388368,São Luís,São Luís,Brazil,BR,America/Fortaleza,917237,pt-BR,-44.30278,-2.52972
+3390760,Recife,Recife,Brazil,BR,America/Recife,1478098,pt-BR,-34.88111,-8.05389
+3394023,Natal,Natal,Brazil,BR,America/Fortaleza,763043,pt-BR,-35.20944,-5.795
+3395981,Maceió,Maceió,Brazil,BR,America/Maceio,954991,pt-BR,-35.73528,-9.66583
+3397277,João Pessoa,João Pessoa,Brazil,BR,America/Fortaleza,650883,pt-BR,-34.86306,-7.115
+3397838,Jaboatão,,Brazil,BR,America/Recife,702621,pt-BR,-35.00139,-8.18028
+3399415,Fortaleza,Fortaleza,Brazil,BR,America/Fortaleza,2400000,pt-BR,-38.54306,-3.71722
+3405870,Belém,Belém,Brazil,BR,America/Belem,1407737,pt-BR,-48.50444,-1.45583
+3445831,Uberlândia,,Brazil,BR,America/Sao_Paulo,563536,pt-BR,-48.27722,-18.91861
+3447399,Sorocaba,Sorocaba,Brazil,BR,America/Sao_Paulo,558862,pt-BR,-47.45806,-23.50167
+3448439,São Paulo,São Paulo,Brazil,BR,America/Sao_Paulo,10021295,pt-BR,-46.63611,-23.5475
+3448636,São José dos Campos,São José dos Campos,Brazil,BR,America/Sao_Paulo,613764,pt-BR,-45.88694,-23.17944
+3449344,São Bernardo do Campo,São Bernardo do Campo,Brazil,BR,America/Sao_Paulo,743372,pt-BR,-46.565,-23.69389
+3449701,Santo André,Santo André,Brazil,BR,America/Sao_Paulo,662373,pt-BR,-46.53833,-23.66389
+3450554,Salvador,Salvador,Brazil,BR,America/Bahia,2711840,pt-BR,-38.51083,-12.97111
+3451190,Rio de Janeiro,Rio de Janeiro,Brazil,BR,America/Sao_Paulo,6023699,pt-BR,-43.18223,-22.90642
+3451328,Ribeirão Preto,Ribeirão Preto,Brazil,BR,America/Sao_Paulo,619746,pt-BR,-47.81028,-21.1775
+3452925,Porto Alegre,Porto Alegre,Brazil,BR,America/Sao_Paulo,1372741,pt-BR,-51.23,-30.03306
+3455775,Osasco,,Brazil,BR,America/Sao_Paulo,677856,pt-BR,-46.79167,-23.5325
+3456160,Nova Iguaçu,Nova Iguaçu,Brazil,BR,America/Sao_Paulo,1002118,pt-BR,-43.45111,-22.75917
+3461786,Guarulhos,Guarulhos,Brazil,BR,America/Sao_Paulo,1169577,pt-BR,-46.53333,-23.46278
+3462377,Goiânia,Goiânia,Brazil,BR,America/Sao_Paulo,1171195,pt-BR,-49.25389,-16.67861
+3464374,Duque de Caxias,,Brazil,BR,America/Sao_Paulo,818329,pt-BR,-43.31167,-22.78556
+3464975,Curitiba,Curitiba,Brazil,BR,America/Sao_Paulo,1718421,pt-BR,-49.27306,-25.42778
+3465038,Cuiabá,Cuiabá,Brazil,BR,America/Cuiaba,521934,pt-BR,-56.09667,-15.59611
+3465624,Contagem,,Brazil,BR,America/Sao_Paulo,627123,pt-BR,-44.05361,-19.93167
+3467747,Campo Grande,Campo Grande,Brazil,BR,America/Campo_Grande,729151,pt-BR,-54.64639,-20.44278
+3467865,Campinas,Campinas,Brazil,BR,America/Sao_Paulo,1031554,pt-BR,-47.06083,-22.90556
+3469058,Brasília,Brasília,Brazil,BR,America/Sao_Paulo,2207718,pt-BR,-47.92972,-15.77972
+3470127,Belo Horizonte,Belo Horizonte,Brazil,BR,America/Sao_Paulo,2373224,pt-BR,-43.93778,-19.92083
+3663517,Manaus,Manáos,Brazil,BR,America/Manaus,1598210,pt-BR,-60.025,-3.10194
+6316406,Aparecida de Goiânia,,Brazil,BR,America/Sao_Paulo,510770,pt-BR,-49.24389,-16.82333
+6317344,Jaboatão dos Guararapes,,Brazil,BR,America/Recife,630008,pt-BR,-35.01472,-8.11278
+625144,Minsk,Горад Мінск,Belarus,BY,Europe/Minsk,1742124,be,27.56667,53.9
+5913490,Calgary,Calgary,Canada,CA,America/Edmonton,1019942,en-CA,-114.08529,51.05011
+5946768,Edmonton,Edmonton,Canada,CA,America/Edmonton,712391,en-CA,-113.46871,53.55014
+5969782,Hamilton,,Canada,CA,America/Toronto,519949,en-CA,-79.84963,43.25011
+6075357,Mississauga,Mississauga,Canada,CA,America/Toronto,668549,en-CA,-79.6583,43.5789
+6077243,Montréal,Montreal,Canada,CA,America/Toronto,1600000,en-CA,-73.58781,45.50884
+6091104,North York,,Canada,CA,America/Toronto,636000,en-CA,-79.4163,43.76681
+6094817,Ottawa,Ottawa,Canada,CA,America/Toronto,812129,en-CA,-75.69812,45.41117
+6167865,Toronto,Toronto,Canada,CA,America/Toronto,2600000,en-CA,-79.4163,43.70011
+6173331,Vancouver,Vancouver,Canada,CA,America/Vancouver,600000,en-CA,-123.11934,49.24966
+6183235,Winnipeg,Winnipeg,Canada,CA,America/Winnipeg,632063,en-CA,-97.14704,49.8844
+6325494,Québec,Quebec City,Canada,CA,America/Toronto,528595,en-CA,-71.21454,46.81228
+6948711,Scarborough,,Canada,CA,America/Toronto,600000,en-CA,-79.25666,43.77223
+209228,Mbuji-Mayi,Mbuji-Mayi,Democratic Republic of the Congo,CD,Africa/Lubumbashi,874761,fr-CD,23.58979,-6.13603
+212730,Kisangani,Kisangani,Democratic Republic of the Congo,CD,Africa/Lubumbashi,539158,fr-CD,25.19099,0.51528
+922704,Lubumbashi,Lubumbashi,Democratic Republic of the Congo,CD,Africa/Lubumbashi,1373770,fr-CD,27.47938,-11.66089
+2314302,Kinshasa,Kinshasa,Democratic Republic of the Congo,CD,Africa/Kinshasa,7785965,fr-CD,15.31357,-4.32758
+2389853,Bangui,Bangui,Central African Republic,CF,Africa/Bangui,542393,fr-CF,18.55496,4.36122
+2255414,Pointe-Noire,Pointe-Noire,Republic of the Congo,CG,Africa/Brazzaville,659084,fr-CG,11.86352,-4.77609
+2260535,Brazzaville,Brazzaville,Republic of the Congo,CG,Africa/Brazzaville,1284609,fr-CG,15.28318,-4.26613
+2290956,Bouaké,Bouaké,Ivory Coast,CI,Africa/Abidjan,567481,fr-CI,-5.03031,7.69385
+2293538,Abidjan,Abidjan,Ivory Coast,CI,Africa/Abidjan,3677115,fr-CI,-4.01266,5.30966
+2293521,Abobo,,Ivory Coast,CI,Africa/Abidjan,900000,fr-CI,-4.0159,5.41613
+3871336,Santiago,Santiago de Chile,Chile,CL,America/Santiago,4837295,es-CL,-70.64827,-33.45694
+3875024,Puente Alto,,Chile,CL,America/Santiago,510417,es-CL,-70.57577,-33.61169
+2220957,Yaoundé,Yaoundé,Cameroon,CM,Africa/Douala,1299369,en-CM,11.51667,3.86667
+2232593,Douala,Douala,Cameroon,CM,Africa/Douala,1338082,en-CM,9.70428,4.04827
+1529102,Ürümqi,乌鲁木齐,China,CN,Asia/Urumqi,3029372,zh-CN,87.60046,43.80096
+1529195,Shihezi,石河子市,China,CN,Asia/Urumqi,572772,zh-CN,86.03694,44.3023
+1783745,Zigong,自贡市,China,CN,Asia/Shanghai,689961,zh-CN,104.77689,29.34162
+1783763,Zhuzhou,株洲,China,CN,Asia/Shanghai,709358,zh-CN,113.15,27.83333
+1783873,Zhumadian,驻马店市,China,CN,Asia/Shanghai,720000,zh-CN,114.02944,32.97944
+1784642,Zhenjiang,镇江,China,CN,Asia/Shanghai,632552,zh-CN,119.45508,32.21086
+1784990,Zhanjiang,湛江市,China,CN,Asia/Urumqi,637790,zh-CN,110.34271,21.28145
+1785018,Zhangzhou,漳州市,China,CN,Asia/Shanghai,589831,zh-CN,117.65556,24.51333
+1784658,Zhengzhou,郑州,China,CN,Asia/Shanghai,4253913,zh-CN,113.64861,34.75778
+1785286,Zibo,淄博市,China,CN,Asia/Shanghai,3129228,zh-CN,118.06333,36.79056
+1785623,Kunshan,昆山市,China,CN,Asia/Shanghai,1600000,zh-CN,120.95431,31.37762
+1785294,Anyang,安阳市,China,CN,Asia/Shanghai,781129,zh-CN,114.38278,36.096
+1785725,Yunfu,云浮,China,CN,Asia/Shanghai,2612800,zh-CN,112.03954,22.92833
+1787093,Yantai,烟台市,China,CN,Asia/Shanghai,719332,zh-CN,121.44081,37.47649
+1787227,Yangzhou,扬州市,China,CN,Asia/Shanghai,539715,zh-CN,119.43583,32.39722
+1787746,Yancheng,盐城,China,CN,Asia/Shanghai,628441,zh-CN,120.1573,33.3575
+1787824,Tongshan,徐州市,China,CN,Asia/Shanghai,1199193,zh-CN,117.15707,34.18045
+1788046,Xuchang,将官池,China,CN,Asia/Shanghai,1265536,zh-CN,113.86299,34.03189
+1788534,Xinyang,,China,CN,Asia/Shanghai,1590668,zh-CN,114.06556,32.12278
+1788572,Xinxiang,南干道,China,CN,Asia/Shanghai,743601,zh-CN,113.80151,35.19033
+1788927,Xingtai,邢台市,China,CN,Asia/Shanghai,611739,zh-CN,114.49417,37.06306
+1788852,Xining,西宁,China,CN,Asia/Shanghai,767531,zh-CN,101.75739,36.62554
+1790353,Xianyang,咸阳,China,CN,Asia/Shanghai,1034081,zh-CN,108.70261,34.33778
+1790492,Xiangtan,湘潭市,China,CN,Asia/Shanghai,674189,zh-CN,112.9,27.85
+1790630,Xi’an,西安,China,CN,Asia/Shanghai,6501190,zh-CN,108.92861,34.25833
+1790645,Xiamen,厦门市,China,CN,Asia/Shanghai,3531347,zh-CN,118.08187,24.47979
+1790437,Zhuhai,珠海,China,CN,Asia/Shanghai,501199,zh-CN,113.56778,22.27694
+1791121,Changde,常德,China,CN,Asia/Shanghai,517780,zh-CN,111.6783,29.04638
+1791236,Wuhu,芜湖市,China,CN,Asia/Shanghai,507524,zh-CN,118.37351,31.33728
+1791247,Wuhan,武汉,China,CN,Asia/Shanghai,9785388,zh-CN,114.26667,30.58333
+1790923,Wuxi,无锡,China,CN,Asia/Shanghai,3543719,zh-CN,120.28857,31.56887
+1791388,Wenzhou,温州市,China,CN,Asia/Shanghai,865672,zh-CN,120.66682,27.99942
+1792892,Tianshui,Tiānshuǐ,China,CN,Asia/Shanghai,3500000,zh-CN,105.74238,34.57952
+1792947,Tianjin,天津,China,CN,Asia/Shanghai,11090314,zh-CN,117.17667,39.14222
+1793346,Tangshan,唐山市,China,CN,Asia/Shanghai,3372102,zh-CN,118.18333,39.63333
+1793424,Tanggu,塘沽,China,CN,Asia/Shanghai,535298,zh-CN,117.64694,39.02111
+1793505,Taizhou,泰州市,China,CN,Asia/Shanghai,612356,zh-CN,119.90812,32.49069
+1793511,Taiyuan,太原,China,CN,Asia/Shanghai,3426519,zh-CN,112.56028,37.86944
+1793724,Tai’an,,China,CN,Asia/Shanghai,5499000,zh-CN,117.12,36.18528
+1795270,Shijiazhuang,石家庄市,China,CN,Asia/Shanghai,2834942,zh-CN,114.47861,38.04139
+1795565,Shenzhen,深圳市,China,CN,Asia/Shanghai,10358381,zh-CN,114.0683,22.54554
+1794903,Shiyan,十堰,China,CN,Asia/Shanghai,3460000,zh-CN,110.77806,32.6475
+1795874,Shaoguan,韶关市,China,CN,Asia/Shanghai,628749,zh-CN,113.58333,24.8
+1796236,Shanghai,上海,China,CN,Asia/Shanghai,22315474,zh-CN,121.45806,31.22222
+1795940,Shantou,汕头市,China,CN,Asia/Shanghai,5329024,zh-CN,116.71479,23.36814
+1797121,Jieyang,揭阳市,China,CN,Asia/Shanghai,1001985,zh-CN,116.36581,23.5418
+1797595,Qinhuangdao,Ch’in-huang-tao-shih,China,CN,Asia/Shanghai,759718,zh-CN,119.58833,39.93167
+1797873,Huai'an,,China,CN,Asia/Shanghai,555230,zh-CN,119.01917,33.58861
+1797929,Qingdao,青岛市,China,CN,Asia/Shanghai,3718835,zh-CN,120.38042,36.06488
+1798425,Puyang,浦阳,China,CN,Asia/Shanghai,3590000,zh-CN,119.88872,29.45679
+1798422,Puyang Chengguanzhen,濮阳城关镇,China,CN,Asia/Shanghai,666322,zh-CN,115.01409,35.70506
+1798827,Pingdingshan,平顶山市,China,CN,Asia/Shanghai,889675,zh-CN,113.30119,33.73847
+1799397,Ningbo,宁波,China,CN,Asia/Shanghai,3491597,zh-CN,121.54945,29.87819
+1799491,Neijiang,内江市,China,CN,Asia/Shanghai,546854,zh-CN,105.06216,29.58354
+1799722,Nantong,南通,China,CN,Asia/Shanghai,666251,zh-CN,120.87472,32.03028
+1799869,Nanning,南宁,China,CN,Asia/Shanghai,803788,zh-CN,108.31667,22.81667
+1799962,Nanjing,南京,China,CN,Asia/Shanghai,7165292,zh-CN,118.77778,32.06167
+1800146,Nanchong,南充,China,CN,Asia/Shanghai,7150000,zh-CN,106.08473,30.79508
+1800163,Nanchang,南昌,China,CN,Asia/Shanghai,2357839,zh-CN,115.85306,28.68396
+1801792,Luoyang,洛阳市,China,CN,Asia/Shanghai,1390581,zh-CN,112.45361,34.68361
+1802204,Luancheng,,China,CN,Asia/Shanghai,597130,zh-CN,114.65167,37.87917
+1802875,Guankou,浏阳,China,CN,Asia/Shanghai,1380000,zh-CN,113.62709,28.15861
+1804430,Lanzhou,兰州市,China,CN,Asia/Shanghai,2628426,zh-CN,103.83987,36.05701
+1804540,Langfang,廊坊市,China,CN,Asia/Shanghai,720119,zh-CN,116.69472,39.50972
+1804651,Kunming,昆明市,China,CN,Asia/Shanghai,3855346,zh-CN,102.71833,25.03889
+1804879,Kaifeng,开封市,China,CN,Asia/Shanghai,900000,zh-CN,114.30742,34.7986
+1805753,Jinan,济南,China,CN,Asia/Shanghai,4335989,zh-CN,116.99722,36.66833
+1805987,Jiaozuo,焦作市,China,CN,Asia/Shanghai,517540,zh-CN,113.23306,35.23972
+1806299,Jiangmen,江门市,China,CN,Asia/Shanghai,532419,zh-CN,113.08333,22.58333
+1807234,Huangshi,黄石,China,CN,Asia/Shanghai,688090,zh-CN,115.04814,30.24706
+1807681,Huainan,,China,CN,Asia/Shanghai,1027655,zh-CN,116.99694,32.62639
+1807700,Huaibei,淮北,China,CN,Asia/Shanghai,903039,zh-CN,116.79167,33.97444
+1807703,Huai’an,淮安,China,CN,Asia/Shanghai,2700000,zh-CN,119.14417,33.50389
+1808370,Hengyang,衡阳市,China,CN,Asia/Shanghai,759602,zh-CN,112.61888,26.88946
+1808722,Hefei,合肥,China,CN,Asia/Shanghai,3310268,zh-CN,117.28083,31.86389
+1808926,Hangzhou,杭州,China,CN,Asia/Shanghai,6241971,zh-CN,120.16142,30.29365
+1808963,Handan,邯郸市,China,CN,Asia/Shanghai,1358318,zh-CN,114.46778,36.60056
+1809412,Guli,,China,CN,Asia/Shanghai,536000,zh-CN,120.03308,28.88162
+1809078,Haikou,海口市,China,CN,Asia/Shanghai,615835,zh-CN,110.34167,20.04583
+1809461,Guiyang,贵阳,China,CN,Asia/Shanghai,1171633,zh-CN,106.71667,26.58333
+1809498,Guilin,桂林市,China,CN,Asia/Shanghai,649352,zh-CN,110.28639,25.28194
+1809858,Guangzhou,广州,China,CN,Asia/Shanghai,11071424,zh-CN,113.25,23.11667
+1810821,Fuzhou,福州市,China,CN,Asia/Shanghai,1179720,zh-CN,119.30611,26.06139
+1811103,Foshan,佛山市,China,CN,Asia/Shanghai,3600000,zh-CN,113.13148,23.02677
+1812545,Dongguan,东莞市,China,CN,Asia/Shanghai,8000000,zh-CN,113.74866,23.01797
+1813253,Lijiang,丽江市,China,CN,Asia/Shanghai,1137600,zh-CN,100.22072,26.86879
+1814087,Dalian,大连市,China,CN,Asia/Shanghai,4087733,zh-CN,121.60222,38.91222
+1814906,Chongqing,重庆,China,CN,Asia/Shanghai,7457600,zh-CN,106.55278,29.56278
+1815456,Changzhou,常州市,China,CN,Asia/Shanghai,949018,zh-CN,119.95401,31.77359
+1815463,Changzhi,,China,CN,Asia/Shanghai,699514,zh-CN,111.73861,35.20889
+1815577,Changsha,长沙市,China,CN,Asia/Shanghai,3093980,zh-CN,112.97087,28.19874
+1815286,Chengdu,成都,China,CN,Asia/Shanghai,7415590,zh-CN,104.06667,30.66667
+1816080,Cangzhou,沧州市,China,CN,Asia/Shanghai,527681,zh-CN,116.86667,38.31667
+1816440,Bengbu,蚌埠,China,CN,Asia/Shanghai,576648,zh-CN,117.36083,32.94083
+1816670,Beijing,北京,China,CN,Asia/Shanghai,11716620,zh-CN,116.39723,39.9075
+1816971,Baoding,保定市,China,CN,Asia/Shanghai,995652,zh-CN,115.49028,38.85111
+1817720,Shangyu,,China,CN,Asia/Shanghai,770000,zh-CN,120.87111,30.01556
+1915223,Zhongshan,中山,China,CN,Asia/Urumqi,3121275,zh-CN,110.5723,21.31992
+1917790,Dadonghai,,China,CN,Asia/Shanghai,2000000,zh-CN,109.51028,18.22056
+1886760,Suzhou,苏州,China,CN,Asia/Shanghai,5345961,zh-CN,120.59538,31.30408
+1927639,Yueyang,岳阳市,China,CN,Asia/Shanghai,1200000,zh-CN,113.09481,29.37455
+2033196,Zhangjiakou,张家口市,China,CN,Asia/Shanghai,692602,zh-CN,114.87944,40.81
+2033370,Yingkou,Ying-k’ou-shih,China,CN,Asia/Shanghai,591159,zh-CN,122.22833,40.66482
+2034414,Tonghua,通化市,China,CN,Asia/Shanghai,510000,zh-CN,125.92639,41.71972
+2034786,Shuangyashan,双鸭山市,China,CN,Asia/Shanghai,600000,zh-CN,131.15389,46.63611
+2034937,Shenyang,沈阳,China,CN,Asia/Shanghai,6255921,zh-CN,123.43278,41.79222
+2034714,Siping,四平市,China,CN,Asia/Shanghai,555609,zh-CN,124.37785,43.16143
+2035265,Qiqihar,齐齐哈尔市,China,CN,Asia/Shanghai,882364,zh-CN,123.96045,47.34088
+2035513,Panshan,,China,CN,Asia/Shanghai,625040,zh-CN,122.04944,41.18806
+2035715,Mudanjiang,牡丹江,China,CN,Asia/Shanghai,665915,zh-CN,129.6,44.58333
+2036113,Liaoyang,辽阳市,China,CN,Asia/Shanghai,687890,zh-CN,123.17306,41.27194
+2036427,Jinzhou,锦州市,China,CN,Asia/Shanghai,604269,zh-CN,121.14167,41.10778
+2036502,Jilin,吉林市,China,CN,Asia/Shanghai,1881977,zh-CN,126.56028,43.85083
+2036581,Jiamusi,佳木斯市,China,CN,Asia/Shanghai,549549,zh-CN,130.31633,46.79927
+2036892,Hohhot,呼和浩特,China,CN,Asia/Shanghai,774477,zh-CN,111.65222,40.81056
+2036986,Hegang,鹤岗,China,CN,Asia/Shanghai,743307,zh-CN,130.30012,47.35118
+2037013,Harbin,哈尔滨,China,CN,Asia/Shanghai,5878939,zh-CN,126.65,45.75
+2037346,Fuxin,阜新市,China,CN,Asia/Shanghai,689050,zh-CN,121.65889,42.01556
+2037355,Fushun,抚顺市,China,CN,Asia/Shanghai,1400646,zh-CN,123.94363,41.88669
+2037799,Datong,大同市,China,CN,Asia/Shanghai,1052678,zh-CN,113.29139,40.09361
+2037886,Dandong,丹东市,China,CN,Asia/Shanghai,631973,zh-CN,124.39472,40.12917
+2038180,Changchun,长春,China,CN,Asia/Shanghai,4193073,zh-CN,125.32278,43.88
+2038300,Benxi,本溪市,China,CN,Asia/Shanghai,987717,zh-CN,123.765,41.28861
+2038432,Baotou,包头市,China,CN,Asia/Shanghai,1301768,zh-CN,109.82222,40.65222
+2038632,Anshan,鞍山市,China,CN,Asia/Shanghai,1199275,zh-CN,122.99,41.12361
+7283386,Changshu City,,China,CN,Asia/Shanghai,1047700,zh-CN,120.74221,31.64615
+8347664,Ordos,鄂尔多斯市,China,CN,Asia/Shanghai,1940653,zh-CN,109.78157,39.6086
+11838258,Bayan Nur,,China,CN,Asia/Shanghai,1760000,zh-CN,107.38599,40.74143
+7602670,Zhu Cheng City,,China,CN,Asia/Shanghai,1000000,zh-CN,119.40259,35.99502
+3674962,Medellín,Medellín,Colombia,CO,America/Bogota,1999979,es-CO,-75.56359,6.25184
+3685533,Cúcuta,Cúcuta,Colombia,CO,America/Bogota,721398,es-CO,-72.50782,7.89391
+3687238,Cartagena,Cartagena de Indias,Colombia,CO,America/Bogota,952024,es-CO,-75.51444,10.39972
+3687925,Cali,Santiago de Cali,Colombia,CO,America/Bogota,2392877,es-CO,-76.5225,3.43722
+3688689,Bogotá,Bogotá,Colombia,CO,America/Bogota,7674366,es-CO,-74.08175,4.60971
+3688465,Bucaramanga,Bucaramanga,Colombia,CO,America/Bogota,571820,es-CO,-73.1198,7.12539
+3689147,Barranquilla,Barranquilla,Colombia,CO,America/Bogota,1380425,es-CO,-74.78132,10.96854
+3536729,Santiago de Cuba,Santiago de Cuba,Cuba,CU,America/Havana,555865,es-CU,-75.82667,20.02083
+3553478,Havana,La Habana,Cuba,CU,America/Havana,2163824,es-CU,-82.38304,23.13302
+3067696,Prague,Praha,Czechia,CZ,Europe/Prague,1165581,cs,14.42076,50.08804
+2825297,Stuttgart,Stuttgart,Germany,DE,Europe/Berlin,589793,de,9.17702,48.78232
+2867714,Munich,München,Germany,DE,Europe/Berlin,1260391,de,11.57549,48.13743
+2879139,Leipzig,Leipzig,Germany,DE,Europe/Berlin,504971,de,12.37129,51.33962
+2886242,Köln,Köln,Germany,DE,Europe/Berlin,963395,de,6.95,50.93333
+2910831,Hannover,Hannover,Germany,DE,Europe/Berlin,515140,de,9.73322,52.37052
+2911298,Hamburg,Hamburg,Germany,DE,Europe/Berlin,1739117,de,10.01534,53.57532
+2925533,Frankfurt am Main,Frankfurt am Main,Germany,DE,Europe/Berlin,650000,de,8.68417,50.11552
+2928810,Essen,Essen,Germany,DE,Europe/Berlin,593085,de,7.01228,51.45657
+2934246,Düsseldorf,Düsseldorf,Germany,DE,Europe/Berlin,573057,de,6.77616,51.22172
+2935517,Dortmund,Dortmund,Germany,DE,Europe/Berlin,588462,de,7.466,51.51494
+2934691,Duisburg,Duisburg,Germany,DE,Europe/Berlin,504358,de,6.76516,51.43247
+2944388,Bremen,Bremen,Germany,DE,Europe/Berlin,546501,de,8.80777,53.07516
+2950159,Berlin,Berlin,Germany,DE,Europe/Berlin,3426354,de,13.41053,52.52437
+223817,Djibouti,Djibouti,Djibouti,DJ,Africa/Djibouti,623891,fr-DJ,43.14503,11.58901
+2618425,Copenhagen,København,Denmark,DK,Europe/Copenhagen,1153615,da-DK,12.56553,55.67594
+3492908,Santo Domingo,,Dominican Republic,DO,America/Santo_Domingo,2201941,es-DO,-69.89232,18.47186
+3492914,Santiago de los Caballeros,,Dominican Republic,DO,America/Santo_Domingo,1200000,es-DO,-70.69703,19.4517
+7874116,Santo Domingo Oeste,,Dominican Republic,DO,America/Santo_Domingo,701269,es-DO,-70,18.5
+8601412,Santo Domingo Este,,Dominican Republic,DO,America/Santo_Domingo,700000,es-DO,-69.85707,18.48847
+2474141,Boumerdas,,Algeria,DZ,Africa/Algiers,786499,ar-DZ,3.47717,36.76639
+2477461,Tébessa,تبسة,Algeria,DZ,Africa/Algiers,634332,ar-DZ,8.12417,35.40417
+2485926,Oran,وهران,Algeria,DZ,Africa/Algiers,645984,ar-DZ,-0.63588,35.69906
+2507480,Algiers,الجزائر,Algeria,DZ,Africa/Algiers,1977663,ar-DZ,3.08746,36.73225
+3652462,Quito,Quito,Ecuador,EC,America/Guayaquil,1399814,es-EC,-78.52495,-0.22985
+3657509,Guayaquil,Guayaquil,Ecuador,EC,America/Guayaquil,1952029,es-EC,-79.88621,-2.19616
+358619,Port Said,بورسعيد,Egypt,EG,Africa/Cairo,538378,ar-EG,32.28411,31.25654
+360630,Cairo,القاهرة,Egypt,EG,Africa/Cairo,7734614,ar-EG,31.24967,30.06263
+360995,Giza,الجيزة,Egypt,EG,Africa/Cairo,2443203,ar-EG,31.21093,30.00808
+361058,Alexandria,الإسكندرية,Egypt,EG,Africa/Cairo,3811516,ar-EG,29.91582,31.20176
+343300,Asmara,,Eritrea,ER,Africa/Asmara,563930,aa-ER,38.93184,15.33805
+2509954,Valencia,València,Spain,ES,Europe/Madrid,814208,es-ES,-0.37739,39.46975
+2510911,Sevilla,,Spain,ES,Europe/Madrid,703206,es-ES,-5.97317,37.38283
+2514256,Málaga,Málaga,Spain,ES,Europe/Madrid,568305,es-ES,-4.42034,36.72016
+3104324,Zaragoza,Zaragoza,Spain,ES,Europe/Madrid,674317,es-ES,-0.87734,41.65606
+3117735,Madrid,Sanchinarro,Spain,ES,Europe/Madrid,3255944,es-ES,-3.70256,40.4165
+3128760,Barcelona,,Spain,ES,Europe/Madrid,1621537,es-ES,2.15899,41.38879
+344979,Addis Ababa,Ādīs Ābeba,Ethiopia,ET,Africa/Addis_Ababa,2757729,am,38.74689,9.02497
+658225,Helsinki,Helsinki,Finland,FI,Europe/Helsinki,558457,fi-FI,24.93545,60.16952
+2988507,Paris,Paris,France,FR,Europe/Paris,2138551,fr-FR,2.3488,48.85341
+2995469,Marseille,Marseille,France,FR,Europe/Paris,794811,fr-FR,5.38107,43.29695
+2399697,Libreville,Libreville,Gabon,GA,Africa/Libreville,578156,fr-GA,9.45356,0.39241
+2638077,Sheffield,Sheffield,United Kingdom,GB,Europe/London,685368,en-GB,-1.4659,53.38297
+2641170,Nottingham,Nottingham,United Kingdom,GB,Europe/London,729977,en-GB,-1.15047,52.9536
+2643743,London,London,United Kingdom,GB,Europe/London,7556900,en-GB,-0.12574,51.50853
+2644210,Liverpool,Liverpool,United Kingdom,GB,Europe/London,864122,en-GB,-2.97794,53.41058
+2644668,Leicester,Leicester,United Kingdom,GB,Europe/London,508916,en-GB,-1.13169,52.6386
+2648579,Glasgow,Glasgow,United Kingdom,GB,Europe/London,591620,en-GB,-4.25763,55.86515
+2654675,Bristol,Bristol,United Kingdom,GB,Europe/London,617280,en-GB,-2.59665,51.45523
+2655603,Birmingham,Birmingham,United Kingdom,GB,Europe/London,984333,en-GB,-1.89983,52.48142
+611717,Tbilisi,თბილისი,Georgia,GE,Asia/Tbilisi,1049498,ka,44.83368,41.69411
+2298890,Kumasi,Kumasi,Ghana,GH,Africa/Accra,1468609,en-GH,-1.62443,6.68848
+2306104,Accra,Accra,Ghana,GH,Africa/Accra,1963264,en-GH,-0.1969,5.55602
+2422465,Conakry,Conakry,Guinea,GN,Africa/Conakry,1767200,fr-GN,-13.67729,9.53795
+2422488,Camayenne,,Guinea,GN,Africa/Conakry,1871242,fr-GN,-13.68778,9.535
+264371,Athens,Athínai,Greece,GR,Europe/Athens,664046,el-GR,23.71622,37.97945
+3598132,Guatemala City,Nueva Guatemala de la Asunción,Guatemala,GT,America/Guatemala,994938,es-GT,-90.51327,14.64072
+1819609,Kowloon,九龍,Hong Kong,HK,Asia/Hong_Kong,2019533,zh-HK,114.18333,22.31667
+1819729,Hong Kong,香港,Hong Kong,HK,Asia/Hong_Kong,7012738,zh-HK,114.17469,22.27832
+3600949,Tegucigalpa,Tegucigalpa,Honduras,HN,America/Tegucigalpa,850848,es-HN,-87.20681,14.0818
+3186886,Zagreb,Zagreb,Croatia,HR,Europe/Zagreb,698966,hr-HR,15.97798,45.81444
+3718426,Port-au-Prince,Pòtoprens,Haiti,HT,America/Port-au-Prince,1234742,ht,-72.33881,18.54349
+3054643,Budapest,Budapest,Hungary,HU,Europe/Budapest,1741041,hu-HU,19.03991,47.49801
+1214520,Medan,Kota Medan,Indonesia,ID,Asia/Jakarta,1750971,id,98.66667,3.58333
+1621177,Yogyakarta,Kota Yogyakarta,Indonesia,ID,Asia/Jakarta,636660,id,110.36472,-7.80139
+1622786,Makassar,Kota Makassar,Indonesia,ID,Asia/Makassar,1321717,id,119.43194,-5.14861
+1624917,Bandar Lampung,Bandarlampung,Indonesia,ID,Asia/Jakarta,800348,id,105.26111,-5.42917
+1625822,Surabaya,Kota Surabaya,Indonesia,ID,Asia/Jakarta,2374658,id,112.75083,-7.24917
+1625084,Tangerang,Kota Tangerang,Indonesia,ID,Asia/Jakarta,1372124,id,106.63,-6.17806
+1625812,Surakarta,Kota Surakarta,Indonesia,ID,Asia/Jakarta,555308,id,110.83167,-7.55611
+1626801,Situbondo,Situbondo,Indonesia,ID,Asia/Jakarta,600000,id,114.00976,-7.70623
+1627896,Semarang,Kota Semarang,Indonesia,ID,Asia/Jakarta,1288084,id,110.42083,-6.99306
+1631761,Pekanbaru,Kota Pekanbaru,Indonesia,ID,Asia/Jakarta,703956,id,101.44167,0.51667
+1633070,Palembang,Kota Palembang,Indonesia,ID,Asia/Jakarta,1441500,id,104.7458,-2.91673
+1633419,Padang,Kota Padang,Indonesia,ID,Asia/Jakarta,840352,id,100.35427,-0.94924
+1636722,Malang,Kota Malang,Indonesia,ID,Asia/Jakarta,746716,id,112.6304,-7.9797
+1642911,Jakarta,Djakarta,Indonesia,ID,Asia/Jakarta,8540121,id,106.84513,-6.21462
+1645524,Depok,Kota Depok,Indonesia,ID,Asia/Jakarta,1198129,id,106.81861,-6.4
+1645528,Denpasar,Kota Denpasar,Indonesia,ID,Asia/Makassar,834881,id,115.21667,-8.65
+1648473,Bogor,Kota Bogor,Indonesia,ID,Asia/Jakarta,800000,id,106.78917,-6.59444
+1649378,Bekasi,Kota Bekasi,Indonesia,ID,Asia/Jakarta,1520119,id,106.9896,-6.2349
+1650357,Bandung,Kota Bandung,Indonesia,ID,Asia/Jakarta,1699719,id,107.60694,-6.92222
+1650213,Banjarmasin,,Indonesia,ID,Asia/Makassar,572837,id,114.59075,-3.31987
+8224624,City of Balikpapan,,Indonesia,ID,Asia/Makassar,700000,id,116.89419,-1.24204
+8581443,South Tangerang,Tangerang Selatan,Indonesia,ID,Asia/Jakarta,1303569,id,106.71789,-6.28862
+2964574,Dublin,Dublin,Ireland,IE,Europe/Dublin,1024027,en-IE,-6.24889,53.33306
+281184,Jerusalem,שלם,Israel,IL,Asia/Jerusalem,801000,he,35.21633,31.76904
+1252948,Warangal,Warangal,India,IN,Asia/Kolkata,557802,en-IN,79.58333,18
+1253102,Visakhapatnam,Visakhapatnam,India,IN,Asia/Kolkata,1063178,en-IN,83.20161,17.68009
+1253184,Vijayawada,Vijayawada,India,IN,Asia/Kolkata,874587,en-IN,80.6466,16.50745
+1253405,Varanasi,Varanasi,India,IN,Asia/Kolkata,1164404,en-IN,83.01041,25.31668
+1253573,Vadodara,Vadodara,India,IN,Asia/Kolkata,1409476,en-IN,73.20812,22.29941
+1253894,Ulhasnagar,,India,IN,Asia/Kolkata,516584,en-IN,73.15,19.21667
+1254163,Thiruvananthapuram,Thiruvananthapuram,India,IN,Asia/Kolkata,784153,en-IN,76.94924,8.4855
+1254388,Tiruchirappalli,Tiruchirappalli,India,IN,Asia/Kolkata,775484,en-IN,78.69651,10.8155
+1254361,Tirunelveli,Tirunelveli,India,IN,Asia/Kolkata,1435844,en-IN,77.6838,8.72742
+1254661,Thāne,,India,IN,Asia/Kolkata,1261517,en-IN,72.96355,19.19704
+1254745,Teni,Theni,India,IN,Asia/Kolkata,1034724,en-IN,77.47772,10.01115
+1255364,Sūrat,Surat,India,IN,Asia/Kolkata,2894504,en-IN,72.83023,21.19594
+1255634,Srinagar,Srinagar,India,IN,Asia/Kolkata,975857,en-IN,74.80555,34.08565
+1256436,Solāpur,Solapur,India,IN,Asia/Kolkata,997281,en-IN,75.91044,17.67152
+1256525,Shiliguri,Siliguri,India,IN,Asia/Kolkata,515574,en-IN,88.42851,26.71004
+1257416,Sāngli,Turmeric city,India,IN,Asia/Kolkata,601214,en-IN,74.56417,16.85438
+1257629,Salem,Salem,India,IN,Asia/Kolkata,778396,en-IN,78.15538,11.65376
+1258315,Raurkela,Raurkela,India,IN,Asia/Kolkata,536450,en-IN,84.86414,22.22496
+1258526,Ranchi,Ranchi,India,IN,Asia/Kolkata,846454,en-IN,85.3094,23.34316
+1258847,Rājkot,Rajkot,India,IN,Asia/Kolkata,1177362,en-IN,70.79322,22.29161
+1258980,Raipur,,India,IN,Asia/Kolkata,679995,en-IN,81.63333,21.23333
+1259229,Pune,Pune,India,IN,Asia/Kolkata,2935744,en-IN,73.85535,18.51957
+1259652,Pimpri,,India,IN,Asia/Kolkata,1284606,en-IN,73.80696,18.62292
+1260086,Patna,Patna,India,IN,Asia/Kolkata,1599920,en-IN,85.13563,25.59408
+1261162,Nowrangapur,,India,IN,Asia/Kolkata,1220946,en-IN,82.54826,19.23114
+1261731,Nashik,Nashik,India,IN,Asia/Kolkata,1289497,en-IN,73.79096,19.99727
+1261977,Nanded,Nanded,India,IN,Asia/Kolkata,550564,en-IN,77.31497,19.16023
+1262180,Nagpur,Nagpur,India,IN,Asia/Kolkata,2228018,en-IN,79.08491,21.14631
+1262321,Mysore,Mysore,India,IN,Asia/Kolkata,868313,en-IN,76.63925,12.29791
+1262801,Morādābād,,India,IN,Asia/Kolkata,721139,en-IN,78.77684,28.83893
+1263214,Meerut,Meerut,India,IN,Asia/Kolkata,1223184,en-IN,77.70636,28.98002
+1264521,Madurai,Madurai,India,IN,Asia/Kolkata,909908,en-IN,78.11898,9.91769
+1264527,Chennai,Chennai,India,IN,Asia/Kolkata,4328063,en-IN,80.27847,13.08784
+1264728,Ludhiāna,Ludhiana,India,IN,Asia/Kolkata,1545368,en-IN,75.85379,30.91204
+1264733,Lucknow,Lucknow,India,IN,Asia/Kolkata,2472011,en-IN,80.92313,26.83928
+1266049,Kota,,India,IN,Asia/Kolkata,763088,en-IN,75.83907,25.18254
+1266285,Kolhāpur,,India,IN,Asia/Kolkata,516142,en-IN,74.23167,16.69563
+1267696,Karol Bāgh,,India,IN,Asia/Kolkata,505241,en-IN,77.19072,28.65136
+1267995,Kanpur,Kanpur,India,IN,Asia/Kolkata,2823249,en-IN,80.34975,26.46523
+1268295,Kalyān,,India,IN,Asia/Kolkata,1262255,en-IN,73.13554,19.2437
+1268782,Jalandhar,Jalandhar,India,IN,Asia/Kolkata,785178,en-IN,75.57917,31.32556
+1268865,Jodhpur,Jodhpur,India,IN,Asia/Kolkata,921476,en-IN,73.00594,26.26841
+1269300,Jamshedpur,Jamshedpur,India,IN,Asia/Kolkata,616338,en-IN,86.18545,22.80278
+1269515,Jaipur,Jaipur,India,IN,Asia/Kolkata,2711758,en-IN,75.78781,26.91962
+1269633,Jabalpur,Jabalpur,India,IN,Asia/Kolkata,1030168,en-IN,79.95006,23.16697
+1269743,Indore,Indore,India,IN,Asia/Kolkata,1837041,en-IN,75.8333,22.71792
+1269843,Hyderabad,Hyderabad,India,IN,Asia/Kolkata,3597816,en-IN,78.45636,17.38405
+1269920,Hubli,Hubli,India,IN,Asia/Kolkata,840214,en-IN,75.13378,15.34776
+1270396,Hāora,Howrah,India,IN,Asia/Kolkata,1027672,en-IN,88.31857,22.57688
+1270583,Gwalior,,India,IN,Asia/Kolkata,882458,en-IN,78.17337,26.22983
+1270668,Guntur,,India,IN,Asia/Kolkata,530577,en-IN,80.45729,16.29974
+1270926,Gorakhpur,,India,IN,Asia/Kolkata,1324570,en-IN,75.67206,29.44768
+1270927,Gorakhpur,,India,IN,Asia/Kolkata,674246,en-IN,83.36889,26.76628
+1271308,Ghāziābād,Ghaziabad,India,IN,Asia/Kolkata,1199191,en-IN,77.43915,28.66535
+1271476,Guwahati,Guwahati,India,IN,Asia/Kolkata,899094,en-IN,91.7458,26.1844
+1271951,Faridabad,Faridabad,India,IN,Asia/Kolkata,1220229,en-IN,77.31316,28.41124
+1272175,Durgapur,Durgapur,India,IN,Asia/Kolkata,518872,en-IN,87.30801,23.51583
+1272423,Dombivli,Dombivali,India,IN,Asia/Kolkata,1193000,en-IN,73.08333,19.21667
+1273294,Delhi,Delhi,India,IN,Asia/Kolkata,10927986,en-IN,77.23149,28.65195
+1273313,Dehra Dūn,,India,IN,Asia/Kolkata,522081,en-IN,78.03392,30.32443
+1273780,Cuttack,,India,IN,Asia/Kolkata,580000,en-IN,85.87927,20.46497
+1273865,Coimbatore,Coimbatore,India,IN,Asia/Kolkata,959823,en-IN,76.96612,11.00555
+1273874,Cochin,Kochi,India,IN,Asia/Kolkata,604696,en-IN,76.26022,9.93988
+1274746,Chandigarh,Chandigarh,India,IN,Asia/Kolkata,960787,en-IN,76.7884,30.73629
+1275004,Kolkata,Kolkata,India,IN,Asia/Kolkata,4631392,en-IN,88.36304,22.56263
+1275248,Borivli,Borivali,India,IN,Asia/Kolkata,609617,en-IN,72.85976,19.23496
+1275339,Mumbai,Mumbai,India,IN,Asia/Kolkata,12691836,en-IN,72.88261,19.07283
+1275610,Bilimora,,India,IN,Asia/Kolkata,510879,en-IN,72.96134,20.76957
+1275665,Bīkaner,Bikaner,India,IN,Asia/Kolkata,576015,en-IN,73.31495,28.01762
+1275841,Bhopal,Bhopal,India,IN,Asia/Kolkata,1599914,en-IN,77.40289,23.25469
+1275901,Bhiwandi,Bhiwandi,India,IN,Asia/Kolkata,707035,en-IN,73.05881,19.30023
+1275817,Bhubaneshwar,Bhubaneswar,India,IN,Asia/Kolkata,762243,en-IN,85.83385,20.27241
+1275971,Bhilai,Bhilai,India,IN,Asia/Kolkata,625138,en-IN,81.4285,21.20919
+1276014,Bhayandar,,India,IN,Asia/Kolkata,520301,en-IN,72.85107,19.30157
+1276032,Bhavnagar,Bhavnagar,India,IN,Asia/Kolkata,554978,en-IN,72.15331,21.76287
+1277013,Bareilly,Bareilly,India,IN,Asia/Kolkata,745435,en-IN,79.43167,28.36678
+1277333,Bengaluru,Bengaluru,India,IN,Asia/Kolkata,5104047,en-IN,77.59369,12.97194
+1278149,Aurangabad,Aurangabad,India,IN,Asia/Kolkata,1016441,en-IN,75.34226,19.87757
+1278314,Āsansol,Asansol,India,IN,Asia/Kolkata,504271,en-IN,86.98333,23.68333
+1278710,Amritsar,Amritsar,India,IN,Asia/Kolkata,1092450,en-IN,74.87534,31.62234
+1278718,Amrāvati,,India,IN,Asia/Kolkata,603837,en-IN,77.75,20.93333
+1278994,Allahābād,Allahabad,India,IN,Asia/Kolkata,1073438,en-IN,81.84322,25.44478
+1279017,Alīgarh,Aligarh,India,IN,Asia/Kolkata,753207,en-IN,78.07464,27.88145
+1279159,Ajmer,Ajmer,India,IN,Asia/Kolkata,517911,en-IN,74.63867,26.4521
+1279233,Ahmedabad,Ahmedabad,India,IN,Asia/Kolkata,3719710,en-IN,72.58727,23.02579
+1279259,Agra,Agra,India,IN,Asia/Kolkata,1430055,en-IN,78.01667,27.18333
+6619347,Navi Mumbai,"Marathi, Maharashtra",India,IN,Asia/Kolkata,2600000,en-IN,73.01582,19.03681
+6943660,Shivaji Nagar,,India,IN,Asia/Kolkata,1000000,en-IN,73.85263,18.53017
+94787,Kirkuk,كركوك,Iraq,IQ,Asia/Baghdad,601433,ar-IQ,44.39222,35.46806
+95446,Erbil,أربيل,Iraq,IQ,Asia/Baghdad,932800,ar-IQ,44.01193,36.18333
+98463,As Sulaymānīyah,السليمانية,Iraq,IQ,Asia/Baghdad,723170,ar-IQ,45.4329,35.56496
+98182,Baghdad,بغداد,Iraq,IQ,Asia/Baghdad,7216000,ar-IQ,44.40088,33.34058
+99071,Al Mawşil al Jadīdah,الموصل الجديدة,Iraq,IQ,Asia/Baghdad,2065597,ar-IQ,43.10555,36.33271
+99072,Mosul,الموصل,Iraq,IQ,Asia/Baghdad,1739800,ar-IQ,43.11889,36.335
+99532,Basrah,بصرة,Iraq,IQ,Asia/Baghdad,2600000,ar-IQ,47.7804,30.50852
+388349,Al Başrah al Qadīmah,البصرة القديمة,Iraq,IQ,Asia/Baghdad,2015483,ar-IQ,47.81507,30.50316
+100077,Abū Ghurayb,أبو غريب,Iraq,IQ,Asia/Baghdad,900000,ar-IQ,44.18477,33.30563
+23814,Kahrīz,Kahrīz,Iran,IR,Asia/Tehran,766706,fa-IR,47.0553,34.3838
+14256,Āzādshahr,آزادشهر,Iran,IR,Asia/Tehran,514102,fa-IR,48.57011,34.79049
+112931,Tehran,تهران,Iran,IR,Asia/Tehran,7153309,fa-IR,51.42151,35.69439
+113646,Tabriz,تبریز,Iran,IR,Asia/Tehran,1424641,fa-IR,46.2919,38.08
+115019,Shiraz,Shīrāz,Iran,IR,Asia/Tehran,1249942,fa-IR,52.53113,29.61031
+118743,Rasht,رشت,Iran,IR,Asia/Tehran,594590,fa-IR,49.58862,37.27611
+119208,Qom,قم,Iran,IR,Asia/Tehran,900000,fa-IR,50.8764,34.6401
+121801,Orūmīyeh,شهرستان ارومیه,Iran,IR,Asia/Tehran,577307,fa-IR,45.07605,37.55274
+128226,Kermanshah,استان کرمانشاه,Iran,IR,Asia/Tehran,621100,fa-IR,47.065,34.31417
+128234,Kerman,Kermān,Iran,IR,Asia/Tehran,577514,fa-IR,57.07879,30.28321
+128747,Karaj,قَصَبِهِ كَرَج,Iran,IR,Asia/Tehran,1448075,fa-IR,50.99155,35.83266
+124665,Mashhad,مشهد,Iran,IR,Asia/Tehran,2307177,fa-IR,59.56796,36.31559
+132144,Hamadān,Hamadān,Iran,IR,Asia/Tehran,528256,fa-IR,48.51456,34.79922
+143127,Arāk,ساوه,Iran,IR,Asia/Tehran,503647,fa-IR,49.69809,34.09493
+144448,Ahvaz,اهواز,Iran,IR,Asia/Tehran,841145,fa-IR,48.6842,31.31901
+418863,Isfahan,Eşfehān,Iran,IR,Asia/Tehran,1547164,fa-IR,51.67462,32.65246
+1159301,Zahedan,Zāhedān,Iran,IR,Asia/Tehran,551980,fa-IR,60.8629,29.4963
+10630176,Pasragad Branch,,Iran,IR,Asia/Tehran,787878,fa-IR,48.47168,34.77772
+2523920,Palermo,Palermo,Italy,IT,Europe/Rome,648260,it-IT,13.33561,38.13205
+3165524,Turin,Torino,Italy,IT,Europe/Rome,870456,it-IT,7.68682,45.07049
+3169070,Rome,Roma,Italy,IT,Europe/Rome,2318895,it-IT,12.51133,41.89193
+3172394,Naples,Napoli,Italy,IT,Europe/Rome,959470,it-IT,14.26811,40.85216
+3173435,Milan,Milano,Italy,IT,Europe/Rome,1236837,it-IT,9.18951,45.46427
+3176219,Genoa,Genova,Italy,IT,Europe/Rome,580223,it-IT,8.94439,44.40478
+3489297,New Kingston,,Jamaica,JM,America/Jamaica,583958,en-JM,-76.78319,18.00747
+3489854,Kingston,Kingston,Jamaica,JM,America/Jamaica,937700,en-JM,-76.79358,17.99702
+250441,Amman,عمّان,Jordan,JO,Asia/Amman,1275857,ar-JO,35.94503,31.95522
+250090,Zarqa,زرقاء,Jordan,JO,Asia/Amman,792665,ar-JO,36.08796,32.07275
+1848254,Yono,,Japan,JP,Asia/Tokyo,1077730,ja,139.63333,35.88333
+1848354,Yokohama,横浜市,Japan,JP,Asia/Tokyo,3574443,ja,139.65,35.43333
+1850147,Tokyo,東京都,Japan,JP,Asia/Tokyo,8336599,ja,139.69171,35.6895
+1851717,Shizuoka,静岡市,Japan,JP,Asia/Tokyo,701561,ja,138.38333,34.98333
+1853195,Sakai,堺市,Japan,JP,Asia/Tokyo,782339,ja,135.46667,34.58333
+1853909,Osaka,大阪市,Japan,JP,Asia/Tokyo,2592413,ja,135.50218,34.69374
+1854383,Okayama,おかやまし,Japan,JP,Asia/Tokyo,639652,ja,133.93333,34.65
+1855431,Niigata,新潟市,Japan,JP,Asia/Tokyo,505272,ja,139.00589,37.88637
+1856057,Nagoya,Nagoya-shi,Japan,JP,Asia/Tokyo,2191279,ja,136.90641,35.18147
+1857910,Kyoto,京都市,Japan,JP,Asia/Tokyo,1459640,ja,135.75385,35.02107
+1858421,Kumamoto,熊本市,Japan,JP,Asia/Tokyo,680423,ja,130.69181,32.80589
+1859171,Kobe,神戸市,Japan,JP,Asia/Tokyo,1528478,ja,135.183,34.6913
+1859307,Kitakyushu,北九州市,Japan,JP,Asia/Tokyo,997536,ja,130.85034,33.85181
+1859642,Kawasaki,川崎市,Japan,JP,Asia/Tokyo,1306785,ja,139.71722,35.52056
+1860827,Kagoshima,鹿児島市,Japan,JP,Asia/Tokyo,555352,ja,130.55,31.56667
+1862415,Hiroshima,広島市,Japan,JP,Asia/Tokyo,1143841,ja,132.45,34.4
+1863289,Hamamatsu,浜松市,Japan,JP,Asia/Tokyo,605098,ja,137.73333,34.7
+1863440,Hachiōji,八王子市,Japan,JP,Asia/Tokyo,579399,ja,139.32389,35.65583
+1863905,Honchō,船橋市,Japan,JP,Asia/Tokyo,560743,ja,139.98648,35.70129
+1863967,Fukuoka,福岡市,Japan,JP,Asia/Tokyo,1392289,ja,130.41667,33.6
+2111149,Sendai,仙台市,Japan,JP,Asia/Tokyo,1063103,ja,140.86667,38.26667
+2113015,Chiba,千葉市,Japan,JP,Asia/Tokyo,919729,ja,140.11667,35.6
+2128295,Sapporo,札幌市,Japan,JP,Asia/Tokyo,1883027,ja,141.35,43.06667
+6940394,Saitama,さいたま,Japan,JP,Asia/Tokyo,1193350,ja,139.65657,35.90807
+184745,Nairobi,Nairobi,Kenya,KE,Africa/Nairobi,2750547,en-KE,36.81667,-1.28333
+186301,Mombasa,Mombasa,Kenya,KE,Africa/Nairobi,799668,en-KE,39.66359,-4.05466
+1528675,Bishkek,Бишкек,Kyrgyzstan,KG,Asia/Bishkek,900000,ky,74.59,42.87
+1821306,Phnom Penh,Phnum Pénh,Cambodia,KH,Asia/Phnom_Penh,1573544,km,104.91601,11.56245
+1821940,Takeo,,Cambodia,KH,Asia/Phnom_Penh,843931,km,104.78498,10.99081
+1871859,Pyongyang,평양시,North Korea,KP,Asia/Pyongyang,3222000,ko-KP,125.75432,39.03385
+1877449,Hamhŭng,함흥시,North Korea,KP,Asia/Pyongyang,559056,ko-KP,127.53639,39.91833
+1835235,Daejeon,대전광역시,South Korea,KR,Asia/Seoul,1475221,ko-KR,127.41972,36.32139
+1835329,Daegu,대구광역시,South Korea,KR,Asia/Seoul,2566540,ko-KR,128.59111,35.87028
+1835553,Suwon,수원시,South Korea,KR,Asia/Seoul,1242724,ko-KR,127.00889,37.29111
+1835848,Seoul,서울특별시,South Korea,KR,Asia/Seoul,10349312,ko-KR,126.9784,37.566
+1833747,Ulsan,울산광역시,South Korea,KR,Asia/Seoul,962865,ko-KR,129.31667,35.53722
+1838524,Busan,부산광역시,South Korea,KR,Asia/Seoul,3678555,ko-KR,129.04028,35.10278
+1838716,Bucheon-si,부천,South Korea,KR,Asia/Seoul,850731,ko-KR,126.78306,37.49889
+1841811,Gwangju,광주광역시,South Korea,KR,Asia/Seoul,1416938,ko-KR,126.91556,35.15472
+1842485,Goyang-si,고양시,South Korea,KR,Asia/Seoul,1073069,ko-KR,126.835,37.65639
+1843564,Incheon,인천,South Korea,KR,Asia/Seoul,2628000,ko-KR,126.70515,37.45646
+1845604,Cheongju-si,청주,South Korea,KR,Asia/Seoul,634596,ko-KR,127.48972,36.63722
+1845457,Jeonju,전주시,South Korea,KR,Asia/Seoul,711424,ko-KR,127.14889,35.82194
+1846326,Changwon,창원시,South Korea,KR,Asia/Seoul,550000,ko-KR,128.68111,35.22806
+1846918,Ansan-si,안산시,South Korea,KR,Asia/Seoul,650728,ko-KR,126.82194,37.32361
+1846898,Anyang-si,안양,South Korea,KR,Asia/Seoul,634367,ko-KR,126.92694,37.3925
+1897000,Seongnam-si,성남시,South Korea,KR,Asia/Seoul,1031935,ko-KR,127.13778,37.43861
+285839,Al Aḩmadī,اَلأَحْمَدِي,Kuwait,KW,Asia/Kuwait,637411,ar-KW,48.08389,29.07694
+1526384,Almaty,Almaty,Kazakhstan,KZ,Asia/Almaty,2000900,kk,76.92861,43.25667
+268743,Ra’s Bayrūt,,Lebanon,LB,Asia/Beirut,1251739,ar-LB,35.48333,33.9
+276781,Beirut,بيروت,Lebanon,LB,Asia/Beirut,1916100,ar-LB,35.50157,33.89332
+2274895,Monrovia,Monrovia,Liberia,LR,Africa/Monrovia,939524,en-LR,-10.7969,6.30054
+1248991,Colombo,කොළඹ,Sri Lanka,LK,Asia/Colombo,648034,si,79.84778,6.93194
+593116,Vilnius,Vilnius,Lithuania,LT,Europe/Vilnius,542366,lt,25.2798,54.68916
+456172,Riga,Rīga,Latvia,LV,Europe/Riga,742572,lv,24.10589,56.946
+88319,Benghazi,بنغازي,Libya,LY,Africa/Tripoli,650629,ar-LY,20.06859,32.11486
+2210247,Tripoli,طَرَابُلُس,Libya,LY,Africa/Tripoli,1150989,ar-LY,13.18746,32.87519
+2530335,Tangier,طنجة,Morocco,MA,Africa/Casablanca,688356,ar-MA,-5.79975,35.76727
+2537763,Sale,سلا,Morocco,MA,Africa/Casablanca,903485,ar-MA,-6.79846,34.0531
+2538475,Rabat,رباط,Morocco,MA,Africa/Casablanca,1655753,ar-MA,-6.83255,34.01325
+2542715,Meknès,مكناس,Morocco,MA,Africa/Casablanca,545705,ar-MA,-5.54727,33.89352
+2542997,Marrakesh,مراكش,Morocco,MA,Africa/Casablanca,839296,ar-MA,-7.99994,31.63416
+2548885,Fès,فاس,Morocco,MA,Africa/Casablanca,964891,ar-MA,-5.00028,34.03313
+2561668,Agadir,أكادير,Morocco,MA,Africa/Casablanca,698310,ar-MA,-9.59815,30.42018
+2553604,Casablanca,الدار البيضاء,Morocco,MA,Africa/Casablanca,3144909,ar-MA,-7.61138,33.58831
+618426,Chisinau,Chișinău,Moldova,MD,Europe/Chisinau,635994,ro,28.8575,47.00556
+1070940,Antananarivo,Antananarivo,Madagascar,MG,Indian/Antananarivo,1391433,fr-MG,47.53613,-18.91368
+2460596,Bamako,Bamako,Mali,ML,Africa/Bamako,1297281,fr-ML,-8,12.65
+1298824,Yangon,Yangon,Myanmar,MM,Asia/Yangon,4477638,my,96.15611,16.80528
+1311874,Mandalay,မန္တလေးမြို့,Myanmar,MM,Asia/Yangon,1208099,my,96.08359,21.97473
+6611854,Nay Pyi Taw,Naypyidaw,Myanmar,MM,Asia/Yangon,925000,my,96.12972,19.745
+2028462,Ulan Bator,Улаанбаатар,Mongolia,MN,Asia/Ulaanbaatar,844818,mn,106.88324,47.90771
+1821274,Macau,澳门,Macao,MO,Asia/Macau,520400,zh,113.54611,22.20056
+2377450,Nouakchott,نواكشوط,Mauritania,MR,Africa/Nouakchott,661400,ar-MR,-15.9785,18.08581
+927967,Lilongwe,Lilongwe,Malawi,MW,Africa/Blantyre,646750,ny,33.78725,-13.96692
+931755,Blantyre,,Malawi,MW,Africa/Blantyre,584877,ny,35.00854,-15.78499
+3514663,Álvaro Obregón,Alvaro Obregon,Mexico,MX,America/Mexico_City,727034,es-MX,-99.20329,19.35867
+3514674,Gustavo Adolfo Madero,Delegación Gustavo A. Madero,Mexico,MX,America/Mexico_City,1193161,es-MX,-99.11075,19.49392
+3514783,Veracruz,Veracruz,Mexico,MX,America/Mexico_City,568313,es-MX,-96.1429,19.18095
+3515302,Toluca,Toluca de Lerdo,Mexico,MX,America/Mexico_City,505881,es-MX,-99.65324,19.28786
+3515428,Tlalpan,Delegación Tlalpan,Mexico,MX,America/Mexico_City,607545,es-MX,-99.16206,19.29513
+3515431,Tlalnepantla,Tlanepantla de baz,Mexico,MX,America/Mexico_City,715767,es-MX,-99.19538,19.54005
+3517270,Santa María Chimalhuacán,,Mexico,MX,America/Mexico_City,525389,es-MX,-98.95038,19.42155
+3521081,Puebla,Puebla de Zaragoza,Mexico,MX,America/Mexico_City,1590256,es-MX,-98.20346,19.03793
+3522790,Naucalpan de Juárez,Naucalpan de Juárez,Mexico,MX,America/Mexico_City,846185,es-MX,-99.23963,19.47851
+3523349,Mérida,Mérida,Mexico,MX,America/Merida,717175,es-MX,-89.61696,20.97537
+3526683,Iztapalapa,Delegación Iztapalapa,Mexico,MX,America/Mexico_City,1820888,es-MX,-99.06224,19.35529
+3529612,Ecatepec de Morelos,Ecatepec,Mexico,MX,America/Mexico_City,1806226,es-MX,-99.06064,19.60492
+3530139,Coyoacán,Coyoacán,Mexico,MX,America/Mexico_City,628063,es-MX,-99.16174,19.3467
+3530589,Ciudad Nezahualcoyotl,Nezahualcóyotl,Mexico,MX,America/Mexico_City,1232220,es-MX,-99.01483,19.40061
+3530597,Mexico City,Ciudad de México,Mexico,MX,America/Mexico_City,12294193,es-MX,-99.12766,19.42847
+3531673,Cancún,Ciudad Cancún,Mexico,MX,America/Cancun,542043,es-MX,-86.84656,21.17429
+3532624,Ciudad López Mateos,Adolfo López Mateos,Mexico,MX,America/Mexico_City,521034,es-MX,-99.25675,19.55793
+3533462,Acapulco de Juárez,Acapulco,Mexico,MX,America/Mexico_City,652136,es-MX,-99.90891,16.84942
+3827409,Cuauhtémoc,,Mexico,MX,America/Mexico_City,521348,es-MX,-99.14612,19.44506
+3979770,Zapopan,Zapopan,Mexico,MX,America/Mexico_City,987516,es-MX,-103.38479,20.72356
+3981254,Torreón,Torreón,Mexico,MX,America/Monterrey,524066,es-MX,-103.41898,25.54389
+3981609,Tijuana,Tijuana,Mexico,MX,America/Tijuana,1376457,es-MX,-117.00371,32.5027
+3985606,San Luis Potosí,San Luis Potosí,Mexico,MX,America/Mexico_City,677704,es-MX,-100.97916,22.14982
+3988086,Saltillo,Saltillo,Mexico,MX,America/Monterrey,621250,es-MX,-101.0053,25.42321
+3991164,Santiago de Querétaro,,Mexico,MX,America/Mexico_City,626495,es-MX,-100.38806,20.58806
+3995402,Morelia,Morelia,Mexico,MX,America/Mexico_City,592797,es-MX,-101.18443,19.70078
+3995465,Monterrey,Monterrey,Mexico,MX,America/Monterrey,1122874,es-MX,-100.31847,25.67507
+3996069,Mexicali,Mexicali,Mexico,MX,America/Tijuana,597099,es-MX,-115.45446,32.62781
+3998655,León de los Aldama,León,Mexico,MX,America/Mexico_City,1114626,es-MX,-101.67374,21.12908
+4004898,Hermosillo,Hermosillo,Mexico,MX,America/Hermosillo,595811,es-MX,-110.97732,29.1026
+4005492,Guadalupe,Guadalupe,Mexico,MX,America/Monterrey,724921,es-MX,-100.25646,25.67678
+4005539,Guadalajara,Guadalajara,Mexico,MX,America/Mexico_City,1640589,es-MX,-103.39182,20.66682
+4012176,Culiacán,Culiacán,Mexico,MX,America/Mazatlan,675000,es-MX,-107.38782,24.79032
+4013708,Juárez,Ciudad Juárez,Mexico,MX,America/Ojinaga,1512354,es-MX,-106.46084,31.72024
+4014338,Chihuahua,Chihuahua,Mexico,MX,America/Chihuahua,809232,es-MX,-106.08889,28.63528
+4019233,Aguascalientes,,Mexico,MX,America/Mexico_City,658179,es-MX,-102.28259,21.88234
+1732752,Johor Bahru,Johor Bahru,Malaysia,MY,Asia/Kuala_Lumpur,802489,ms-MY,103.7578,1.4655
+1732905,Klang,,Malaysia,MY,Asia/Kuala_Lumpur,879867,ms-MY,101.45,3.03333
+1734634,Ipoh,Ipoh,Malaysia,MY,Asia/Kuala_Lumpur,673318,ms-MY,101.0829,4.5841
+1735158,Petaling Jaya,Petaling Jaya,Malaysia,MY,Asia/Kuala_Lumpur,520698,ms-MY,101.60671,3.10726
+1735161,Kuala Lumpur,Kuala Lumpur,Malaysia,MY,Asia/Kuala_Lumpur,1453975,ms-MY,101.68653,3.1412
+1735634,Kuching,Kuching,Malaysia,MY,Asia/Kuching,570407,ms-MY,110.33333,1.55
+1736376,Kota Bharu,Kota Bharu,Malaysia,MY,Asia/Kuala_Lumpur,1459994,ms-MY,102.2386,6.13328
+1771023,Kampung Baru Subang,,Malaysia,MY,Asia/Kuala_Lumpur,833571,ms-MY,101.53333,3.15
+8504423,Subang Jaya,,Malaysia,MY,Asia/Kuala_Lumpur,708296,ms-MY,101.58062,3.04384
+1039854,Matola,Matola,Mozambique,MZ,Africa/Maputo,675422,pt-MZ,32.45889,-25.96222
+1040652,Maputo,Maputo,Mozambique,MZ,Africa/Maputo,1191613,pt-MZ,32.58322,-25.96553
+1052373,Beira,Beira,Mozambique,MZ,Africa/Maputo,530604,pt-MZ,34.83889,-19.84361
+2440485,Niamey,Niamey,Niger,NE,Africa/Niamey,774235,fr-NE,2.1098,13.51366
+2317765,Zaria,,Nigeria,NG,Africa/Lagos,975153,en-NG,7.7227,11.11128
+2319133,Warri,Warri,Nigeria,NG,Africa/Lagos,536023,en-NG,5.75006,5.51737
+2322911,Sokoto,Sokoto,Nigeria,NG,Africa/Lagos,563861,en-NG,5.24322,13.06269
+2325200,Oyo,Oyo,Nigeria,NG,Africa/Lagos,736072,en-NG,3.93125,7.85257
+2324774,Port Harcourt,Port Harcourt,Nigeria,NG,Africa/Lagos,1148665,en-NG,7.0134,4.77742
+2326016,Onitsha,Onitsha,Nigeria,NG,Africa/Lagos,561066,en-NG,6.78569,6.14978
+2331447,Maiduguri,Maiduguri,Nigeria,NG,Africa/Lagos,1112449,en-NG,13.15712,11.84692
+2332459,Lagos,Lagos,Nigeria,NG,Africa/Lagos,9000000,en-NG,3.39467,6.45407
+2335204,Kano,Kano,Nigeria,NG,Africa/Lagos,3626068,en-NG,8.51672,12.00012
+2335727,Kaduna,Kaduna,Nigeria,NG,Africa/Lagos,1582102,en-NG,7.43879,10.52641
+2335953,Jos,,Nigeria,NG,Africa/Lagos,816824,en-NG,8.89212,9.92849
+2337639,Ilorin,Ilorin,Nigeria,NG,Africa/Lagos,814192,en-NG,4.54214,8.49664
+2339354,Ibadan,Ibadan,Nigeria,NG,Africa/Lagos,3565108,en-NG,3.90591,7.37756
+2343279,Enugu,Enugu,Nigeria,NG,Africa/Lagos,688862,en-NG,7.49883,6.44132
+2344082,Ebute Ikorodu,,Nigeria,NG,Africa/Lagos,535619,en-NG,3.48818,6.60086
+2347283,Benin City,Benin City,Nigeria,NG,Africa/Lagos,1125058,en-NG,5.62575,6.33815
+2353151,Aba,Aba,Nigeria,NG,Africa/Lagos,897560,en-NG,7.36667,5.10658
+2352778,Abuja,Abuja,Nigeria,NG,Africa/Lagos,590400,en-NG,7.49508,9.05785
+2352947,Abeokuta,Abeokuta,Nigeria,NG,Africa/Lagos,593100,en-NG,3.34509,7.15571
+3617763,Managua,Managua,Nicaragua,NI,America/Managua,973087,es-NI,-86.2504,12.13282
+2747891,Rotterdam,Rotterdam,Netherlands,NL,Europe/Amsterdam,598199,nl-NL,4.47917,51.9225
+2759794,Amsterdam,Amsterdam,Netherlands,NL,Europe/Amsterdam,741636,nl-NL,4.88969,52.37403
+3143244,Oslo,Oslo,Norway,NO,Europe/Oslo,580000,no,10.74609,59.91273
+1283240,Kathmandu,काठमाडौं,Nepal,NP,Asia/Kathmandu,1442271,ne,85.3206,27.70169
+287286,Muscat,مسقط,Oman,OM,Asia/Muscat,797000,ar-OM,58.40778,23.58413
+3691175,Trujillo,Trujillo,Peru,PE,America/Lima,747450,es-PE,-79.02998,-8.11599
+3698350,Chiclayo,Chiclayo,Peru,PE,America/Lima,577375,es-PE,-79.84088,-6.77137
+3936456,Lima,Lima,Peru,PE,America/Lima,7737002,es-PE,-77.02824,-12.04318
+3946083,Callao,El Callao,Peru,PE,America/Lima,813264,es-PE,-77.11814,-12.05659
+3947322,Arequipa,Arequipa,Peru,PE,America/Lima,841130,es-PE,-71.535,-16.39889
+1684308,Taguig,,Philippines,PH,Asia/Manila,644473,tl,121.0792,14.5243
+1692192,Quezon City,,Philippines,PH,Asia/Manila,2761720,tl,121.0509,14.6488
+1701668,Manila,Maynila,Philippines,PH,Asia/Manila,1600000,tl,120.9822,14.6042
+1703417,Makati City,,Philippines,PH,Asia/Manila,510383,tl,121.03269,14.55027
+1707174,Las Piñas,,Philippines,PH,Asia/Manila,590000,tl,120.98278,14.45056
+1713022,General Santos,Heneral Santos,Philippines,PH,Asia/Manila,679588,tl,125.17167,6.11278
+1715348,Davao,Lungsod ng Dabaw,Philippines,PH,Asia/Manila,1212504,tl,125.61278,7.07306
+1717512,Cebu City,,Philippines,PH,Asia/Manila,798634,tl,123.89071,10.31672
+1720151,Caloocan City,,Philippines,PH,Asia/Manila,1500000,tl,120.96788,14.64953
+1723510,Budta,,Philippines,PH,Asia/Manila,1273715,tl,124.43972,7.20417
+1730501,Antipolo,,Philippines,PH,Asia/Manila,549543,tl,121.12251,14.62578
+1978681,Malingao,,Philippines,PH,Asia/Manila,1121974,tl,124.475,7.16083
+7290466,Pasig City,,Philippines,PH,Asia/Manila,617301,tl,121.0614,14.58691
+1166000,Sargodha,سرگودھا,Pakistan,PK,Asia/Karachi,542603,ur-PK,72.67418,32.08586
+1166993,Rawalpindi,راولپنڈی,Pakistan,PK,Asia/Karachi,1743101,ur-PK,73.0479,33.59733
+1167460,Rahim Yar Khan,رحیم یار خان,Pakistan,PK,Asia/Karachi,788915,ur-PK,70.30345,28.41987
+1167528,Quetta,کوئٹہ,Pakistan,PK,Asia/Karachi,733675,ur-PK,67.00141,30.18414
+1168197,Peshawar,پشاور,Pakistan,PK,Asia/Karachi,1218773,ur-PK,71.57849,34.008
+1169607,Muzaffarābād,,Pakistan,PK,Asia/Karachi,725000,ur-PK,73.47082,34.37002
+1169825,Multan,مُلتان,Pakistan,PK,Asia/Karachi,1437230,ur-PK,71.47824,30.19679
+1172451,Lahore,لاہور,Pakistan,PK,Asia/Karachi,6310888,ur-PK,74.35071,31.558
+1173055,Kotli,,Pakistan,PK,Asia/Karachi,640000,ur-PK,73.9022,33.51836
+1174872,Karachi,کراچی,Pakistan,PK,Asia/Karachi,11624219,ur-PK,67.0104,24.8608
+1176615,Islamabad,اسلام آباد,Pakistan,PK,Asia/Karachi,601600,ur-PK,73.04329,33.72148
+1176734,Hyderabad,حیدرآباد، سندھ,Pakistan,PK,Asia/Karachi,1386330,ur-PK,68.37366,25.39242
+1177662,Gujranwala,گوجرانوالہ,Pakistan,PK,Asia/Karachi,1384471,ur-PK,74.18705,32.15567
+1179400,Faisalabad,فیصل آباد,Pakistan,PK,Asia/Karachi,2506595,ur-PK,73.08969,31.41554
+1183105,Battagram,,Pakistan,PK,Asia/Karachi,700000,ur-PK,73.02329,34.67719
+1183880,Bahawalpur,,Pakistan,PK,Asia/Karachi,552607,ur-PK,71.6752,29.39779
+756135,Warsaw,,Poland,PL,Europe/Warsaw,1702139,pl,21.01178,52.22977
+3081368,Wrocław,Wrocław,Poland,PL,Europe/Warsaw,634893,pl,17.03333,51.1
+3088171,Poznań,,Poland,PL,Europe/Warsaw,570352,pl,16.92993,52.40692
+3093133,Łódź,Łódź,Poland,PL,Europe/Warsaw,768755,pl,19.46667,51.75
+3094802,Kraków,Kraków,Poland,PL,Europe/Warsaw,755050,pl,19.93658,50.06143
+2267057,Lisbon,Lisboa,Portugal,PT,Europe/Lisbon,517802,pt-PT,-9.13333,38.71667
+3439389,Asunción,Asunción,Paraguay,PY,America/Asuncion,1482200,es-PY,-57.63591,-25.30066
+683506,Bucharest,București,Romania,RO,Europe/Bucharest,1877155,ro,26.10626,44.43225
+792680,Belgrade,Београд,Serbia,RS,Europe/Belgrade,1273651,sr,20.46513,44.80401
+468902,Yaroslavl,Ярославль,Russia,RU,Europe/Moscow,606730,ru,39.87368,57.62987
+472045,Voronezh,Воронеж,Russia,RU,Europe/Moscow,848752,ru,39.1843,51.67204
+472757,Volgograd,Волгоград,Russia,RU,Europe/Volgograd,1011417,ru,44.50183,48.71939
+479561,Ufa,Уфа,Russia,RU,Asia/Yekaterinburg,1033338,ru,55.96779,54.74306
+479123,Ulyanovsk,Ульяновск,Russia,RU,Europe/Ulyanovsk,640680,ru,48.38657,54.32824
+482283,Tol’yatti,Тольятти,Russia,RU,Europe/Samara,702879,ru,49.3461,53.5303
+498677,Saratov,Саратов,Russia,RU,Europe/Saratov,863725,ru,46.00861,51.54056
+498817,Saint Petersburg,Санкт-Петербург,Russia,RU,Europe/Moscow,5028000,ru,30.31413,59.93863
+499099,Samara,Самара,Russia,RU,Europe/Samara,1134730,ru,50.15,53.20007
+500096,Ryazan’,Рязань,Russia,RU,Europe/Moscow,520173,ru,39.6916,54.6269
+501175,Rostov-na-Donu,Ростов-на-Дону,Russia,RU,Europe/Moscow,1074482,ru,39.72328,47.23135
+511565,Penza,Пенза,Russia,RU,Europe/Moscow,512602,ru,45.00464,53.20066
+511196,Perm,Пермь,Russia,RU,Asia/Yekaterinburg,982419,ru,56.25017,58.01046
+515003,Orenburg,Чкалов,Russia,RU,Asia/Yekaterinburg,550204,ru,55.0988,51.7727
+520555,Nizhniy Novgorod,Нижний Новгород,Russia,RU,Europe/Moscow,1284164,ru,44.00205,56.32867
+523750,Naberezhnyye Chelny,Набережные Челны,Russia,RU,Europe/Moscow,509870,ru,52.41122,55.72545
+524901,Moscow,Москва,Russia,RU,Europe/Moscow,10381222,ru,37.61556,55.75222
+535121,Lipetsk,Липецк,Russia,RU,Europe/Moscow,515655,ru,39.57076,52.60311
+542420,Krasnodar,Краснодар,Russia,RU,Europe/Moscow,649851,ru,38.97603,45.04484
+551487,Kazan,Казань,Russia,RU,Europe/Moscow,1104738,ru,49.12214,55.78874
+554840,Izhevsk,Ижевск,Russia,RU,Europe/Samara,631038,ru,53.20448,56.84976
+580497,Astrakhan,Астрахань,Russia,RU,Europe/Astrakhan,502533,ru,48.04076,46.34968
+1486209,Yekaterinburg,Екатеринбург,Russia,RU,Asia/Yekaterinburg,1349772,ru,60.6122,56.8519
+1488754,Tyumen,Тюмень,Russia,RU,Asia/Yekaterinburg,519119,ru,65.52722,57.15222
+1496153,Omsk,Омск,Russia,RU,Asia/Omsk,1129281,ru,73.36859,54.99244
+1496747,Novosibirsk,Новосибирск,Russia,RU,Asia/Novosibirsk,1419007,ru,82.9346,55.0415
+1496990,Novokuznetsk,Сталинск,Russia,RU,Asia/Novokuznetsk,539616,ru,87.1099,53.7557
+1502026,Krasnoyarsk,Красноярск,Russia,RU,Asia/Krasnoyarsk,927200,ru,92.86717,56.01839
+1508291,Chelyabinsk,Челябинск,Russia,RU,Asia/Yekaterinburg,1062919,ru,61.42915,55.15402
+1510853,Barnaul,Барнаул,Russia,RU,Asia/Barnaul,599579,ru,83.76361,53.36056
+2013348,Vladivostok,Владивосток,Russia,RU,Asia/Vladivostok,587022,ru,131.87353,43.10562
+2022890,Khabarovsk,Хабаровск,Russia,RU,Asia/Vladivostok,579000,ru,135.08379,48.48271
+2023469,Irkutsk,Иркутск,Russia,RU,Asia/Irkutsk,586695,ru,104.29639,52.29778
+2056752,Khabarovsk Vtoroy,Хабаровск Второй,Russia,RU,Asia/Vladivostok,578303,ru,135.13329,48.43776
+8504951,Kalininskiy,Калининский,Russia,RU,Europe/Moscow,504641,ru,30.3899,59.99675
+202061,Kigali,,Rwanda,RW,Africa/Kigali,745261,rw,30.05885,-1.94995
+101760,Sulţānah,,Saudi Arabia,SA,Asia/Riyadh,946697,ar-SA,39.58572,24.49258
+104515,Mecca,مكة,Saudi Arabia,SA,Asia/Riyadh,1323624,ar-SA,39.82563,21.42664
+105343,Jeddah,جدة,Saudi Arabia,SA,Asia/Riyadh,2867446,ar-SA,39.19797,21.54238
+107968,Ta’if,الطائف,Saudi Arabia,SA,Asia/Riyadh,530848,ar-SA,40.41583,21.27028
+108410,Riyadh,الرياض,Saudi Arabia,SA,Asia/Riyadh,4205961,ar-SA,46.72185,24.68773
+109223,Medina,المدينة,Saudi Arabia,SA,Asia/Riyadh,1300000,ar-SA,39.61417,24.46861
+110336,Dammam,الدمام,Saudi Arabia,SA,Asia/Riyadh,768602,ar-SA,50.10326,26.43442
+365137,Omdurman,Umm Durmān,Sudan,SD,Africa/Khartoum,1200000,ar-SD,32.47773,15.64453
+369004,Nyala,نيالا,Sudan,SD,Africa/Khartoum,565734,ar-SD,24.88069,12.04888
+379252,Khartoum,خرطوم,Sudan,SD,Africa/Khartoum,1974647,ar-SD,32.53241,15.55177
+2673730,Stockholm,Stockholm,Sweden,SE,Europe/Stockholm,1515017,sv-SE,18.0649,59.33258
+2711537,Göteborg,Göteborg,Sweden,SE,Europe/Stockholm,572799,sv-SE,11.96679,57.70716
+1880252,Singapore,,Singapore,SG,Asia/Singapore,3547809,cmn,103.85007,1.28967
+2409306,Freetown,Freetown,Sierra Leone,SL,Africa/Freetown,802639,en-SL,-13.2356,8.48714
+2244322,Touba,,Senegal,SN,Africa/Dakar,529176,fr-SN,-15.88333,14.85
+2246678,Pikine,,Senegal,SN,Africa/Dakar,874062,fr-SN,-17.39071,14.76457
+2253354,Dakar,Dakar,Senegal,SN,Africa/Dakar,2476400,fr-SN,-17.44406,14.6937
+53654,Mogadishu,Muqdisho,Somalia,SO,Africa/Mogadishu,2587183,so-SO,45.34375,2.03711
+3583361,San Salvador,San Salvador,El Salvador,SV,America/El_Salvador,525990,es-SV,-89.18718,13.68935
+169577,Homs,حمص,Syria,SY,Asia/Damascus,775404,ar-SY,36.72339,34.72682
+170063,Aleppo,حلب,Syria,SY,Asia/Damascus,1602264,ar-SY,37.16117,36.20124
+170654,Damascus,دمشق,Syria,SY,Asia/Damascus,1569394,ar-SY,36.29128,33.5102
+2427123,N'Djamena,Ndjamena,Chad,TD,Africa/Ndjamena,721081,fr-TD,15.0444,12.10672
+2365267,Lomé,Lomé,Togo,TG,Africa/Lome,749700,fr-TG,1.22154,6.12874
+1609350,Bangkok,กรุงเทพ,Thailand,TH,Asia/Bangkok,5104476,th,100.50144,13.75398
+1221874,Dushanbe,Душанбе,Tajikistan,TJ,Asia/Dushanbe,679400,tg,68.77905,38.53575
+162183,Ashgabat,Aşgabat,Turkmenistan,TM,Asia/Ashgabat,727700,tk,58.38333,37.95
+2464470,Tunis,تونس,Tunisia,TN,Africa/Tunis,693210,ar-TN,10.16579,36.81897
+304531,Mersin,Mersin,Turkey,TR,Europe/Istanbul,537842,tr-TR,34.63886,36.81196
+306571,Konya,Konya,Turkey,TR,Europe/Istanbul,875530,tr-TR,32.48464,37.87135
+308464,Kayseri,Kayseri,Turkey,TR,Europe/Istanbul,592840,tr-TR,35.48528,38.73222
+311046,İzmir,İzmir,Turkey,TR,Europe/Istanbul,2500603,tr-TR,27.13838,38.41273
+314830,Gaziantep,Gaziantep,Turkey,TR,Europe/Istanbul,1065975,tr-TR,37.3825,37.05944
+315202,Eskişehir,Eskişehir,Turkey,TR,Europe/Istanbul,514869,tr-TR,30.52056,39.77667
+316541,Diyarbakır,Diyarbakır,Turkey,TR,Europe/Istanbul,644763,tr-TR,40.21721,37.91363
+323777,Antalya,Antalya,Turkey,TR,Europe/Istanbul,758188,tr-TR,30.69556,36.90812
+323786,Ankara,Ankara,Turkey,TR,Europe/Istanbul,3517182,tr-TR,32.85427,39.91987
+325363,Adana,Adana,Turkey,TR,Europe/Istanbul,1248988,tr-TR,35.32889,37.00167
+738329,Üsküdar,,Turkey,TR,Europe/Istanbul,582666,tr-TR,29.02369,41.02252
+738377,Umraniye,,Turkey,TR,Europe/Istanbul,573265,tr-TR,29.12476,41.01643
+745044,Istanbul,İstanbul,Turkey,TR,Europe/Istanbul,14804116,tr-TR,28.94966,41.01384
+747340,Esenler,,Turkey,TR,Europe/Istanbul,520235,tr-TR,28.87619,41.0435
+750269,Bursa,Bursa,Turkey,TR,Europe/Istanbul,1412701,tr-TR,29.06013,40.19559
+751324,Bağcılar,,Turkey,TR,Europe/Istanbul,724270,tr-TR,28.85671,41.03903
+6955677,Çankaya,Çankaya,Turkey,TR,Europe/Istanbul,792189,tr-TR,32.86268,39.9179
+7627067,Bahçelievler,,Turkey,TR,Europe/Istanbul,576799,tr-TR,28.8598,41.00231
+1668341,Taipei,T’ai-pei,Taiwan,TW,Asia/Taipei,7871900,zh-TW,121.53185,25.04776
+1668355,Tainan,臺南市,Taiwan,TW,Asia/Taipei,771235,zh-TW,120.21333,22.99083
+1670029,Banqiao,Fang-ch’iao,Taiwan,TW,Asia/Taipei,543342,zh-TW,121.46719,25.01427
+1668399,Taichung,臺中市,Taiwan,TW,Asia/Taipei,1040725,zh-TW,120.6839,24.1469
+1673820,Kaohsiung,高雄,Taiwan,TW,Asia/Taipei,1519711,zh-TW,120.31333,22.61626
+160263,Dar es Salaam,Dar es Salaam,Tanzania,TZ,Africa/Dar_es_Salaam,2698652,sw-TZ,39.26951,-6.82349
+687700,Zaporizhia,Запоріжжя,Ukraine,UA,Europe/Zaporozhye,796217,uk,35.19031,47.82289
+698740,Odessa,Одеса,Ukraine,UA,Europe/Kiev,1001558,uk,30.73262,46.47747
+700569,Mykolayiv,Миколаїв,Ukraine,UA,Europe/Kiev,510840,uk,31.9974,46.96591
+702550,Lviv,Львів,Ukraine,UA,Europe/Kiev,717803,uk,24.02324,49.83826
+703448,Kyiv,Київ,Ukraine,UA,Europe/Kiev,2797553,uk,30.5238,50.45466
+703845,Kryvyi Rih,Кривий Ріг,Ukraine,UA,Europe/Kiev,652380,uk,33.38044,47.90966
+706483,Kharkiv,Харків,Ukraine,UA,Europe/Kiev,1430885,uk,36.25272,49.98081
+709717,Donetsk,Донецьк,Ukraine,UA,Europe/Kiev,1024700,uk,37.80224,48.023
+709930,Dnipro,Дніпро,Ukraine,UA,Europe/Kiev,1032822,uk,35.03865,48.4593
+232422,Kampala,Kampala,Uganda,UG,Africa/Kampala,1353189,en-UG,32.58219,0.31628
+4140963,"Washington, D.C.",Washington D.C.,United States,US,America/New_York,601723,en-US,-77.03637,38.89511
+4160021,Jacksonville,Jacksonville,United States,US,America/New_York,868031,en-US,-81.65565,30.33218
+4259418,Indianapolis,Indianapolis,United States,US,America/Indiana/Indianapolis,829718,en-US,-86.15804,39.76838
+4347778,Baltimore,Baltimore,United States,US,America/New_York,621849,en-US,-76.61219,39.29038
+4460243,Charlotte,Charlotte,United States,US,America/New_York,827097,en-US,-80.84313,35.22709
+4509177,Columbus,Columbus,United States,US,America/New_York,850106,en-US,-82.99879,39.96118
+4544349,Oklahoma City,Oklahoma City,United States,US,America/Chicago,631346,en-US,-97.51643,35.46756
+4560349,Philadelphia,Philadelphia,United States,US,America/New_York,1567442,en-US,-75.16379,39.95233
+4641239,Memphis,Memphis,United States,US,America/Chicago,655770,en-US,-90.04898,35.14953
+4644585,Nashville,Nashville,United States,US,America/Chicago,530852,en-US,-86.78444,36.16589
+4645421,New South Memphis,,United States,US,America/Chicago,641608,en-US,-90.05676,35.08676
+4671654,Austin,Austin,United States,US,America/Chicago,931830,en-US,-97.74306,30.26715
+4684888,Dallas,Dallas,United States,US,America/Chicago,1300092,en-US,-96.80667,32.78306
+4691930,Fort Worth,Fort Worth,United States,US,America/Chicago,833319,en-US,-97.32085,32.72541
+4699066,Houston,Houston,United States,US,America/Chicago,2296224,en-US,-95.36327,29.76328
+4726206,San Antonio,San Antonio,United States,US,America/Chicago,1469845,en-US,-98.49363,29.42412
+4887398,Chicago,Chicago,United States,US,America/Chicago,2720546,en-US,-87.65005,41.85003
+4930956,Boston,Boston,United States,US,America/New_York,667137,en-US,-71.05977,42.35843
+4951305,South Boston,South Boston,United States,US,America/New_York,571281,en-US,-71.04949,42.33343
+4990729,Detroit,Detroit,United States,US,America/Detroit,677116,en-US,-83.04575,42.33143
+5110266,The Bronx,The Bronx,United States,US,America/New_York,1385108,en-US,-73.86641,40.84985
+5110302,Brooklyn,Brooklyn,United States,US,America/New_York,2300664,en-US,-73.94958,40.6501
+5125771,Manhattan,,United States,US,America/New_York,1487536,en-US,-73.96625,40.78343
+5128581,New York City,New York City,United States,US,America/New_York,8175133,en-US,-74.00597,40.71427
+5133273,Queens,,United States,US,America/New_York,2272771,en-US,-73.83652,40.68149
+5263045,Milwaukee,Milwaukee,United States,US,America/Chicago,600155,en-US,-87.90647,43.0389
+5308655,Phoenix,Phoenix,United States,US,America/Phoenix,1563025,en-US,-112.07404,33.44838
+5318313,Tucson,Tucson,United States,US,America/Phoenix,531641,en-US,-110.92648,32.22174
+5350937,Fresno,Fresno,United States,US,America/Los_Angeles,520052,en-US,-119.77237,36.74773
+5368361,Los Angeles,L.A.,United States,US,America/Los_Angeles,3971883,en-US,-118.24368,34.05223
+5391811,San Diego,San Diego,United States,US,America/Los_Angeles,1394928,en-US,-117.15726,32.71533
+5391959,San Francisco,San Francisco,United States,US,America/Los_Angeles,864816,en-US,-122.41942,37.77493
+5392171,San Jose,San Jose,United States,US,America/Los_Angeles,1026908,en-US,-121.89496,37.33939
+5419384,Denver,Denver,United States,US,America/Denver,682545,en-US,-104.9847,39.73915
+5454711,Albuquerque,Duke City,United States,US,America/Denver,559121,en-US,-106.65114,35.08449
+5506956,Las Vegas,Las Vegas,United States,US,America/Los_Angeles,623747,en-US,-115.13722,36.17497
+5520993,El Paso,El Paso,United States,US,America/Denver,681124,en-US,-106.48693,31.75872
+5746545,Portland,Portland,United States,US,America/Los_Angeles,632309,en-US,-122.67621,45.52345
+5809844,Seattle,Seattle,United States,US,America/Los_Angeles,684451,en-US,-122.33207,47.60621
+3441575,Montevideo,Montevideo,Uruguay,UY,America/Montevideo,1270737,es-UY,-56.18816,-34.90328
+1512569,Tashkent,Toshkent,Uzbekistan,UZ,Asia/Tashkent,1978028,uz,69.21627,41.26465
+3625549,Valencia,Valencia,Venezuela,VE,America/Caracas,1385083,es-VE,-68.00765,10.16202
+3632998,Maracay,Maracay,Venezuela,VE,America/Caracas,1754256,es-VE,-67.59113,10.23535
+3633009,Maracaibo,Maracaibo,Venezuela,VE,America/Caracas,2225000,es-VE,-71.61245,10.66663
+3645528,Ciudad Guayana,Ciudad Guayana,Venezuela,VE,America/Caracas,746535,es-VE,-62.64102,8.35122
+3648522,Barquisimeto,Barquisimeto,Venezuela,VE,America/Caracas,809490,es-VE,-69.35703,10.0647
+3646738,Caracas,Caracas,Venezuela,VE,America/Caracas,3000000,es-VE,-66.87919,10.48801
+1566083,Ho Chi Minh City,Thành phố Hồ Chí Minh,Vietnam,VN,Asia/Ho_Chi_Minh,3467331,vi,106.62965,10.82302
+1581298,Haiphong,Hải Phòng,Vietnam,VN,Asia/Ho_Chi_Minh,602695,vi,106.68345,20.86481
+1581130,Hanoi,Hà Nội,Vietnam,VN,Asia/Ho_Chi_Minh,1431270,vi,105.84117,21.0245
+1583992,Da Nang,Đà Nẵng,Vietnam,VN,Asia/Ho_Chi_Minh,752493,vi,108.22083,16.06778
+786714,Pristina,Prishtinë,Kosovo,XK,Europe/Belgrade,550000,sq,21.16688,42.67272
+70225,Ta‘izz,,Yemen,YE,Asia/Aden,615222,ar-YE,44.02091,13.57952
+71137,Sanaa,صنعاء,Yemen,YE,Asia/Aden,1937451,ar-YE,44.20667,15.35472
+79415,Al Ḩudaydah,الحديدة,Yemen,YE,Asia/Aden,617871,ar-YE,42.95452,14.79781
+415189,Aden,عدن,Yemen,YE,Asia/Aden,550602,ar-YE,45.03667,12.77944
+949880,Tembisa,,South Africa,ZA,Africa/Johannesburg,511655,zu,28.2268,-25.99636
+964137,Pretoria,IPitoli,South Africa,ZA,Africa/Johannesburg,1619438,zu,28.18783,-25.74486
+953781,Soweto,,South Africa,ZA,Africa/Johannesburg,1695047,zu,27.85849,-26.26781
+965301,Pietermaritzburg,,South Africa,ZA,Africa/Johannesburg,750845,zu,30.39278,-29.61679
+964420,Port Elizabeth,Ibhayi,South Africa,ZA,Africa/Johannesburg,967677,zu,25.61494,-33.96109
+993800,Johannesburg,EGoli,South Africa,ZA,Africa/Johannesburg,2026469,zu,28.04363,-26.20227
+1007311,Durban,ITheku,South Africa,ZA,Africa/Johannesburg,3120282,zu,31.0292,-29.8579
+1020098,Benoni,,South Africa,ZA,Africa/Johannesburg,605344,zu,28.32078,-26.18848
+3369157,Cape Town,iKapa,South Africa,ZA,Africa/Johannesburg,3433441,zu,18.42322,-33.92584
+909137,Lusaka,Lusaka,Zambia,ZM,Africa/Lusaka,1267440,en-ZM,28.28713,-15.40669
+890299,Harare,Harare,Zimbabwe,ZW,Africa/Harare,1542813,en-ZW,31.05337,-17.82772
+894701,Bulawayo,Bulawayo,Zimbabwe,ZW,Africa/Harare,699385,en-ZW,28.58333,-20.15

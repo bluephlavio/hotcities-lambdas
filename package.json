@@ -9,14 +9,10 @@
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.3",
     "eslint-config-prettier": "^4.2.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "serverless-webpack": "^5.3.0",
-    "webpack": "^4.30.0",
-    "webpack-node-externals": "^1.7.2"
+    "eslint-plugin-prettier": "^3.0.1"
   },
   "dependencies": {
-    "firebase-admin": "^7.3.0",
-    "lodash": "^4.17.11",
+    "mongoose": "^5.5.12",
     "openweathermap-api-module": "^0.0.1"
   }
 }

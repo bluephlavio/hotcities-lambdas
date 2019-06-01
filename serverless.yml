@@ -1,26 +1,14 @@
 service: hotcities-fetcher
 
-plugins:
-  - serverless-webpack
-
-custom:
-  webpack:
-    webpackConfig: './webpack.config.js'
-    packExternalModulesMaxBuffer: 1000000
-    includeModules: true
-    packagerOptions:
-      scripts:
-        - npm rebuild grpc --target=8.1.0 --target_arch=x64 --target_platform=linux --target_libc=glibc
-
 provider:
   name: aws
   runtime: nodejs8.10
   stage: dev
   region: eu-west-2
+  profile: hotcities-dev
   environment:
-    GOOGLE_APPLICATION_CREDENTIALS: ${file(./serverless.env.yml):dev.GOOGLE_APPLICATION_CREDENTIALS}
-    FIREBASE_CONFIG: ${file(./serverless.env.yml):dev.FIREBASE_CONFIG}
     OPENWEATHERMAP_KEY: ${file(./serverless.env.yml):dev.OPENWEATHERMAP_KEY}
+    MONGO_CONNECTION: ${file(./serverless.env.yml):dev.MONGO_CONNECTION}
 
 functions:
   fetcher:

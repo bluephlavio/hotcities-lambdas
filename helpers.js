@@ -1,16 +1,12 @@
-const fs = require('fs');
 const _ = require('lodash');
+const City = require('./models/city');
+const Record = require('./models/record');
 const { getWeather } = require('./openweathermap');
-const { admin, db } = require('./firebase');
 
 const getGeonameids = async () => {
   try {
-    const rawData = fs
-      .readFileSync('./geonameids.csv')
-      .toString()
-      .trim();
-    const lines = rawData.split('\n');
-    const geonameids = _.map(lines, line => parseInt(line.trim()));
+    const cities = await City.find({}).exec();
+    const geonameids = _.map(cities, city => city.geonameid);
     return geonameids;
   } catch (err) {
     console.log(`getGeonameids:error:${err}`);
@@ -31,7 +27,7 @@ const getRecord = async () => {
     } = candidates[Math.floor(Math.random() * candidates.length)];
     const record = {
       geonameid: id,
-      temperature: temp
+      temp,
     };
     return record;
   } catch (err) {
@@ -39,16 +35,12 @@ const getRecord = async () => {
   }
 };
 
-const saveRecord = async (geonameid, temperature) => {
+const saveRecord = async (geonameid, temp) => {
   try {
-    const timestamp = admin.firestore.FieldValue.serverTimestamp();
-    const doc = await db.collection('records').add({
+    const record = await new Record({
       geonameid,
-      temperature,
-      timestamp
-    });
-    const snapshot = await doc.get();
-    const record = snapshot.data();
+      temp
+    }).save();
     return record;
   } catch (err) {
     console.log(`saveRecord:error:${err}`);
@@ -57,8 +49,8 @@ const saveRecord = async (geonameid, temperature) => {
 
 const getAndSaveRecord = async () => {
   try {
-    const { geonameid, temperature } = await getRecord();
-    const record = await saveRecord(geonameid, temperature);
+    const { geonameid, temp } = await getRecord();
+    const record = await saveRecord(geonameid, temp);
     return record;
   } catch (err) {
     console.log(`getAndSaveRecord:error:${err}`);
