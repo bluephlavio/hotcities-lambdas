@@ -6,12 +6,18 @@
   "author": "bluephlavio <flavio.grandin@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "test": "mocha"
+  },
   "devDependencies": {
+    "chai": "^4.2.0",
     "copy-webpack-plugin": "^5.0.3",
     "eslint-config-prettier": "^4.2.0",
-    "eslint-plugin-prettier": "^3.0.1"
+    "eslint-plugin-prettier": "^3.0.1",
+    "mocha": "^6.1.4"
   },
   "dependencies": {
+    "dotenv": "^8.0.0",
     "mongoose": "^5.5.12",
     "openweathermap-api-module": "^0.0.1"
   }

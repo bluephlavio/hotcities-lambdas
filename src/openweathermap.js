@@ -1,4 +1,5 @@
 const OpenWeatherMap = require('openweathermap-api-module');
+const _ = require('lodash');
 const config = require('./config');
 
 const bbox = {
@@ -9,10 +10,11 @@ const bbox = {
   zoom: '12'
 };
 
-const getWeather = async () => {
+const getWeather = async (cities) => {
   try {
     const client = new OpenWeatherMap(config.openweathermap.key);
-    const res = await client.currentWeatherByRectangleZone({ bbox });
+    const geonameids = _.map(cities, city => city.geonameid);
+    const res = await client.currentWeatherByCityIds({ cityIds: geonameids });
     const weather = res.list;
     return weather;
   } catch (err) {

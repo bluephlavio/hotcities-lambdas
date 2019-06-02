@@ -7,8 +7,6 @@ jspm_packages
 
 # private keys
 serverless.env.yml
-google-app-credentials.json
-firebase-config.json
 .env
 
 # build
