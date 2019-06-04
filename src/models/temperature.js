@@ -7,7 +7,6 @@ const TemperatureSchema = new mongoose.Schema({
   },
   geonameid: {
     type: Number,
-    ref: 'City',
   },
   temp: {
     type: Number,
