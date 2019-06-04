@@ -17,14 +17,12 @@ const {
 describe('helpers', function() {
     this.timeout(10000);
 
-    before(function(done) {
-        mongoose.connect(config.mongo.connection, { useNewUrlParser: true });
-        mongoose.connection.on('open', done);
+    before(async function() {
+        await mongoose.connect(config.mongo.connection, { useNewUrlParser: true });
     });
 
-    after(function(done) {
-        mongoose.connection.on('close', done);
-        mongoose.connection.close();
+    after(async function() {
+        await mongoose.connection.close();
     });
 
     describe('getAllGeonameids', function() {

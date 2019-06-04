@@ -5,10 +5,11 @@ const config = require('./config');
 
 module.exports.fetcher = async () => {
   try {
-    await mongoose.connect(config.mongo.connection);
+    await mongoose.connect(config.mongo.connection, { useNewUrlParser: true });
     const geonameids = await toBeFetchedGeonameids();
     const data = await getWeather(geonameids);
     await saveWeatherData(data);
+    await mongoose.connection.close();
   } catch (err) {
     console.log(`fetcher:error:${err}`);
   }
@@ -16,11 +17,12 @@ module.exports.fetcher = async () => {
 
 module.exports.recorder = async () => {
   try {
-    await mongoose.connect(config.mongo.connection);
+    await mongoose.connect(config.mongo.connection, { useNewUrlParser: true });
     const record = await getRecord();
     if (record) {
       await saveRecord(record);
     }
+    await mongoose.connection.close();
   } catch (err) {
     console.log(`recorder:error:${err}`);
   }
