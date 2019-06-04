@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const TemperatureSchema = new mongoose.Schema({
   timestamp: {
     type: Date,
-    default: Date.now,
+    default: Date.now
   },
   geonameid: {
-    type: Number,
+    type: Number
   },
   temp: {
-    type: Number,
-  },
+    type: Number
+  }
 });
 
 module.exports = mongoose.model('Temperature', TemperatureSchema);

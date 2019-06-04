@@ -23,17 +23,19 @@ const getMissingDataGeonameids = async () => {
   } catch (err) {
     console.log(`getMissingTemperatureGeonameids:error:${err}`);
   }
-}
+};
 
 const getOldDataGeonameids = async n => {
   try {
-    const temperatures = await Temperature.find().sort('timestamp').limit(n);
+    const temperatures = await Temperature.find()
+      .sort('timestamp')
+      .limit(n);
     const old = temperatures.map(temperature => temperature.geonameid);
     return old;
   } catch (err) {
     console.log(`getMissingTemperatureGeonameids:error:${err}`);
   }
-}
+};
 
 const toBeFetchedGeonameids = async () => {
   try {
@@ -60,7 +62,7 @@ const cleanWeatherData = data => {
   } catch (err) {
     console.log(`cleanWeatherData:error:${err}`);
   }
-}
+};
 
 const saveWeatherData = async data => {
   try {
@@ -73,7 +75,7 @@ const saveWeatherData = async data => {
   } catch (err) {
     console.log(`saveWeatherData:error:${err}`);
   }
-}
+};
 
 const getRecord = async () => {
   try {
@@ -91,7 +93,7 @@ const getRecord = async () => {
   }
 };
 
-const saveRecord = async ({geonameid, temp}) => {
+const saveRecord = async ({ geonameid, temp }) => {
   try {
     await new Record({
       geonameid,

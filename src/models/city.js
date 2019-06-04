@@ -2,35 +2,35 @@ const mongoose = require('mongoose');
 
 const CitySchema = new mongoose.Schema({
   geonameid: {
-    type: Number,
+    type: Number
   },
   name: {
-    type: String,
+    type: String
   },
   localname: {
-    type: String,
+    type: String
   },
   lng: {
-    type: Number,
+    type: Number
   },
   lat: {
-    type: Number,
+    type: Number
   },
   country: {
-    type: String,
+    type: String
   },
   countrycode: {
-    type: String,
+    type: String
   },
   population: {
-    type: Number,
+    type: Number
   },
   lang: {
-    type: String,
+    type: String
   },
   timezone: {
-    type: String,
-  },
+    type: String
+  }
 });
 
 module.exports = mongoose.model('City', CitySchema);
