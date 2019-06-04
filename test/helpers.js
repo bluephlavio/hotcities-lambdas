@@ -1,6 +1,7 @@
 const { expect } = require('chai');
 const mongoose = require('mongoose');
 const _ = require('lodash');
+const { MAX_CITIES_PER_CALL } = require('../src/openweathermap');
 const config = require('../src/config');
 const { 
     getAllGeonameids,
@@ -56,10 +57,10 @@ describe('helpers', function() {
     });
 
     describe('toBeFetchedGeonameids', function() {
-        it('should be a list with 50 entries', async function() {
+        it(`should be a list with ${MAX_CITIES_PER_CALL} entries`, async function() {
             const geonameids = await toBeFetchedGeonameids();
             expect(geonameids).to.be.an('array');
-            expect(50).to.be.equal(geonameids.length);
+            expect(MAX_CITIES_PER_CALL).to.be.equal(geonameids.length);
         });
     });
 

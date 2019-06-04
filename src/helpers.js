@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const City = require('./models/city');
 const Temperature = require('./models/temperature');
+const { MAX_CITIES_PER_CALL } = require('./openweathermap');
 
 const getAllGeonameids = async () => {
   try {
@@ -26,7 +27,8 @@ const getMissingDataGeonameids = async () => {
 
 const getOldDataGeonameids = async n => {
   try {
-    const old = await Temperature.find().sort('timestamp').limit(n);
+    const temperatures = await Temperature.find().sort('timestamp').limit(n);
+    const old = temperatures.map(temperature => temperature.geonameid);
     return old;
   } catch (err) {
     console.log(`getMissingTemperatureGeonameids:error:${err}`);
@@ -36,11 +38,11 @@ const getOldDataGeonameids = async n => {
 const toBeFetchedGeonameids = async () => {
   try {
     const missing = await getMissingDataGeonameids();
-    if (missing.length < 50) {
-      const old = await getOldDataGeonameids(50 - missing.length);
+    if (missing.length < MAX_CITIES_PER_CALL) {
+      const old = await getOldDataGeonameids(MAX_CITIES_PER_CALL - missing.length);
       return _.concat(missing, old);
     }
-    return _.slice(missing, 0, 50);
+    return _.slice(missing, 0, MAX_CITIES_PER_CALL);
   } catch (err) {
     console.log(`toBeFetchedGeonameids:error:${err}`);
   }

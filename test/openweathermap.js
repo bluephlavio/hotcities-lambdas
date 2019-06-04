@@ -10,14 +10,15 @@ describe('openweathermap', function() {
         let data = null;
 
         before(async function() {
-            data = await getWeather(cities);
+            const geonameids = cities.map(city => city.geonameid);
+            data = await getWeather(geonameids);
         });
 
         it('should work', function() {
             expect(data).to.be.ok;
         });
 
-        it('should return have a list', async function() {
+        it('should return a list', async function() {
             expect(data).to.have.property('list');
             expect(data.list).to.be.an('array');
             expect(data.list.length).to.be.equal(cities.length);
