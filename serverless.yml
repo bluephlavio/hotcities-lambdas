@@ -1,4 +1,4 @@
-service: hotcities-fetcher
+service: hotcities-lambdas
 
 provider:
   name: aws

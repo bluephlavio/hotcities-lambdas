@@ -62,7 +62,7 @@ const cleanWeatherData = data => {
 
 const saveWeatherData = async data => {
   try {
-    const cleanedData = cleanWeatherData();
+    const cleanedData = cleanWeatherData(data);
     const promises = cleanedData.map(city => {
       const { geonameid, temp, timestamp } = city;
       return Temperature.findOneAndUpdate({ geonameid }, { temp, timestamp });
