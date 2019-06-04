@@ -1,11 +1,11 @@
 const { expect } = require('chai');
 const mongoose = require('mongoose');
 const config = require('../src/config');
-const { getGeonameids } = require('../src/helpers');
+const { getAllGeonameids } = require('../src/helpers');
 const { getCities } = require('./data');
 
 describe('helpers', function() {
-    describe('getGeonameids', function() {
+    describe('getAllGeonameids', function() {
         
         before(function(done) {
             mongoose.connect(config.mongo.connection, { useNewUrlParser: true });
@@ -18,12 +18,12 @@ describe('helpers', function() {
         });
 
         it('should be a list', async function() {
-            const geonameids = await getGeonameids();
+            const geonameids = await getAllGeonameids();
             expect(geonameids).to.be.an('array');
         });
         
         it('should return some geonameids', async function() {
-            const geonameids = await getGeonameids();
+            const geonameids = await getAllGeonameids();
             const cities = getCities();
             cities.forEach(city => {
                 const { geonameid } = city;

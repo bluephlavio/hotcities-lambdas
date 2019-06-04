@@ -1,62 +1,80 @@
+const _ = require('lodash');
 const City = require('./models/city');
+const Temperature = require('./model/temperature');
 
-module.exports.getGeonameids = async () => {
+module.exports.getAllGeonameids = async () => {
   try {
     const cities = await City.find();
     const geonameids = cities.map(city => city.geonameid);
     return geonameids;
   } catch (err) {
-    console.log(`getGeonameids:error:${err}`);
+    console.log(`getAllGeonameids:error:${err}`);
   }
 };
 
-// const getRecord = async () => {
-//   try {
-//     const weather = await getWeather();
-//     const geonameids = await getGeonameids();
-//     const availables = _.filter(weather, entry => _.includes(geonameids, parseInt(entry.id)));
-//     const temperatures = _.map(availables, entry => entry.main.temp);
-//     const maxTemp = _.max(temperatures);
-//     const candidates = _.filter(availables, entry => entry.main.temp === maxTemp);
-//     const {
-//       id,
-//       main: { temp }
-//     } = candidates[Math.floor(Math.random() * candidates.length)];
-//     const record = {
-//       geonameid: id,
-//       temp,
-//     };
-//     return record;
-//   } catch (err) {
-//     console.log(`getRecord:error:${err}`);
-//   }
-// };
+module.exports.getMissingDataGeonameids = async () => {
+  try {
+    const allGeonameids = await getAllGeonameids();
+    const temperatures = await Temperature.find();
+    const geonameids = temperatures.map(temperature => temperature.geonameid);
+    const missing = allGeonameids.filter(geonameid => !_.includes(geonameids, geonameid));
+    return missing;
+  } catch (err) {
+    console.log(`getMissingTemperatureGeonameids:error:${err}`);
+  }
+}
 
-// const saveRecord = async (geonameid, temp) => {
-//   try {
-//     const record = await new Record({
-//       geonameid,
-//       temp
-//     }).save();
-//     return record;
-//   } catch (err) {
-//     console.log(`saveRecord:error:${err}`);
-//   }
-// };
+module.exports.getOldDataGeonameids = async n => {
+  try {
+    const old = await Temperature.find().sort('timestamp').limit(n);
+    return old;
+  } catch (err) {
+    console.log(`getMissingTemperatureGeonameids:error:${err}`);
+  }
+}
 
-// const getAndSaveRecord = async () => {
-//   try {
-//     const { geonameid, temp } = await getRecord();
-//     const record = await saveRecord(geonameid, temp);
-//     return record;
-//   } catch (err) {
-//     console.log(`getAndSaveRecord:error:${err}`);
-//   }
-// };
+module.exports.toBeFetchedGeonameids = async () => {
+  try {
+    const missing = await getMissingDataGeonameids();
+    const old = await getOldDataGeonameids(60 - missing.length);
+    return _.concat(missing, old);
+  } catch (err) {
+    console.log(`toBeFetchedGeonameids:error:${err}`);
+  }
+};
 
-// module.exports = {
-//   getGeonameids,
-//   getRecord,
-//   saveRecord,
-//   getAndSaveRecord
-// };
+module.exports.saveWeatherData = async data => {
+  try {
+    data.list.forEach(city => {
+      const geonameid = city.id;
+      const temp = city.main.temp;
+      const timestamp = new Date();
+      await Temperature.findOneAndUpdate({ geonameid }, { temp, timestamp });
+    });
+  } catch (err) {
+    console.log(`saveWeatherData:error:${err}`);
+  }
+}
+
+module.exports.getRecord = async () => {
+  try {
+    const temperatures = await Temperature.find();
+    const recordTemp = _.max(temperatures.map(temperature => temperature.temp));
+    const candidates = temperatures.filter(temperature => temperature.temp === recordTemp);
+    const record = candidates[Math.floor(Math.random() * candidates.length)];
+    return record;
+  } catch (err) {
+    console.log(`getRecord:error:${err}`);
+  }
+};
+
+module.exports.saveRecord = async ({geonameid, temp}) => {
+  try {
+    await new Record({
+      geonameid,
+      temp
+    }).save();
+  } catch (err) {
+    console.log(`saveRecord:error:${err}`);
+  }
+};
