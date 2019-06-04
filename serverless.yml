@@ -15,7 +15,7 @@ functions:
     handler: src/handler.fetcher
     timeout: 30
     events:
-      - schedule: cron(0/25 * * * ? *)
+      - schedule: cron(0/1 * * * ? *)
   recorder:
     handler: src/handler.recorder
     timeout: 30
