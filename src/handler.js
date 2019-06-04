@@ -18,7 +18,9 @@ module.exports.recorder = async () => {
   try {
     await mongoose.connect(config.mongo.connection);
     const record = await getRecord();
-    await saveRecord(record);
+    if (record) {
+      await saveRecord(record);
+    }
   } catch (err) {
     console.log(`recorder:error:${err}`);
   }

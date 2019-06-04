@@ -76,10 +76,14 @@ const saveWeatherData = async data => {
 const getRecord = async () => {
   try {
     const temperatures = await Temperature.find();
-    const recordTemp = _.max(temperatures.map(temperature => temperature.temp));
-    const candidates = temperatures.filter(temperature => temperature.temp === recordTemp);
-    const record = candidates[Math.floor(Math.random() * candidates.length)];
-    return record;
+    const allGeonameids = await getAllGeonameids();
+    if (temperatures.length === allGeonameids.length) {
+      const recordTemp = _.max(temperatures.map(temperature => temperature.temp));
+      const candidates = temperatures.filter(temperature => temperature.temp === recordTemp);
+      const record = candidates[Math.floor(Math.random() * candidates.length)];
+      return record;
+    }
+    return null;
   } catch (err) {
     console.log(`getRecord:error:${err}`);
   }
