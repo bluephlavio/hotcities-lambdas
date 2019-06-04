@@ -37,4 +37,29 @@ module.exports.getCities = () => {
             "countrycode": "AE"
         }
     ];
-}
+};
+
+module.exports.getWeatherData = () => {
+    return {
+        list: [
+            {
+                id: 292968,
+                main: {
+                    temp: 52,
+                },
+            },
+            {
+                id: 292223,
+                main: {
+                    temp: 51,
+                },
+            },
+            {
+                id: 292672,
+                main: {
+                    temp: 50,
+                },
+            },
+        ]
+    };
+};

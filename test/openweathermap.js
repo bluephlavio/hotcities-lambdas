@@ -4,6 +4,7 @@ const { getWeather } = require('../src/openweathermap');
 
 describe('openweathermap', function() {
     describe('getWeather', function() {
+        this.timeout(10000);
 
         let cities = getCities();
         let data = null;

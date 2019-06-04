@@ -1,22 +1,33 @@
 const { expect } = require('chai');
 const mongoose = require('mongoose');
+const _ = require('lodash');
 const config = require('../src/config');
-const { getAllGeonameids } = require('../src/helpers');
-const { getCities } = require('./data');
+const { 
+    getAllGeonameids,
+    getMissingDataGeonameids,
+    getOldDataGeonameids,
+    toBeFetchedGeonameids,
+    cleanWeatherData,
+} = require('../src/helpers');
+const {
+    getCities,
+    getWeatherData,
+} = require('./data');
 
 describe('helpers', function() {
+    this.timeout(10000);
+
+    before(function(done) {
+        mongoose.connect(config.mongo.connection, { useNewUrlParser: true });
+        mongoose.connection.on('open', done);
+    });
+
+    after(function(done) {
+        mongoose.connection.on('close', done);
+        mongoose.connection.close();
+    });
+
     describe('getAllGeonameids', function() {
-        
-        before(function(done) {
-            mongoose.connect(config.mongo.connection, { useNewUrlParser: true });
-            mongoose.connection.on('open', done);
-        });
-
-        after(function(done) {
-            mongoose.connection.on('close', done);
-            mongoose.connection.close();
-        });
-
         it('should be a list', async function() {
             const geonameids = await getAllGeonameids();
             expect(geonameids).to.be.an('array');
@@ -30,6 +41,43 @@ describe('helpers', function() {
                 expect(geonameids).to.contain(geonameid);
             });
         });
-    
+    });
+
+    describe('getMissingDataGeonameids', function() {
+        it('should be a list', async function() {
+            const missing = await getMissingDataGeonameids();
+            expect(missing).to.be.an('array');
+        });
+    });
+
+    describe('getOldDataGeonameids', function() {
+        it('should be a list', async function() {
+            const old = await getOldDataGeonameids();
+            expect(old).to.be.an('array');
+        });
+    });
+
+    describe('toBeFetchedGeonameids', function() {
+        it('should be a list with 50 entries', async function() {
+            const geonameids = await toBeFetchedGeonameids();
+            expect(geonameids).to.be.an('array');
+            expect(50).to.be.equal(geonameids.length);
+        });
+    });
+
+    describe('cleanWeatherData', function() {
+        let data = getWeatherData();
+        let cleanedData = cleanWeatherData(data);
+
+        it('should return a list with correct length', function() {
+            expect(cleanedData).to.be.an('array');
+            expect(data.list.length).to.be.equal(cleanedData.length);
+        });
+
+        it('should have proper data', function() {
+            const sharjah = _.find(cleanedData, city => city.geonameid === 292672);
+            expect(sharjah).to.have.property('temp');
+            expect(50).to.be.equal(sharjah.temp);
+        });
     });
 });
