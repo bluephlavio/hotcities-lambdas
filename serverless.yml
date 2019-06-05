@@ -1,5 +1,8 @@
 service: hotcities-lambdas
 
+tenant: bluephlavio
+app: hotcities
+
 provider:
   name: aws
   runtime: nodejs8.10

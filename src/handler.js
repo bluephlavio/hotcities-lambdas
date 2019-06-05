@@ -18,7 +18,7 @@ module.exports.fetcher = async () => {
     await saveTemperatures(weather);
     await closeDb();
   } catch (err) {
-    console.log(`fetcher:error:${err}`);
+    console.log(`fetcher: ${err}`);
   }
 };
 
@@ -31,6 +31,6 @@ module.exports.recorder = async () => {
     }
     await closeDb();
   } catch (err) {
-    console.log(`recorder:error:${err}`);
+    console.log(`recorder: ${err}`);
   }
 };
