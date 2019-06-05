@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const _ = require('lodash');
 const City = require('./models/city');
 const Temperature = require('./models/temperature');
+const Record = require('./models/record');
 const { MAX_CALLS_PER_MINUTE } = require('./openweathermap');
 const config = require('./config');
 
