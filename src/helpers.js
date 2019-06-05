@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const _ = require('lodash');
 const City = require('./models/city');
 const Temperature = require('./models/temperature');
-const { MAX_CITIES_PER_CALL } = require('./openweathermap');
+const { MAX_CALLS_PER_MINUTE } = require('./openweathermap');
 const config = require('./config');
 
 const openDb = async () => {
@@ -66,39 +66,22 @@ const getOldDataGeonameids = async n => {
 const toBeFetchedGeonameids = async () => {
   try {
     const missing = await getMissingDataGeonameids();
-    if (missing.length < MAX_CITIES_PER_CALL) {
-      const old = await getOldDataGeonameids(MAX_CITIES_PER_CALL - missing.length);
+    if (missing.length < MAX_CALLS_PER_MINUTE) {
+      const old = await getOldDataGeonameids(MAX_CALLS_PER_MINUTE - missing.length);
       return _.concat(missing, old);
     }
-    return _.slice(missing, 0, MAX_CITIES_PER_CALL);
+    return _.slice(missing, 0, MAX_CALLS_PER_MINUTE);
   } catch (err) {
     console.log(`toBeFetchedGeonameids: ${err}`);
     throw err;
   }
 };
 
-const cleanWeatherData = data => {
+const saveTemperatures = async temperatures => {
   try {
-    const cleanedData = data.list.map(city => {
-      const geonameid = city.id;
-      const temp = city.main.temp;
-      const timestamp = new Date();
-      return { geonameid, temp, timestamp };
-    });
-    return cleanedData;
-  } catch (err) {
-    console.log(`cleanWeatherData: ${err}`);
-    throw err;
-  }
-};
-
-const saveTemperatures = async data => {
-  try {
-    const cleanedData = cleanWeatherData(data);
-    const promises = cleanedData.map(city => {
-      const { geonameid, temp, timestamp } = city;
-      return Temperature.findOneAndUpdate({ geonameid }, { temp, timestamp });
-    });
+    const promises = temperatures.map(({ geonameid, temp, timestamp }) =>
+      Temperature.findOneAndUpdate({ geonameid }, { temp, timestamp }, { upsert: true })
+    );
     await Promise.all(promises);
   } catch (err) {
     console.log(`saveTemperatures: ${err}`);
@@ -142,7 +125,6 @@ module.exports = {
   getMissingDataGeonameids,
   getOldDataGeonameids,
   toBeFetchedGeonameids,
-  cleanWeatherData,
   saveTemperatures,
   getRecord,
   saveRecord

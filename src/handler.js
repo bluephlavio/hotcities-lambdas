@@ -1,4 +1,4 @@
-const { getWeather } = require('./openweathermap');
+const { getTemperatures } = require('./openweathermap');
 const {
   openDb,
   closeDb,
@@ -13,9 +13,9 @@ module.exports.fetcher = async () => {
     await openDb();
     const geonameids = await toBeFetchedGeonameids();
     console.log(geonameids);
-    const weather = await getWeather(geonameids);
-    console.log(weather);
-    await saveTemperatures(weather);
+    const temperatures = await getTemperatures(geonameids);
+    console.log(temperatures);
+    await saveTemperatures(temperatures);
     await closeDb();
   } catch (err) {
     console.log(`fetcher: ${err}`);
