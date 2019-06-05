@@ -3,7 +3,7 @@ const {
   openDb,
   closeDb,
   toBeFetchedGeonameids,
-  saveWeatherData,
+  saveTemperatures,
   getRecord,
   saveRecord
 } = require('./helpers');
@@ -12,8 +12,10 @@ module.exports.fetcher = async () => {
   try {
     await openDb();
     const geonameids = await toBeFetchedGeonameids();
-    const data = await getWeather(geonameids);
-    await saveWeatherData(data);
+    console.log(geonameids);
+    const weather = await getWeather(geonameids);
+    console.log(weather);
+    await saveTemperatures(weather);
     await closeDb();
   } catch (err) {
     console.log(`fetcher:error:${err}`);

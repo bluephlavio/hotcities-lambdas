@@ -84,7 +84,7 @@ const cleanWeatherData = data => {
   }
 };
 
-const saveWeatherData = async data => {
+const saveTemperatures = async data => {
   try {
     const cleanedData = cleanWeatherData(data);
     const promises = cleanedData.map(city => {
@@ -93,7 +93,7 @@ const saveWeatherData = async data => {
     });
     await Promise.all(promises);
   } catch (err) {
-    console.log(`saveWeatherData:error:${err}`);
+    console.log(`saveTemperatures:error:${err}`);
   }
 };
 
@@ -132,7 +132,7 @@ module.exports = {
   getOldDataGeonameids,
   toBeFetchedGeonameids,
   cleanWeatherData,
-  saveWeatherData,
+  saveTemperatures,
   getRecord,
   saveRecord
 };
