@@ -2,6 +2,26 @@ const _ = require('lodash');
 const City = require('./models/city');
 const Temperature = require('./models/temperature');
 const { MAX_CITIES_PER_CALL } = require('./openweathermap');
+const config = require('./config');
+
+const openDb = async () => {
+  try {
+    await mongoose.connect(config.mongo.connection, {
+      useNewUrlParser: true,
+      useFindAndModify: false
+    });
+  } catch (err) {
+    console.log(`openDb:error:${err}`);
+  }
+};
+
+const closeDb = async () => {
+  try {
+    await mongoose.connection.close();
+  } catch (err) {
+    console.log(`closeDb:error:${err}`);
+  }
+};
 
 const getAllGeonameids = async () => {
   try {
@@ -105,6 +125,8 @@ const saveRecord = async ({ geonameid, temp }) => {
 };
 
 module.exports = {
+  openDb,
+  closeDb,
   getAllGeonameids,
   getMissingDataGeonameids,
   getOldDataGeonameids,

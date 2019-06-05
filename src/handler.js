@@ -1,18 +1,20 @@
-const mongoose = require('mongoose');
 const { getWeather } = require('./openweathermap');
-const { toBeFetchedGeonameids, saveWeatherData, getRecord, saveRecord } = require('./helpers');
-const config = require('./config');
+const {
+  openDb,
+  closeDb,
+  toBeFetchedGeonameids,
+  saveWeatherData,
+  getRecord,
+  saveRecord
+} = require('./helpers');
 
 module.exports.fetcher = async () => {
   try {
-    await mongoose.connect(config.mongo.connection, {
-      useNewUrlParser: true,
-      useFindAndModify: false
-    });
+    await openDb();
     const geonameids = await toBeFetchedGeonameids();
     const data = await getWeather(geonameids);
     await saveWeatherData(data);
-    await mongoose.connection.close();
+    await closeDb();
   } catch (err) {
     console.log(`fetcher:error:${err}`);
   }
@@ -20,15 +22,12 @@ module.exports.fetcher = async () => {
 
 module.exports.recorder = async () => {
   try {
-    await mongoose.connect(config.mongo.connection, {
-      useNewUrlParser: true,
-      useFindAndModify: false
-    });
+    await openDb();
     const record = await getRecord();
     if (record) {
       await saveRecord(record);
     }
-    await mongoose.connection.close();
+    await closeDb();
   } catch (err) {
     console.log(`recorder:error:${err}`);
   }
