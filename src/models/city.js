@@ -2,34 +2,44 @@ const mongoose = require('mongoose');
 
 const CitySchema = new mongoose.Schema({
   geonameid: {
-    type: Number
+    type: Number,
+    required: true
   },
   name: {
-    type: String
+    type: String,
+    required: true
   },
   localname: {
-    type: String
+    type: String,
+    required: true
   },
   lng: {
-    type: Number
+    type: Number,
+    required: true
   },
   lat: {
-    type: Number
+    type: Number,
+    required: true
   },
   country: {
-    type: String
+    type: String,
+    required: true
   },
   countrycode: {
-    type: String
+    type: String,
+    required: true
   },
   population: {
-    type: Number
+    type: Number,
+    required: true
   },
   lang: {
-    type: String
+    type: String,
+    required: true
   },
   timezone: {
-    type: String
+    type: String,
+    required: true
   }
 });
 

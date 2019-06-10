@@ -3,13 +3,16 @@ const mongoose = require('mongoose');
 const RecordSchema = new mongoose.Schema({
   timestamp: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    required: true
   },
   geonameid: {
-    type: Number
+    type: Number,
+    required: true
   },
   temp: {
-    type: Number
+    type: Number,
+    required: true
   }
 });
 
