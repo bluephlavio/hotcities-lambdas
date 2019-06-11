@@ -2,7 +2,7 @@ const OpenWeatherMap = require('openweathermap-api-module');
 const config = require('./config');
 
 module.exports.MAX_CITIES_PER_CALL = 20;
-module.exports.MAX_CALLS_PER_MINUTE = 50;
+module.exports.MAX_CALLS_PER_MINUTE = 60;
 
 module.exports.getTemperatures = async geonameids => {
   try {

@@ -1,17 +1,18 @@
 const { expect } = require('chai');
 const { getCities } = require('./data');
-const { getWeather } = require('../src/openweathermap');
+const { getTemperatures } = require('../src/openweathermap');
 
 describe('openweathermap', function() {
-  describe('getWeather', function() {
+  describe('getTemperatures', function() {
     this.timeout(10000);
 
-    let cities = getCities();
+    const cities = getCities();
+    const geonameids = cities.map(city => city.geonameid);
+
     let data = null;
 
     before(async function() {
-      const geonameids = cities.map(city => city.geonameid);
-      data = await getWeather(geonameids);
+      data = await getTemperatures(geonameids);
     });
 
     it('should work', function() {
@@ -19,17 +20,14 @@ describe('openweathermap', function() {
     });
 
     it('should return a list', async function() {
-      expect(data).to.have.property('list');
-      expect(data.list).to.be.an('array');
-      expect(data.list.length).to.be.equal(cities.length);
-      expect(data.cnt).to.be.equal(cities.length);
+      expect(data).to.be.an('array');
     });
 
     it('should have a proper data structure', function() {
-      expect(data).to.have.property('cnt');
-      data.list.forEach(city => {
-        expect(city).to.have.property('id');
-        expect(city).to.have.nested.property('main.temp');
+      data.forEach(temperature => {
+        expect(temperature).to.have.property('geonameid');
+        expect(temperature).to.have.property('temp');
+        expect(temperature).to.have.property('timestamp');
       });
     });
   });
