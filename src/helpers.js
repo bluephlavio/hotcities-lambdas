@@ -3,7 +3,6 @@ const _ = require('lodash');
 const City = require('./models/city');
 const Temperature = require('./models/temperature');
 const Record = require('./models/record');
-const { MAX_CALLS_PER_MINUTE } = require('./openweathermap');
 const config = require('./config');
 
 const openDb = async () => {
@@ -64,14 +63,14 @@ const getOldDataGeonameids = async n => {
   }
 };
 
-const toBeFetchedGeonameids = async () => {
+const toBeFetchedGeonameids = async n => {
   try {
     const missing = await getMissingDataGeonameids();
-    if (missing.length < MAX_CALLS_PER_MINUTE) {
-      const old = await getOldDataGeonameids(MAX_CALLS_PER_MINUTE - missing.length);
+    if (missing.length < n) {
+      const old = await getOldDataGeonameids(n - missing.length);
       return _.concat(missing, old);
     }
-    return _.slice(missing, 0, MAX_CALLS_PER_MINUTE);
+    return _.slice(missing, 0, n);
   } catch (err) {
     console.log(`toBeFetchedGeonameids: ${err}`);
     throw err;
@@ -90,19 +89,31 @@ const saveTemperatures = async temperatures => {
   }
 };
 
+const allTemperaturesFetched = async () => {
+  const cities = await City.find();
+  const temperatures = await Temperature.find();
+  return temperatures.length === cities.length;
+};
+
 const getRecord = async () => {
   try {
     const temperatures = await Temperature.find();
-    const allGeonameids = await getAllGeonameids();
-    if (temperatures.length === allGeonameids.length) {
-      const recordTemp = _.max(temperatures.map(temperature => temperature.temp));
-      const candidates = temperatures.filter(temperature => temperature.temp === recordTemp);
-      const record = candidates[Math.floor(Math.random() * candidates.length)];
-      return record;
-    }
-    return null;
+    const recordTemp = _.max(temperatures.map(temperature => temperature.temp));
+    const candidates = temperatures.filter(temperature => temperature.temp === recordTemp);
+    const record = candidates[Math.floor(Math.random() * candidates.length)];
+    return record;
   } catch (err) {
     console.log(`getRecord: ${err}`);
+    throw err;
+  }
+};
+
+const getCityByGeonameid = async geonameid => {
+  try {
+    const city = await City.findOne({ geonameid });
+    return city;
+  } catch (err) {
+    console.log(`getCityByGeonameid: ${err}`);
     throw err;
   }
 };
@@ -111,7 +122,8 @@ const saveRecord = async ({ geonameid, temp }) => {
   try {
     await new Record({
       geonameid,
-      temp
+      temp,
+      timestamp: Date.now()
     }).save();
   } catch (err) {
     console.log(`saveRecord: ${err}`);
@@ -127,6 +139,8 @@ module.exports = {
   getOldDataGeonameids,
   toBeFetchedGeonameids,
   saveTemperatures,
+  allTemperaturesFetched,
   getRecord,
+  getCityByGeonameid,
   saveRecord
 };
