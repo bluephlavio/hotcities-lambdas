@@ -21,7 +21,7 @@ const CitySchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  country: {
+  countryname: {
     type: String,
     required: true
   },
@@ -34,13 +34,24 @@ const CitySchema = new mongoose.Schema({
     required: true
   },
   lang: {
-    type: String,
-    required: true
+    type: String
   },
   timezone: {
-    type: String,
-    required: true
+    type: String
   }
 });
+
+CitySchema.statics.list = async function() {
+  return await this.find();
+};
+
+CitySchema.statics.geonameids = async function() {
+  const cities = await this.list();
+  return cities.map(city => city.geonameid);
+};
+
+CitySchema.statics.findByGeonameid = async function(geonameid) {
+  return await this.findOne({ geonameid });
+};
 
 module.exports = mongoose.model('City', CitySchema);
