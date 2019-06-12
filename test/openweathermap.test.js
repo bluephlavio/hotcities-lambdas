@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { getCities } = require('./data/data');
+const { getCities } = require('./data/factory');
 const { getWeather } = require('../src/openweathermap');
 
 describe('openweathermap', function() {

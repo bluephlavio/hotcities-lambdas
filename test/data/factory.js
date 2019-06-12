@@ -39,27 +39,44 @@ module.exports.getCities = () => {
   ];
 };
 
-module.exports.getWeatherData = () => {
-  return {
-    list: [
-      {
-        id: 292968,
-        main: {
-          temp: 52
-        }
-      },
-      {
-        id: 292223,
-        main: {
-          temp: 51
-        }
-      },
-      {
-        id: 292672,
-        main: {
-          temp: 50
-        }
-      }
-    ]
-  };
+module.exports.getWeather = () => {
+  const now = new Date();
+  return [
+    {
+      geonameid: 292968,
+      temp: 52,
+      timestamp: now - 0
+    },
+    {
+      geonameid: 292223,
+      temp: 51,
+      timestamp: now - 1
+    },
+    {
+      geonameid: 292672,
+      temp: 50,
+      timestamp: now - 2
+    }
+  ];
+};
+
+module.exports.getRecords = () => {
+  const now = new Date();
+  return [
+    {
+      geonameid: 292968,
+      temp: 52,
+      timestamp: now - 0
+    },
+    {
+      geonameid: 292223,
+      temp: 51,
+      timestamp: now - 1
+    },
+    {
+      geonameid: 292968,
+      temp: 52,
+      timestamp: now - 2
+    }
+  ];
 };

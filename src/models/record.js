@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Weather = require('./weather');
 
 const RecordSchema = new mongoose.Schema({
   timestamp: {
@@ -15,5 +16,10 @@ const RecordSchema = new mongoose.Schema({
     required: true
   }
 });
+
+RecordSchema.statics.register = async function() {
+  const record = await Weather.record();
+  return await this.create(record);
+};
 
 module.exports = mongoose.model('Record', RecordSchema);

@@ -1,19 +1,27 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 const City = require('../../src/models/city');
-const { getCities } = require('../data/data');
+const { getCities } = require('../data/factory');
 
-describe('city model', function() {
+describe('City model', function() {
+  const cities = getCities();
+
+  before(function() {
+    sinon.stub(City, 'find').returns(cities);
+  });
+
+  after(function() {
+    City.find.restore();
+  });
+
   describe('geonameids', function() {
-    const cities = getCities();
     let geonameids;
 
     before(async function() {
-      sinon.stub(City, 'find').returns(cities);
       geonameids = await City.geonameids();
     });
 
-    it(`should return a list of ${cities.length} numbers`, async function() {
+    it(`should return a list of ${cities.length} numbers`, function() {
       expect(geonameids).to.be.an('array');
       expect(geonameids.length).to.be.equal(cities.length);
       geonameids.forEach(geonameid => {
