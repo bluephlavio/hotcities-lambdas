@@ -1,9 +1,9 @@
 const { expect } = require('chai');
 const { getCities } = require('./data');
-const { getTemperatures } = require('../src/openweathermap');
+const { getWeather } = require('../src/openweathermap');
 
 describe('openweathermap', function() {
-  describe('getTemperatures', function() {
+  describe('getWeather', function() {
     this.timeout(10000);
 
     const cities = getCities();
@@ -12,7 +12,7 @@ describe('openweathermap', function() {
     let data = null;
 
     before(async function() {
-      data = await getTemperatures(geonameids);
+      data = await getWeather(geonameids);
     });
 
     it('should work', function() {
@@ -24,10 +24,10 @@ describe('openweathermap', function() {
     });
 
     it('should have a proper data structure', function() {
-      data.forEach(temperature => {
-        expect(temperature).to.have.property('geonameid');
-        expect(temperature).to.have.property('temp');
-        expect(temperature).to.have.property('timestamp');
+      data.forEach(entry => {
+        expect(entry).to.have.property('geonameid');
+        expect(entry).to.have.property('temp');
+        expect(entry).to.have.property('timestamp');
       });
     });
   });
