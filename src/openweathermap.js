@@ -14,9 +14,13 @@ module.exports.getWeather = async geonameids => {
         cityId: geonameid,
         units: 'metric'
       });
+      const temp = data && data.main ? data.main.temp : null;
+      if (!!temp) {
+        console.log(`No data found for ${geonameid}...`);
+      }
       weather.push({
         geonameid,
-        temp: data && data.main ? data.main.temp : null,
+        temp,
         timestamp: new Date()
       });
     } catch (err) {
