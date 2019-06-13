@@ -32,6 +32,15 @@ WeatherSchema.statics.geonameids = async function() {
   return weather.map(entry => entry.geonameid);
 };
 
+WeatherSchema.statics.findByGeonameid = async function(geonameid) {
+  return await findOne({ geonameid });
+};
+
+WeatherSchema.statics.exists = async function(geonameid) {
+  const result = await this.findByGeonameid(geonameid);
+  return !!result;
+};
+
 WeatherSchema.statics.missingDataGeonameids = async function() {
   const allGeonameids = await City.geonameids();
   const geonameids = await this.geonameids();
@@ -43,22 +52,20 @@ WeatherSchema.statics.ready = async function() {
   return missing.length == 0;
 };
 
-WeatherSchema.statics.oldest = async function(n) {
-  return await this.find()
-    .sort({ timestamp: 'asc' })
-    .limit(n);
+WeatherSchema.statics.withOlderDataGeonameids = async function(n) {
+  const all = await this.find();
+  older = _.chain(all)
+    .sortBy('timestamp')
+    .slice(0, n)
+    .value();
+  return older.map(entry => entry.geonameid);
 };
 
-WeatherSchema.statics.oldestGeonameids = async function(n) {
-  const oldest = await this.oldest(n);
-  return oldest.map(entry => entry.geonameid);
-};
-
-WeatherSchema.statics.needDataGeonameids = async function(n) {
+WeatherSchema.statics.queue = async function(n) {
   const missing = await this.missingDataGeonameids();
   if (missing.length < n) {
-    const oldest = await this.oldestGeonameids(n - missing.length);
-    return _.concat(missing, oldest);
+    const older = await this.withOlderDataGeonameids(n - missing.length);
+    return _.concat(missing, older);
   }
   return _.slice(missing, 0, n);
 };
