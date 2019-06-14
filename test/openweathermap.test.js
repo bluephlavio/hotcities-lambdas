@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const { getCities } = require('./data/factory');
-const { getWeather } = require('../src/openweathermap');
+const openweathermap = require('../src/openweathermap');
 
 describe('openweathermap', function() {
   describe('getWeather', function() {
@@ -12,7 +12,7 @@ describe('openweathermap', function() {
     let data = null;
 
     before(async function() {
-      data = await getWeather(geonameids);
+      data = await openweathermap.getWeather(geonameids);
     });
 
     it('should work', function() {

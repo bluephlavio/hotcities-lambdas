@@ -104,31 +104,36 @@ const searchPhotos = async (city, n = 10) => {
       .join(','),
     extras: 'url_l,owner_name,license'
   });
-  const photos = res.body.photos.photo;
-  return _.chain(photos)
-    .map(({ license: licenseid, ...rest }) => {
-      const { name, url } = getLicenseById(licenseid);
-      return {
-        license: { name, url },
+  if (res.body.photos && res.body.photos.photo) {
+    const photos = res.body.photos.photo;
+    return _.chain(photos)
+      .filter(photo => !!photo.url_l)
+      .map(({ license: licenseid, ...rest }) => {
+        const { name, url } = getLicenseById(licenseid);
+        return {
+          license: { name, url },
+          ...rest
+        };
+      })
+      .map(({ owner: ownerid, ownername: name, ...rest }) => ({
+        owner: {
+          name,
+          url: getUserUrl(ownerid)
+        },
         ...rest
-      };
-    })
-    .map(({ owner: ownerid, ownername: name, ...rest }) => ({
-      owner: {
-        name,
-        url: getUserUrl(ownerid)
-      },
-      ...rest
-    }))
-    .map(({ id, url_l: url, title, license, owner }) => ({
-      id,
-      geonameid,
-      url,
-      title,
-      license,
-      owner
-    }))
-    .value();
+      }))
+      .map(({ id, url_l: url, title, license, owner }) => ({
+        id,
+        geonameid,
+        url,
+        title,
+        license,
+        owner
+      }))
+      .value();
+  } else {
+    return [];
+  }
 };
 
 module.exports = {

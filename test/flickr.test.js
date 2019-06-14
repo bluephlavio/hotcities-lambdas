@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { searchPhotos } = require('../src/flickr');
+const flickr = require('../src/flickr');
 const { getCities } = require('./data/factory');
 
 describe('flickr', function() {
@@ -7,15 +7,15 @@ describe('flickr', function() {
     const cities = getCities();
     it('should return a list', async function() {
       for (const city of cities) {
-        const photos = await searchPhotos(city, 3);
+        const photos = await flickr.searchPhotos(city, 2);
         expect(photos).to.be.an('array');
       }
     });
 
     it('all elements in the list must have expected fields', async function() {
       for (const city of cities) {
-        const photos = await searchPhotos(city, 3);
-        expect(photos).to.be.an('array');
+        const photos = await flickr.searchPhotos(city, 2);
+        console.log(photos);
         photos.forEach(photo => {
           expect(photo).to.have.property('geonameid');
           expect(photo).to.have.property('url');
