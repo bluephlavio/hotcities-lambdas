@@ -1,11 +1,14 @@
 require('dotenv').config();
 
 const config = {
+  mongo: {
+    connection: process.env.MONGO_CONNECTION
+  },
   openweathermap: {
     key: process.env.OPENWEATHERMAP_KEY
   },
-  mongo: {
-    connection: process.env.MONGO_CONNECTION
+  flickr: {
+    key: process.env.FLICKR_KEY
   }
 };
 
