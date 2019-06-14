@@ -3,21 +3,29 @@ service: hotcities-lambdas
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
+  stage: ${opt:stage, 'dev'}
   region: eu-west-2
-  profile: hotcities-dev
+  profile: hotcities-${self:provider.stage}
   environment:
-    OPENWEATHERMAP_KEY: ${file(./serverless.env.yml):dev.OPENWEATHERMAP_KEY}
-    MONGO_CONNECTION: ${file(./serverless.env.yml):dev.MONGO_CONNECTION}
+    MONGO_CONNECTION: ${file(./serverless.env.yml):${self:provider.stage}.MONGO_CONNECTION}
+    OPENWEATHERMAP_KEY: ${file(./serverless.env.yml):${self:provider.stage}.OPENWEATHERMAP_KEY}
+    FLICKR_KEY: ${file(./serverless.env.yml):${self:provider.stage}.FLICKR_KEY}
+    TWITTER_CONSUMER_KEY: ${file(./serverless.env.yml):${self:provider.stage}.TWITTER_CONSUMER_KEY}
+    TWITTER_CONSUMER_SECRET: ${file(./serverless.env.yml):${self:provider.stage}.TWITTER_CONSUMER_SECRET}
+    TWITTER_ACCESS_TOKEN: ${file(./serverless.env.yml):${self:provider.stage}.TWITTER_ACCESS_TOKEN}
+    TWITTER_ACCESS_TOKEN_SECRET: ${file(./serverless.env.yml):${self:provider.stage}.TWITTER_ACCESS_TOKEN_SECRET}
 
 functions:
   fetcher:
     handler: src/handler.fetcher
-    timeout: 30
+    timeout: 60
     events:
       - schedule: cron(0/1 * * * ? *)
   recorder:
     handler: src/handler.recorder
-    timeout: 30
+    timeout: 60
     events:
       - schedule: cron(0/10 * * * ? *)
+  twitterbot:
+    handler: src/hanlder.twitterbot
+    timeout: 60
