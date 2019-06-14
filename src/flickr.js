@@ -85,7 +85,7 @@ const getUserUrl = id => {
   return `https://www.flickr.com/people/${id}`;
 };
 
-const searchPhotos = async (city, n = 100) => {
+const searchPhotos = async (city, n = 10) => {
   const { lat, lng: lon, name, geonameid } = city;
   const res = await flickr.photos.search({
     format: 'json',

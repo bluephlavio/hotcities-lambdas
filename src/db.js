@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const config = require('./config');
 
-const openDb = async () => {
+const open = async () => {
   try {
     return await mongoose.connect(config.mongo.connection, {
       useNewUrlParser: true,
@@ -13,7 +13,7 @@ const openDb = async () => {
   }
 };
 
-const closeDb = async () => {
+const close = async () => {
   try {
     return await mongoose.connection.close();
   } catch (err) {
