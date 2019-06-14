@@ -120,7 +120,8 @@ const searchPhotos = async (city, n = 100) => {
       },
       ...rest
     }))
-    .map(({ url_l: url, title, license, owner }) => ({
+    .map(({ id, url_l: url, title, license, owner }) => ({
+      id,
       geonameid,
       url,
       title,

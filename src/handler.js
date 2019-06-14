@@ -46,7 +46,46 @@ module.exports.recorder = async () => {
       console.log('Record saved to db.');
     }
     await closeDb();
+    console.log('Db connection closed.');
   } catch (err) {
     console.log(`recorder: ${err}`);
+  }
+};
+
+module.exports.twitterbot = async () => {
+  try {
+    await openDb();
+    console.log('Connected to db.');
+    const record = await Record.current();
+    const { geonameid, temp } = record;
+    const city = await City.findByGeonameid(geonameid);
+    const { name } = city;
+    console.log(`Current record: ${temp}°C in ${name}.`);
+    const tweet = new Tweet({
+      geonameid,
+      temp
+    });
+    const tweetable = await tweet.tweetable();
+    if (tweetable) {
+      console.log('Status is updatable...');
+      const photos = await searchPhotos(city);
+      console.log(`${photos.length} photos retrieved for ${name}.`);
+      const photo = _.sample(photos);
+      const { id: photoid } = photo;
+      console.log(`Photo with id ${photoid} choosed.`);
+      tweet.photoid = photoid;
+      const status = await tweet.status();
+      console.log(`Ready to post: ${status}...`);
+      await post(status);
+      console.log('Status posted.');
+      await tweet.save();
+      console.log('Tweet saved to db.');
+    } else {
+      console.log('Status must not be updated.');
+    }
+    await closeDb();
+    console.log('Db connection closed.');
+  } catch (err) {
+    console.log(`twitterbot: ${err}`);
   }
 };

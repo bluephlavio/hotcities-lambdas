@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const PhotoSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true
+  },
   geonameid: {
     type: Number,
     required: true

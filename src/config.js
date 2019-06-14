@@ -9,6 +9,12 @@ const config = {
   },
   flickr: {
     key: process.env.FLICKR_KEY
+  },
+  twitter: {
+    accessToken: process.env.TWITTER_ACCESS_TOKEN,
+    accessTokenSecret: process.env.TWITTER_ACCESS_TOKE_SECRET,
+    consumerKey: process.env.TWITTER_CONSUMER_KEY,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET
   }
 };
 

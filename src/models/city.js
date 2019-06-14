@@ -54,4 +54,12 @@ CitySchema.statics.findByGeonameid = async function(geonameid) {
   return await this.findOne({ geonameid });
 };
 
+CitySchema.virtual('names').get(function() {
+  const names = [this.name];
+  if (this.localname && this.localname !== this.name) {
+    names.push(this.localname);
+  }
+  return names;
+});
+
 module.exports = mongoose.model('City', CitySchema);
