@@ -16,6 +16,11 @@ const PhotoSchema = new mongoose.Schema({
   title: {
     type: String
   },
+  timestamp: {
+    type: Date,
+    default: Date.now,
+    required: true
+  },
   license: {
     name: {
       type: String
