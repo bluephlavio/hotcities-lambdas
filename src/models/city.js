@@ -41,19 +41,6 @@ const CitySchema = new mongoose.Schema({
   }
 });
 
-CitySchema.statics.list = async function() {
-  return await this.find();
-};
-
-CitySchema.statics.geonameids = async function() {
-  const cities = await this.list();
-  return cities.map(city => city.geonameid);
-};
-
-CitySchema.statics.findByGeonameid = async function(geonameid) {
-  return await this.findOne({ geonameid });
-};
-
 CitySchema.virtual('names').get(function() {
   const names = [this.name];
   if (this.localname && this.localname !== this.name) {
@@ -61,5 +48,18 @@ CitySchema.virtual('names').get(function() {
   }
   return names;
 });
+
+CitySchema.statics.list = async function() {
+  return await this.find();
+};
+
+CitySchema.statics.findByGeonameid = async function(geonameid) {
+  return await this.findOne({ geonameid });
+};
+
+CitySchema.statics.geonameids = async function() {
+  const cities = await this.list();
+  return cities.map(city => city.geonameid);
+};
 
 module.exports = mongoose.model('City', CitySchema);

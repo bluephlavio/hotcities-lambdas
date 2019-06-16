@@ -80,3 +80,59 @@ module.exports.getRecords = () => {
     }
   ];
 };
+
+module.exports.getPhotos = () => {
+  return [
+    {
+      id: 22996521903,
+      geonameid: 292968,
+      url: 'https://live.staticflickr.com/648/22996521903_6419c46526_b.jpg',
+      title: 'In the holiday spirit @acsabudhabi',
+      license: { name: 'Attribution License', url: 'https://creativecommons.org/licenses/by/2.0/' },
+      owner: { name: 'ToGa Wanderings', url: 'https://www.flickr.com/people/69031678@N00' },
+      timestamp: '2019-06-16T17:27:31.227Z'
+    },
+    {
+      id: 47944445861,
+      geonameid: 292223,
+      url: 'https://live.staticflickr.com/65535/47944445861_4ace478814_b.jpg',
+      title: 'Creek side view of Dubai downtown',
+      license: { name: 'Attribution License', url: 'https://creativecommons.org/licenses/by/2.0/' },
+      owner: { name: 'paulmorj', url: 'https://www.flickr.com/people/26812398@N00' },
+      timestamp: '2019-06-16T17:27:32.162Z'
+    },
+    {
+      id: 47037942514,
+      geonameid: 292223,
+      url: 'https://live.staticflickr.com/65535/47037942514_15615590b0_b.jpg',
+      title: 'Burj Khalifa',
+      license: {
+        name: 'Attribution-ShareAlike License',
+        url: 'https://creativecommons.org/licenses/by-sa/2.0/'
+      },
+      owner: { name: 'Strocchi', url: 'https://www.flickr.com/people/46383895@N00' },
+      timestamp: '2019-06-16T17:27:32.164Z'
+    },
+    {
+      id: 47944445861,
+      geonameid: 292672,
+      url: 'https://live.staticflickr.com/65535/47944445861_4ace478814_b.jpg',
+      title: 'Creek side view of Dubai downtown',
+      license: { name: 'Attribution License', url: 'https://creativecommons.org/licenses/by/2.0/' },
+      owner: { name: 'paulmorj', url: 'https://www.flickr.com/people/26812398@N00' },
+      timestamp: '2019-06-16T17:27:32.656Z'
+    },
+    {
+      id: 47037942514,
+      geonameid: 292672,
+      url: 'https://live.staticflickr.com/65535/47037942514_15615590b0_b.jpg',
+      title: 'Burj Khalifa',
+      license: {
+        name: 'Attribution-ShareAlike License',
+        url: 'https://creativecommons.org/licenses/by-sa/2.0/'
+      },
+      owner: { name: 'Strocchi', url: 'https://www.flickr.com/people/46383895@N00' },
+      timestamp: '2019-06-16T17:27:32.657Z'
+    }
+  ];
+};

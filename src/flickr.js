@@ -1,5 +1,6 @@
 const Flickr = require('flickr-sdk');
 const _ = require('lodash');
+const Photo = require('./models/photo');
 const config = require('./config');
 
 const flickr = new Flickr(config.flickr.key);
@@ -85,7 +86,9 @@ const getUserUrl = id => {
   return `https://www.flickr.com/people/${id}`;
 };
 
-const searchPhotos = async (city, n = 10) => {
+const searchPhotos = async (city, options) => {
+  const { limit } = options;
+  const n = limit || 3;
   const { lat, lng: lon, name, geonameid } = city;
   const res = await flickr.photos.search({
     format: 'json',
@@ -122,14 +125,17 @@ const searchPhotos = async (city, n = 10) => {
         },
         ...rest
       }))
-      .map(({ id, url_l: url, title, license, owner }) => ({
-        id,
-        geonameid,
-        url,
-        title,
-        license,
-        owner
-      }))
+      .map(
+        ({ id, url_l: url, title, license, owner }) =>
+          new Photo({
+            id,
+            geonameid,
+            url,
+            title,
+            license,
+            owner
+          })
+      )
       .value();
   } else {
     return [];
