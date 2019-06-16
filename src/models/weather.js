@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const City = require('./city');
+const Record = require('./record');
 
 const WeatherSchema = new mongoose.Schema({
   timestamp: {
@@ -92,7 +93,8 @@ WeatherSchema.statics.hottests = async function() {
 
 WeatherSchema.statics.record = async function() {
   const candidates = await this.hottests();
-  return _.sample(candidates);
+  const record = _.sample(candidates);
+  return new record(record);
 };
 
 module.exports = mongoose.model('Weather', WeatherSchema);
