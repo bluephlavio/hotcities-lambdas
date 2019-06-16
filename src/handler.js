@@ -17,7 +17,7 @@ module.exports.fetcher = async () => {
     const weather = await openweathermap.getWeather(geonameids);
     console.log(`${temperatures.length} weather data fetched from openweathermap.`);
     for (const entry of weather) {
-      await new Weather(entry).save();
+      await entry.save();
     }
     console.log('Weather data saved to db.');
     await db.close();
@@ -39,12 +39,9 @@ module.exports.recorder = async () => {
       const city = await City.findByGeonameid(geonameid);
       const { name } = city;
       console.log(`Record found: ${temp} °C in ${name}!`);
-      await new Record({
-        geonameid,
-        temp
-      }).save();
+      await record.save();
       console.log('Record saved to db.');
-      const photos = await flickr.searchPhotos(city);
+      const photos = await flickr.searchPhotos(city, 3);
       console.log(`${photos.length} fetched for ${name}.`);
       for (const photo of photos) {
         const { id } = photo;
@@ -68,20 +65,11 @@ module.exports.twitterbot = async () => {
     const city = await City.findByGeonameid(geonameid);
     const { name } = city;
     console.log(`Current record: ${temp}°C in ${name}.`);
-    const tweet = new Tweet({
-      geonameid,
-      temp
-    });
+    const tweet = await Tweet.createFromRecord(record);
     const tweetable = await tweet.tweetable();
     if (tweetable) {
       console.log('Status is updatable...');
-      const photos = await Photo.findByGeonameid(geonameid);
-      console.log(`${photos.length} photos retrieved for ${name}.`);
-      const photo = _.sample(photos);
-      const { id: photoid } = photo;
-      console.log(`Photo with id ${photoid} choosed.`);
-      tweet.photoid = photoid;
-      const status = await tweet.status();
+      const { status } = tweet;
       console.log(`Ready to post: ${status}...`);
       await twitter.post(status);
       console.log('Status posted.');

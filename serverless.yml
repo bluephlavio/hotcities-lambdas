@@ -20,7 +20,7 @@ functions:
     handler: src/handler.fetcher
     timeout: 60
     events:
-      - schedule: cron(0/1 * * * ? *)
+      - schedule: cron(0/2 * * * ? *)
   recorder:
     handler: src/handler.recorder
     timeout: 60
@@ -29,3 +29,5 @@ functions:
   twitterbot:
     handler: src/hanlder.twitterbot
     timeout: 60
+    events:
+      - schedule: cron(0 * * * ? *)
