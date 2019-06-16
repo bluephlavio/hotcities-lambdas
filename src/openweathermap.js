@@ -1,4 +1,5 @@
 const OpenWeatherMap = require('openweathermap-api-module');
+const Weather = require('./models/weather');
 const config = require('./config');
 
 module.exports.MAX_CITIES_PER_CALL = 20;
@@ -18,11 +19,12 @@ module.exports.getWeather = async geonameids => {
       if (!temp) {
         console.log(`No data found for ${geonameid}...`);
       }
-      weather.push({
-        geonameid,
-        temp,
-        timestamp: new Date()
-      });
+      weather.push(
+        new Weather({
+          geonameid,
+          temp
+        })
+      );
     } catch (err) {
       console.log(`Problem fetching data for ${geonameid}...`);
     }
