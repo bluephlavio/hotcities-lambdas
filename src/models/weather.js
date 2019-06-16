@@ -94,7 +94,7 @@ WeatherSchema.statics.hottests = async function() {
 WeatherSchema.statics.record = async function() {
   const candidates = await this.hottests();
   const record = _.sample(candidates);
-  return new record(record);
+  return new Record(record);
 };
 
 module.exports = mongoose.model('Weather', WeatherSchema);
