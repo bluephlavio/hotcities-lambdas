@@ -23,7 +23,9 @@
     "dotenv": "^8.0.0",
     "flickr-sdk": "^3.9.0",
     "mongoose": "^5.5.12",
+    "npm": "^6.9.0",
     "openweathermap-api-module": "^0.0.1",
+    "serverless": "^1.45.1",
     "twit": "^2.2.11"
   }
 }

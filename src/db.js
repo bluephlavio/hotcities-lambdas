@@ -1,28 +1,23 @@
 const mongoose = require('mongoose');
 const config = require('./config');
 
-const open = async () => {
+module.exports.open = async () => {
   try {
     return await mongoose.connect(config.mongo.connection, {
       useNewUrlParser: true,
       useFindAndModify: false
     });
   } catch (err) {
-    console.log(`openDb: ${err}`);
+    console.log(`open: ${err}`);
     throw err;
   }
 };
 
-const close = async () => {
+module.exports.close = async () => {
   try {
     return await mongoose.connection.close();
   } catch (err) {
-    console.log(`closeDb: ${err}`);
+    console.log(`close: ${err}`);
     throw err;
   }
-};
-
-module.exports = {
-  openDb,
-  closeDb
 };
