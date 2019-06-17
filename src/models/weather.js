@@ -23,7 +23,7 @@ WeatherSchema.statics.list = async function() {
 };
 
 WeatherSchema.statics.temperatures = async function() {
-  const weather = await this.list();
+  const weather = await this.find({ temp: { $ne: null } });
   return weather.map(entry => entry.temp);
 };
 
@@ -98,7 +98,11 @@ WeatherSchema.statics.hottests = async function() {
 WeatherSchema.statics.record = async function() {
   const candidates = await this.hottests();
   const record = _.sample(candidates);
-  return new Record(record);
+  const { geonameid, temp } = record;
+  return new Record({
+    geonameid,
+    temp
+  });
 };
 
 module.exports = mongoose.model('Weather', WeatherSchema);

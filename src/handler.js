@@ -32,7 +32,7 @@ module.exports.recorder = async () => {
     await db.open();
     console.log('Connected to db.');
     const ready = await Weather.ready();
-    console.log(`Weather data ${ready ? '' : 'not'} fetched for all cities.`);
+    console.log(`Weather data${ready ? ' ' : ' not already '}fetched for all cities.`);
     if (ready) {
       const record = await Weather.record();
       const { geonameid, temp } = record;
@@ -42,7 +42,7 @@ module.exports.recorder = async () => {
       await record.save();
       console.log('Record saved to db.');
       const photos = await flickr.searchPhotos(city, 3);
-      console.log(`${photos.length} fetched for ${name}.`);
+      console.log(`${photos.length} photos fetched for ${name}.`);
       for (const photo of photos) {
         const { id } = photo;
         await Photo.findOneAndUpdate({ id }, photo, { upsert: true });
