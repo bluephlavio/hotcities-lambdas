@@ -30,6 +30,9 @@ const PhotoSchema = new mongoose.Schema({
     }
   },
   owner: {
+    id: {
+      type: String
+    },
     name: {
       type: String
     },
