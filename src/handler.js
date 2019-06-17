@@ -2,7 +2,7 @@ const openweathermap = require('./openweathermap');
 const flickr = require('./flickr');
 const twitter = require('./twitter');
 const db = require('./db');
-const City = require('./models/City');
+const City = require('./models/city');
 const Weather = require('./models/weather');
 const Record = require('./models/record');
 const Photo = require('./models/photo');
@@ -15,9 +15,9 @@ module.exports.fetcher = async () => {
     const geonameids = await Weather.queue(openweathermap.MAX_CALLS_PER_MINUTE);
     console.log(`${geonameids.length} geonameids selected for weather data fetching.`);
     const weather = await openweathermap.getWeather(geonameids);
-    console.log(`${temperatures.length} weather data fetched from openweathermap.`);
+    console.log(`${weather.length} weather data fetched from openweathermap.`);
     for (const entry of weather) {
-      await entry.save();
+      await Weather.register(entry);
     }
     console.log('Weather data saved to db.');
     await db.close();

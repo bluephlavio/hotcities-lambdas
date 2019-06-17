@@ -14,8 +14,7 @@ const WeatherSchema = new mongoose.Schema({
     required: true
   },
   temp: {
-    type: Number,
-    required: true
+    type: Number
   }
 });
 
@@ -40,6 +39,11 @@ WeatherSchema.statics.findByGeonameid = async function(geonameid) {
 WeatherSchema.statics.exists = async function(geonameid) {
   const result = await this.findByGeonameid(geonameid);
   return !!result;
+};
+
+WeatherSchema.statics.register = async function(entry) {
+  const { geonameid, temp, timestamp } = entry;
+  return await this.findOneAndUpdate({ geonameid }, { temp, timestamp }, { upsert: true });
 };
 
 WeatherSchema.statics.missingDataGeonameids = async function() {
