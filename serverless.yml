@@ -27,7 +27,7 @@ functions:
     events:
       - schedule: cron(0/10 * * * ? *)
   twitterbot:
-    handler: src/hanlder.twitterbot
+    handler: src/handler.twitterbot
     timeout: 60
     events:
       - schedule: cron(0 * * * ? *)
