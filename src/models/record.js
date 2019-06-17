@@ -18,21 +18,15 @@ const RecordSchema = new mongoose.Schema({
 });
 
 RecordSchema.statics.current = async function() {
-  return await this.find()
-    .sort({ timestamp: 'desc' })
-    .limit(1);
+  return await this.findOne().sort({ timestamp: 'desc' });
 };
 
 RecordSchema.statics.first = async function() {
-  return await this.find()
-    .sort({ timestamp: 'asc' })
-    .limit(1);
+  return await this.findOne().sort({ timestamp: 'asc' });
 };
 
 RecordSchema.statics.last = async function() {
-  return await this.find()
-    .sort({ timestamp: 'desc' })
-    .limit(1);
+  return await this.findOne().sort({ timestamp: 'desc' });
 };
 
 RecordSchema.statics.startTime = async function() {
@@ -45,22 +39,6 @@ RecordSchema.statics.stopTime = async function() {
   const last = await this.last();
   const { timestamp } = last;
   return timestamp;
-};
-
-RecordSchema.statics.hottests = async function(from, to) {
-  const candidates = await this.find()
-    .sort({ timestamp: 'asc' })
-    .where('timestamp')
-    .gt(from)
-    .lt(to);
-  const maxTemp = _.max(candidates.map(candidate => candidate.temp));
-  return _.filter(candidates, candidate => candidate.temp == maxTemp);
-};
-
-RecordSchema.statics.allTimeHottests = async function() {
-  const from = await this.startTime();
-  const to = await this.stopTime();
-  return await this.hottests(from, to);
 };
 
 module.exports = mongoose.model('Record', RecordSchema);
