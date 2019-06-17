@@ -120,6 +120,7 @@ const searchPhotos = async (city, options) => {
       })
       .map(({ owner: ownerid, ownername: name, ...rest }) => ({
         owner: {
+          id: ownerid,
           name,
           url: getUserUrl(ownerid)
         },
