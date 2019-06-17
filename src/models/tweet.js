@@ -13,7 +13,7 @@ const TweetSchema = new mongoose.Schema({
     required: true
   },
   photourl: {
-    type: Number
+    type: String
   },
   status: {
     type: String,
@@ -29,15 +29,16 @@ const TweetSchema = new mongoose.Schema({
 TweetSchema.statics.createFromRecord = async function(record) {
   const { geonameid, temp } = record;
   const city = await City.findByGeonameid(geonameid);
-  const { name, names, countrycode } = city;
+  const { name, names, countrycode, countryname } = city;
   const tags = _.chain(['hotcitiesworld'])
     .concat(names ? names : [])
+    .concat(countryname)
     .map(tag => `#${tag.toLowerCase().replace(/(\s|\')/g, '')}`)
     .value()
     .join(' ');
   const photos = await Photo.findByGeonameid(geonameid);
   const photo = _.sample(photos);
-  const { url: photourl } = photo;
+  const photourl = `http://www.flickr.com/photos/${photo.owner.id}/${photo.id}`;
   const status = `${temp} °C in ${name} (${countrycode}) now! ${tags} ${photourl}`;
   return new this({
     geonameid,
@@ -48,13 +49,14 @@ TweetSchema.statics.createFromRecord = async function(record) {
 };
 
 TweetSchema.statics.last = async function() {
-  return await this.find()
-    .sort({ timestamp: 'desc' })
-    .limit(1);
+  return await this.findOne().sort({ timestamp: 'desc' });
 };
 
 TweetSchema.methods.tweetable = async function() {
   const last = await this.model('Tweet').last();
+  if (!last) {
+    return true;
+  }
   const { geonameid, temp, timestamp } = last;
   if (this.timestamp > timestamp) {
     if (this.geonameid == geonameid) {
