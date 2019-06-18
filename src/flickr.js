@@ -5,10 +5,6 @@ const config = require('./config');
 
 const flickr = new Flickr(config.flickr.key);
 
-const taggify = tag => {
-  return tag.toLowerCase().replace(/\s/g, '');
-};
-
 const commonTags = [
   'panorama',
   'skyline',
@@ -78,13 +74,13 @@ const licenses = [
 
 const okLicenses = [1, 2, 4, 5, 7, 9, 10];
 
-const getLicenseById = id => {
-  return _.find(licenses, license => license.id == id);
-};
+const taggify = tag => tag.toLowerCase().replace(/\s/g, '');
 
-const getUserUrl = id => {
-  return `https://www.flickr.com/people/${id}`;
-};
+const getLicenseById = id => _.find(licenses, license => license.id == id);
+
+const getPhotoPage = (ownerid, photoid) => `https://www.flickr.com/photos/${ownerid}/${photoid}`;
+
+const getOwnerPage = id => `https://www.flickr.com/people/${id}`;
 
 const searchPhotos = async (city, options) => {
   const { limit } = options;
@@ -118,23 +114,27 @@ const searchPhotos = async (city, options) => {
           ...rest
         };
       })
-      .map(({ owner: ownerid, ownername: name, ...rest }) => ({
+      .map(({ id, url_l: src, owner: ownerid, ownername: name, ...rest }) => ({
+        id,
+        src,
+        url: getPhotoPage(ownerid, id),
         owner: {
           id: ownerid,
           name,
-          url: getUserUrl(ownerid)
+          url: getOwnerPage(ownerid)
         },
         ...rest
       }))
       .map(
-        ({ id, url_l: url, title, license, owner }) =>
+        ({ id, src, url, title, owner, license }) =>
           new Photo({
             id,
             geonameid,
+            src,
             url,
             title,
-            license,
-            owner
+            owner,
+            license
           })
       )
       .value();

@@ -17,6 +17,7 @@ describe('flickr', function() {
         const photos = await flickr.searchPhotos(city, { limit: 2 });
         photos.forEach(photo => {
           expect(photo).to.have.property('geonameid');
+          expect(photo).to.have.property('src');
           expect(photo).to.have.property('url');
           expect(photo).to.have.property('title');
           expect(photo).to.have.nested.property('license.name');
@@ -24,6 +25,7 @@ describe('flickr', function() {
           expect(photo).to.have.nested.property('owner.name');
           expect(photo).to.have.nested.property('owner.url');
           expect(photo.geonameid).to.be.a('number');
+          expect(photo.src).to.be.a('string');
           expect(photo.url).to.be.a('string');
           expect(photo.title).to.be.a('string');
           expect(photo.license.name).to.be.a('string');

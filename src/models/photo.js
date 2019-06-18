@@ -5,23 +5,29 @@ const PhotoSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  geonameid: {
-    type: Number,
-    required: true
-  },
-  url: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String
-  },
   timestamp: {
     type: Date,
     default: Date.now,
     required: true
   },
-  license: {
+  geonameid: {
+    type: Number,
+    required: true
+  },
+  src: {
+    type: String,
+    required: true
+  },
+  url: {
+    type: String
+  },
+  title: {
+    type: String
+  },
+  owner: {
+    id: {
+      type: String
+    },
     name: {
       type: String
     },
@@ -29,10 +35,7 @@ const PhotoSchema = new mongoose.Schema({
       type: String
     }
   },
-  owner: {
-    id: {
-      type: String
-    },
+  license: {
     name: {
       type: String
     },
