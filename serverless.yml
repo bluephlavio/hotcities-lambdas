@@ -7,13 +7,13 @@ provider:
   region: eu-west-2
   profile: hotcities-${self:provider.stage}
   environment:
-    MONGO_CONNECTION: ${file(./serverless.env.yml):${self:provider.stage}.MONGO_CONNECTION}
-    OPENWEATHERMAP_KEY: ${file(./serverless.env.yml):${self:provider.stage}.OPENWEATHERMAP_KEY}
-    FLICKR_KEY: ${file(./serverless.env.yml):${self:provider.stage}.FLICKR_KEY}
-    TWITTER_CONSUMER_KEY: ${file(./serverless.env.yml):${self:provider.stage}.TWITTER_CONSUMER_KEY}
-    TWITTER_CONSUMER_SECRET: ${file(./serverless.env.yml):${self:provider.stage}.TWITTER_CONSUMER_SECRET}
-    TWITTER_ACCESS_TOKEN: ${file(./serverless.env.yml):${self:provider.stage}.TWITTER_ACCESS_TOKEN}
-    TWITTER_ACCESS_TOKEN_SECRET: ${file(./serverless.env.yml):${self:provider.stage}.TWITTER_ACCESS_TOKEN_SECRET}
+    MONGO_CONNECTION: ${self:custom.secrets}.MONGO_CONNECTION
+    OPENWEATHERMAP_KEY: ${self:custom.secrets}.OPENWEATHERMAP_KEY
+    FLICKR_KEY: ${self:custom.secrets}.FLICKR_KEY
+    TWITTER_CONSUMER_KEY: ${self:custom.secrets}.TWITTER_CONSUMER_KEY
+    TWITTER_CONSUMER_SECRET: ${self:custom.secrets}.TWITTER_CONSUMER_SECRET
+    TWITTER_ACCESS_TOKEN: ${self:custom.secrets}.TWITTER_ACCESS_TOKEN
+    TWITTER_ACCESS_TOKEN_SECRET: ${self:custom.secrets}.TWITTER_ACCESS_TOKEN_SECRET
 
 functions:
   fetcher:
@@ -29,5 +29,8 @@ functions:
   twitterbot:
     handler: src/handler.twitterbot
     timeout: 60
-    events:
-      - schedule: cron(0 * * * ? *)
+    # events:
+    #   - schedule: cron(0 * * * ? *)
+
+custom:
+  secrets: ${file(./serverless.env.yml):${self:provider.stage}}
