@@ -70,7 +70,7 @@ module.exports.twitterbot = async () => {
       console.log('Status is updatable...');
       const { status } = tweet;
       console.log(`Ready to post: ${status}...`);
-      await twitter.post(status);
+      await twitter.post(tweet);
       console.log('Status posted.');
       await tweet.save();
       console.log('Tweet saved to db.');
