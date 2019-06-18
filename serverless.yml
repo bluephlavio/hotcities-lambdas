@@ -16,6 +16,12 @@ provider:
     TWITTER_ACCESS_TOKEN_SECRET: ${self:custom.secrets}.TWITTER_ACCESS_TOKEN_SECRET
 
 functions:
+  api:
+    handler: src/handler.api
+    events:
+      - http:
+          path: cities
+          method: get
   fetcher:
     handler: src/handler.fetcher
     timeout: 60
@@ -33,4 +39,4 @@ functions:
     #   - schedule: cron(0 * * * ? *)
 
 custom:
-  secrets: ${file(./serverless.env.yml):${self:provider.stage}}
+  secrets: file(./serverless.env.yml):${self:provider.stage}
