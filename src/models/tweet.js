@@ -39,7 +39,7 @@ TweetSchema.statics.createFromRecord = async function(record) {
   const photos = await Photo.findByGeonameid(geonameid);
   const photo = _.sample(photos);
   const photourl = `http://www.flickr.com/photos/${photo.owner.id}/${photo.id}`;
-  const status = `${temp} °C in ${name} (${countrycode}) now! ${tags} ${photourl}`;
+  const status = `${Math.round(temp)} °C in ${name} (${countrycode}) now! ${tags}`;
   return new this({
     geonameid,
     temp,
