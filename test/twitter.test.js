@@ -1,10 +1,10 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 const _ = require('lodash');
-const City = require('../../src/models/city');
-const Photo = require('../../src/models/photo');
-const Tweet = require('../../src/models/tweet');
-const factory = require('../data/factory');
+const City = require('../src/models/city');
+const Photo = require('../src/models/photo');
+const twitter = require('../src/twitter');
+const factory = require('./data/factory');
 
 describe('Tweet model', function() {
   before(async function() {
@@ -30,11 +30,11 @@ describe('Tweet model', function() {
     City.findOne.restore();
     Photo.find.restore();
   });
-  describe('createFromRecord', function() {
+  describe('createTweetFromRecord', function() {
     it('should return nice tweet objects', async function() {
       const records = factory.getRecords();
       for (const record of records) {
-        const tweet = await Tweet.createFromRecord(record);
+        const tweet = await twitter.createTweetFromRecord(record);
         expect(tweet.status).to.be.ok;
       }
     });

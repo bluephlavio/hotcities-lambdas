@@ -6,7 +6,6 @@ const City = require('./models/city');
 const Weather = require('./models/weather');
 const Record = require('./models/record');
 const Photo = require('./models/photo');
-const Tweet = require('./models/tweet');
 
 module.exports.fetcher = async () => {
   try {
@@ -65,7 +64,7 @@ module.exports.twitterbot = async () => {
     const city = await City.findByGeonameid(geonameid);
     const { name } = city;
     console.log(`Current record: ${temp}°C in ${name}.`);
-    const tweet = await Tweet.createFromRecord(record);
+    const tweet = await twitter.createTweetFromRecord(record);
     const tweetable = await tweet.tweetable();
     if (tweetable) {
       console.log('Status is updatable...');

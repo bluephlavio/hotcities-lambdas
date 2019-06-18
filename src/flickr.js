@@ -82,7 +82,7 @@ const getPhotoPage = (ownerid, photoid) => `https://www.flickr.com/photos/${owne
 
 const getOwnerPage = id => `https://www.flickr.com/people/${id}`;
 
-const searchPhotos = async (city, options) => {
+module.exports.searchPhotos = async (city, options) => {
   const { limit } = options;
   const n = limit || 3;
   const { lat, lng: lon, name, geonameid } = city;
@@ -141,8 +141,4 @@ const searchPhotos = async (city, options) => {
   } else {
     return [];
   }
-};
-
-module.exports = {
-  searchPhotos
 };
