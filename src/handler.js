@@ -1,11 +1,12 @@
 const openweathermap = require('./openweathermap');
-const flickr = require('./flickr');
-const twitter = require('./twitter');
 const db = require('./db');
 const City = require('./models/city');
 const Weather = require('./models/weather');
 const Record = require('./models/record');
 const Photo = require('./models/photo');
+const flickr = require('./flickr');
+const twitter = require('./twitter');
+const api = require('./api');
 
 module.exports.fetcher = async () => {
   try {
@@ -83,3 +84,5 @@ module.exports.twitterbot = async () => {
     console.log(`twitterbot: ${err}`);
   }
 };
+
+module.exports.api = api;
