@@ -45,13 +45,7 @@ module.exports.filterMiddleware = (...keys) => (req, res, next) => {
 module.exports.sortMiddleware = (...keys) => (req, res, next) => {
   const { query } = req;
   const { cursor } = res;
-  const rules = keys.length
-    ? keys
-    : _.isArray(query.sort)
-    ? query.sort
-    : query.sort
-    ? [query.sort]
-    : [];
+  const rules = keys.length ? keys : query.sort ? query.sort.split(',') : [];
   if (rules.length) {
     const rulesObj = Object.assign(
       {},
@@ -63,6 +57,7 @@ module.exports.sortMiddleware = (...keys) => (req, res, next) => {
 };
 
 module.exports.paginationMiddleware = (...keys) => (req, res, next) => {
+  const { query } = req;
   const { cursor } = res;
   const skip = keys.length ? keys[0] : parseInt(req.query.skip, 10) || 0;
   if (skip) {
