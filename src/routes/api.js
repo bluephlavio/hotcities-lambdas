@@ -16,7 +16,7 @@ router.get(
   buildCursorMiddleware(City),
   // filterMiddleware('geonameid', 'name', 'population', 'countrycode', 'timezone', 'lng', 'lat'),
   sortMiddleware(),
-  // paginationMiddleware(),
+  paginationMiddleware(),
   get()
 );
 

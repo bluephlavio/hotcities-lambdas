@@ -42,29 +42,36 @@ module.exports.filterMiddleware = (...keys) => (req, res, next) => {
   next();
 };
 
-module.exports.sortMiddleware = (...keys) => (req, res, next) => {
+module.exports.sortMiddleware = sortObj => (req, res, next) => {
   const { query } = req;
   const { cursor } = res;
-  const rules = keys.length ? keys : query.sort ? query.sort.split(',') : [];
-  if (rules.length) {
-    const rulesObj = Object.assign(
-      {},
-      ...rules.map(rule => (rule[0] == '-' ? { [rule.slice(1)]: -1 } : { [rule]: 1 }))
-    );
-    cursor.sort(rulesObj);
+  if (sortObj) {
+    cursor.sort(sortObj);
+  } else {
+    const rules = query.sort ? query.sort.split(',') : null;
+    if (rules) {
+      const rulesObj = Object.assign(
+        {},
+        ...rules.map(rule => (rule[0] == '-' ? { [rule.slice(1)]: -1 } : { [rule]: 1 }))
+      );
+      cursor.sort(rulesObj);
+    }
   }
   next();
 };
 
-module.exports.paginationMiddleware = (...keys) => (req, res, next) => {
+module.exports.paginationMiddleware = paginationObj => (req, res, next) => {
   const { query } = req;
   const { cursor } = res;
-  const skip = keys.length ? keys[0] : parseInt(req.query.skip, 10) || 0;
-  if (skip) {
+  if (paginationObj) {
+    const skip = paginationObj.skip || 0;
     cursor.skip(skip);
-  }
-  const limit = keys.length > 1 ? keys[1] : parseInt(req.query.limit, 10) || 0;
-  if (limit) {
+    const limit = paginationObj.limit || 10;
+    cursor.limit(limit);
+  } else {
+    const skip = parseInt(query.skip, 10) || 0;
+    cursor.skip(skip);
+    const limit = parseInt(query.limit, 10) || 10;
     cursor.limit(limit);
   }
   next();
