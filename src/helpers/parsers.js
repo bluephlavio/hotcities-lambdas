@@ -22,20 +22,31 @@ const parseFilterQueryParam = key => value => {
       return { [key]: parseString(e) };
     }
   });
-  const query = {};
-  for (const rule of rules) {
+  const match = {};
+  rules.forEach(rule => {
     for (const key in rule) {
-      if (query[key]) {
-        Object.assign(query[key], rule[key]);
+      if (match[key]) {
+        Object.assign(match[key], rule[key]);
       } else {
-        Object.assign(query, rule);
+        Object.assign(match, rule);
       }
     }
-  }
-  return query;
+  });
+  return match;
+};
+
+const parseSortQueryParam = value => {
+  const elements = value.split(',');
+  const rules = elements.map(e => (e.startsWith('-') ? { [e.slice(1)]: -1 } : { [e]: 1 }));
+  const sort = {};
+  rules.forEach(rule => {
+    Object.assign(sort, rule);
+  });
+  return sort;
 };
 
 module.exports = {
   parseString,
-  parseFilterQueryParam
+  parseFilterQueryParam,
+  parseSortQueryParam
 };
