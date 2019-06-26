@@ -1,23 +1,35 @@
 const express = require('express');
 const City = require('../models/city');
 const {
-  buildCursorMiddleware,
   matchMiddleware,
   filterMiddleware,
   sortMiddleware,
   paginationMiddleware
 } = require('../middlewares/api');
-const { get } = require('../controllers/api');
+const { list, get } = require('../controllers/api');
 
 const router = express.Router();
 
 router.get(
   '/cities',
-  buildCursorMiddleware(City),
-  // filterMiddleware('geonameid', 'name', 'population', 'countrycode', 'timezone', 'lng', 'lat'),
+  filterMiddleware(
+    null,
+    'geonameid',
+    'name',
+    'localname',
+    'population',
+    'countrycode',
+    'countryname',
+    'timezone',
+    'lng',
+    'lat',
+    'lang'
+  ),
   sortMiddleware(),
   paginationMiddleware(),
-  get()
+  list(City)
 );
+
+router.get('/cities/:id', matchMiddleware(), get(City));
 
 module.exports = router;

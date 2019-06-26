@@ -1,30 +1,41 @@
-const parseString = rawString => {
-  if (rawString) {
-    const n = Number(rawString);
+const parseString = s => {
+  if (s) {
+    const n = Number(s);
     if (n || n === 0) {
       return n;
     }
-    if (Date.parse(rawString)) {
-      return new Date(rawString);
+    if (Date.parse(s)) {
+      return new Date(s);
     }
   }
-  return rawString;
+  return s;
 };
 
-const parseQueryParamValue = rawValue => {
-  if (rawValue) {
-    const values = rawValue.split(',');
-    return values.map(value => {
-      if (['>', '<'].includes(value[0])) {
-        return [value[0], parseString(value.slice(1))];
+const parseFilterQueryParam = key => value => {
+  const elements = value.split(',');
+  const rules = elements.map(e => {
+    if (e.startsWith('>')) {
+      return { [key]: { $gt: parseString(e.slice(1)) } };
+    } else if (e.startsWith('<')) {
+      return { [key]: { $lt: parseString(e.slice(1)) } };
+    } else {
+      return { [key]: parseString(e) };
+    }
+  });
+  const query = {};
+  for (const rule of rules) {
+    for (const key in rule) {
+      if (query[key]) {
+        Object.assign(query[key], rule[key]);
+      } else {
+        Object.assign(query, rule);
       }
-      return parseString(value);
-    });
+    }
   }
-  return [rawValue];
+  return query;
 };
 
 module.exports = {
   parseString,
-  parseQueryParamValue
+  parseFilterQueryParam
 };
