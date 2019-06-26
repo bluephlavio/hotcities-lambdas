@@ -7,36 +7,38 @@ provider:
   region: eu-west-2
   profile: hotcities-${self:provider.stage}
   environment:
-    MONGO_CONNECTION: ${self:custom.secrets}.MONGO_CONNECTION
-    OPENWEATHERMAP_KEY: ${self:custom.secrets}.OPENWEATHERMAP_KEY
-    FLICKR_KEY: ${self:custom.secrets}.FLICKR_KEY
-    TWITTER_CONSUMER_KEY: ${self:custom.secrets}.TWITTER_CONSUMER_KEY
-    TWITTER_CONSUMER_SECRET: ${self:custom.secrets}.TWITTER_CONSUMER_SECRET
-    TWITTER_ACCESS_TOKEN: ${self:custom.secrets}.TWITTER_ACCESS_TOKEN
-    TWITTER_ACCESS_TOKEN_SECRET: ${self:custom.secrets}.TWITTER_ACCESS_TOKEN_SECRET
+    MONGO_CONNECTION: ${self:custom.secrets.MONGO_CONNECTION}
+    OPENWEATHERMAP_KEY: ${self:custom.secrets.OPENWEATHERMAP_KEY}
+    FLICKR_KEY: ${self:custom.secrets.FLICKR_KEY}
+    TWITTER_CONSUMER_KEY: ${self:custom.secrets.TWITTER_CONSUMER_KEY}
+    TWITTER_CONSUMER_SECRET: ${self:custom.secrets.TWITTER_CONSUMER_SECRET}
+    TWITTER_ACCESS_TOKEN: ${self:custom.secrets.TWITTER_ACCESS_TOKEN}
+    TWITTER_ACCESS_TOKEN_SECRET: ${self:custom.secrets.TWITTER_ACCESS_TOKEN_SECRET}
 
 functions:
-  api:
-    handler: src/handler.api
+  server:
+    handler: src/server.handler
     events:
-      - http:
-          path: cities
-          method: get
+      - http: ANY /
+      - http: 'ANY {proxy+}'
   fetcher:
-    handler: src/handler.fetcher
+    handler: src/fetcher.handler
     timeout: 60
     events:
       - schedule: cron(0/2 * * * ? *)
   recorder:
-    handler: src/handler.recorder
+    handler: src/recorder.handler
     timeout: 60
     events:
       - schedule: cron(0/10 * * * ? *)
   twitterbot:
-    handler: src/handler.twitterbot
+    handler: src/twitterbot.handler
     timeout: 60
-    # events:
-    #   - schedule: cron(0 * * * ? *)
+    events:
+      - schedule: cron(0 * * * ? *)
+
+plugins:
+  - serverless-offline
 
 custom:
-  secrets: file(./serverless.env.yml):${self:provider.stage}
+  secrets: ${file(./serverless.env.yml):${self:provider.stage}}

@@ -17,6 +17,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "mocha": "^6.1.4",
     "prettier": "^1.17.1",
+    "serverless-offline": "^5.3.3",
     "sinon": "^7.3.2"
   },
   "dependencies": {

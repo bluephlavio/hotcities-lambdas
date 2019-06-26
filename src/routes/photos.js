@@ -1,5 +1,5 @@
 const express = require('express');
-const City = require('../models/city');
+const Photo = require('../models/photo');
 const {
   matchMiddleware,
   filterMiddleware,
@@ -12,23 +12,12 @@ const router = express.Router();
 
 router.get(
   '/',
-  filterMiddleware(
-    'geonameid',
-    'name',
-    'localname',
-    'population',
-    'countrycode',
-    'countryname',
-    'timezone',
-    'lng',
-    'lat',
-    'lang'
-  ),
+  filterMiddleware('geonameid'),
   sortMiddleware(),
   paginationMiddleware(),
-  list(City)
+  list(Photo)
 );
 
-router.get('/:id', matchMiddleware(), get(City));
+router.get('/:id', matchMiddleware(), get(Photo));
 
 module.exports = router;
