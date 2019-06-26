@@ -115,6 +115,7 @@ module.exports.searchPhotos = async (city, options) => {
         };
       })
       .map(({ id, url_l: src, owner: ownerid, ownername: name, ...rest }) => ({
+        id,
         src,
         url: getPhotoPage(ownerid, id),
         owner: {
@@ -124,8 +125,9 @@ module.exports.searchPhotos = async (city, options) => {
         ...rest
       }))
       .map(
-        ({ src, url, title, owner, license }) =>
+        ({ id, src, url, title, owner, license }) =>
           new Photo({
+            id,
             geonameid,
             src,
             url,

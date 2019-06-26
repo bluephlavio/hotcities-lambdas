@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const PhotoSchema = new mongoose.Schema({
+  id: {
+    type: String,
+    required: true
+  },
   timestamp: {
     type: Date,
     default: Date.now,
