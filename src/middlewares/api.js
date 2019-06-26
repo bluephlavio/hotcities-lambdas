@@ -51,7 +51,3 @@ module.exports.paginationMiddleware = paginationOpts => (req, res, next) => {
   }
   next();
 };
-
-module.exports.errorHandler = (err, req, res, next) => {
-  res.status(400).send({ error: err.message });
-};
