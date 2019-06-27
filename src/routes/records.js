@@ -5,8 +5,9 @@ const {
   filterMiddleware,
   sortMiddleware,
   paginationMiddleware
-} = require('../middlewares/util');
-const { list, get } = require('../controllers/crud');
+} = require('../middlewares/common');
+const { list, get } = require('../controllers/common');
+const { current } = require('../controllers/records');
 
 const router = express.Router();
 
@@ -18,14 +19,7 @@ router.get(
   list(Record)
 );
 
-router.get(
-  '/current',
-  (req, res, next) => {
-    res.sort = { timestamp: -1 };
-    next();
-  },
-  get(Record)
-);
+router.get('/current', current());
 
 router.get('/:id', matchMiddleware(), get(Record));
 

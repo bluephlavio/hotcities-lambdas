@@ -1,3 +1,3 @@
 module.exports = (err, req, res, next) => {
-  res.status(400).send({ error: err.message });
+  res.status(err.code || 500).send({ error: err.message });
 };

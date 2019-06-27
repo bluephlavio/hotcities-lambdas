@@ -5,8 +5,8 @@ const {
   filterMiddleware,
   sortMiddleware,
   paginationMiddleware
-} = require('../middlewares/util');
-const { list, get } = require('../controllers/crud');
+} = require('../middlewares/common');
+const { list, get } = require('../controllers/common');
 
 const router = express.Router();
 
@@ -18,6 +18,6 @@ router.get(
   list(Photo)
 );
 
-router.get('/:id', matchMiddleware(), get(Photo));
+router.get('/:id', matchMiddleware({ name: 'id', dtype: String }), get(Photo));
 
 module.exports = router;

@@ -8,7 +8,8 @@ module.exports.list = model => async (req, res, next) => {
       .find(match)
       .sort(sort)
       .skip(skip)
-      .limit(limit);
+      .limit(limit)
+      .select(['-__v']);
     return res.status(200).json({ data, pagination: { skip, limit } });
   } catch (err) {
     next(err);
@@ -19,6 +20,7 @@ module.exports.get = model => async (req, res, next) => {
   try {
     const match = res.match || {};
     const data = await model.findOne(match);
+    if (!data) return next({ message: 'Not found.', code: 404 });
     return res.status(200).json({ data });
   } catch (err) {
     next(err);

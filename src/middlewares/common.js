@@ -1,13 +1,25 @@
 const mongoose = require('mongoose');
-const _ = require('lodash');
 const { parseFilterQueryParam, parseSortQueryParam } = require('../helpers/parsers');
 
-module.exports.matchMiddleware = () => (req, res, next) => {
+const ObjectId = mongoose.Types.ObjectId;
+
+module.exports.matchMiddleware = extraIdField => (req, res, next) => {
   const {
     params: { id }
   } = req;
-  res.match = { _id: mongoose.Types.ObjectId(id) };
-  next();
+  if (id.length === 24) {
+    res.match = { _id: ObjectId(id) };
+    return next();
+  } else if (extraIdField) {
+    const { name, dtype } = extraIdField;
+    try {
+      if (dtype(id)) {
+        res.match = { [name]: dtype(id) };
+        return next();
+      }
+    } catch (err) {}
+  }
+  return next({ message: 'Not found.', code: 404 });
 };
 
 module.exports.filterMiddleware = (...keys) => (req, res, next) => {

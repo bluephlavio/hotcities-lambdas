@@ -5,8 +5,8 @@ const {
   filterMiddleware,
   sortMiddleware,
   paginationMiddleware
-} = require('../middlewares/util');
-const { list, get } = require('../controllers/crud');
+} = require('../middlewares/common');
+const { list, get } = require('../controllers/common');
 
 const router = express.Router();
 
@@ -29,6 +29,6 @@ router.get(
   list(City)
 );
 
-router.get('/:id', matchMiddleware(), get(City));
+router.get('/:id', matchMiddleware({ name: 'geonameid', dtype: Number }), get(City));
 
 module.exports = router;
