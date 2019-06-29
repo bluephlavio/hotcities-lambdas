@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const serverless = require('serverless-http');
 const { missingRouteHandler, errorHandler } = require('./middlewares/error');
 
@@ -9,6 +10,7 @@ db.open();
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', require('./routes/all'));
