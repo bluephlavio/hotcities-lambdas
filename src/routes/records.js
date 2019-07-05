@@ -7,7 +7,7 @@ const {
   paginationMiddleware
 } = require('../middlewares/common');
 const { list, get } = require('../controllers/common');
-const { current } = require('../controllers/records');
+const { current, record } = require('../controllers/records');
 
 const router = express.Router();
 
@@ -20,6 +20,8 @@ router.get(
 );
 
 router.get('/current', current());
+
+router.get('/record', record());
 
 router.get('/:id', matchMiddleware(), get(Record));
 
