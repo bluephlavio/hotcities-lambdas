@@ -9,7 +9,6 @@ module.exports.stats = () => async (req, res, next) => {
     const skip = res.skip || 0;
     const limit = res.limit || count;
     const extra = res.extra || {};
-    console.log(extra);
     const stats = await Record.aggregate()
       .group({
         _id: '$geonameid',
