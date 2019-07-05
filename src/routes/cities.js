@@ -29,6 +29,10 @@ router.get(
   list(City)
 );
 
-router.get('/:id', matchMiddleware({ name: 'geonameid', dtype: Number }), get(City));
+router.get(
+  '/:id',
+  matchMiddleware({ name: 'geonameid', dtype: Number }),
+  get(City)
+);
 
 module.exports = router;

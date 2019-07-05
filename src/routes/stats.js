@@ -1,6 +1,12 @@
 const express = require('express');
-const { stats } = require('../controllers/stats');
-const { filterMiddleware, sortMiddleware, paginationMiddleware } = require('../middlewares/common');
+const { statsMiddleware, extraMiddleware } = require('../middlewares/stats');
+const {
+  matchMiddleware,
+  filterMiddleware,
+  sortMiddleware,
+  paginationMiddleware
+} = require('../middlewares/common');
+const { list, get } = require('../controllers/stats');
 
 const router = express.Router();
 
@@ -9,15 +15,16 @@ router.get(
   filterMiddleware('geonameid', 'name', 'countrycode'),
   sortMiddleware(),
   paginationMiddleware(),
-  (req, res, next) => {
-    const { query } = req;
-    if ('extra' in query) {
-      const { extra: value } = query;
-      res.extra = Object.assign({}, ...value.split(',').map(field => ({ [field]: 1 })));
-    }
-    next();
-  },
-  stats()
+  extraMiddleware(),
+  statsMiddleware(),
+  list()
+);
+
+router.get(
+  '/:id',
+  statsMiddleware(),
+  matchMiddleware({ name: 'geonameid', dtype: Number }),
+  get()
 );
 
 module.exports = router;

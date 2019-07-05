@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-const { parseFilterQueryParam, parseSortQueryParam } = require('../helpers/parsers');
+const {
+  parseFilterQueryParam,
+  parseSortQueryParam
+} = require('../helpers/parsers');
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -27,7 +30,10 @@ module.exports.filterMiddleware = (...keys) => (req, res, next) => {
   keys.forEach(key => {
     if (key in query) {
       const { [key]: value } = query;
-      res.match = Object.assign(res.match || {}, parseFilterQueryParam(key)(value));
+      res.match = Object.assign(
+        res.match || {},
+        parseFilterQueryParam(key)(value)
+      );
     }
   });
   next();
