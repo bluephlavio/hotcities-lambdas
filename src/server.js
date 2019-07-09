@@ -17,4 +17,5 @@ app.use('/', require('./routes/all'));
 app.use(missingRouteHandler);
 app.use(errorHandler);
 
+module.exports.app = app;
 module.exports.handler = serverless(app);

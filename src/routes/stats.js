@@ -1,10 +1,11 @@
 const express = require('express');
-const { statsMiddleware, extraMiddleware } = require('../middlewares/stats');
+const { statsMiddleware } = require('../middlewares/stats');
 const {
   matchMiddleware,
   filterMiddleware,
   sortMiddleware,
-  paginationMiddleware
+  paginationMiddleware,
+  extraMiddleware
 } = require('../middlewares/common');
 const { list, get } = require('../controllers/stats');
 

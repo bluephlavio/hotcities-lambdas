@@ -60,3 +60,12 @@ module.exports.paginationMiddleware = () => (req, res, next) => {
   }
   next();
 };
+
+module.exports.extraMiddleware = () => (req, res, next) => {
+  const { query } = req;
+  if ('extra' in query) {
+    const { extra: value } = query;
+    res.extra = value.split(',');
+  }
+  next();
+};

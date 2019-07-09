@@ -4,8 +4,10 @@ const {
   matchMiddleware,
   filterMiddleware,
   sortMiddleware,
-  paginationMiddleware
+  paginationMiddleware,
+  extraMiddleware
 } = require('../middlewares/common');
+
 const { list, get } = require('../controllers/common');
 const { current, record } = require('../controllers/records');
 
@@ -16,13 +18,14 @@ router.get(
   filterMiddleware('geonameid', 'temp', 'timestamp'),
   sortMiddleware(),
   paginationMiddleware(),
+  extraMiddleware(),
   list(Record)
 );
 
-router.get('/current', current());
+router.get('/current', extraMiddleware(), current());
 
-router.get('/record', record());
+router.get('/record', extraMiddleware(), record());
 
-router.get('/:id', matchMiddleware(), get(Record));
+router.get('/:id', matchMiddleware(), extraMiddleware(), get(Record));
 
 module.exports = router;

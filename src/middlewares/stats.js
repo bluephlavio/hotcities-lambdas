@@ -1,18 +1,6 @@
 const _ = require('lodash');
 const Record = require('../models/record');
 
-module.exports.extraMiddleware = () => (req, res, next) => {
-  const { query } = req;
-  if ('extra' in query) {
-    const { extra: value } = query;
-    res.extra = Object.assign(
-      {},
-      ...value.split(',').map(field => ({ [field]: 1 }))
-    );
-  }
-  next();
-};
-
 module.exports.statsMiddleware = () => async (req, res, next) => {
   try {
     const count = await Record.count();
@@ -20,7 +8,7 @@ module.exports.statsMiddleware = () => async (req, res, next) => {
     const sort = res.sort || { score: -1 };
     const skip = res.skip || 0;
     const limit = res.limit || count;
-    const extra = res.extra || {};
+    const extra = res.extra || [];
     const stats = await Record.aggregate()
       .group({
         _id: '$geonameid',
@@ -42,7 +30,7 @@ module.exports.statsMiddleware = () => async (req, res, next) => {
       .project({
         _id: 1,
         geonameid: 1,
-        ...extra,
+        ...Object.assign({}, ...extra.map(field => ({ [field]: 1 }))),
         recordfrac: 1,
         recordtemp: 1
       })

@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "^3.0.1",
@@ -28,7 +29,7 @@
     "flickr-sdk": "^3.9.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.5.12",
-    "npm": "^6.9.0",
+    "npm": "^6.10.0",
     "openweathermap-api-module": "^0.0.1",
     "serverless": "^1.46.0",
     "serverless-http": "^2.0.2",
