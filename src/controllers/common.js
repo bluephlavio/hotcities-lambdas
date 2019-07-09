@@ -44,14 +44,15 @@ module.exports.get = model => async (req, res, next) => {
     const match = res.match;
     const extra = res.extra || [];
     const data = await model.findOne(match).select('-__v');
+    if (!data) return next({ message: 'Not found.', code: 404 });
     const { geonameid } = data;
     const city = await City.findOne({ geonameid });
-    const dataWithExtras = Object.assign(
-      data.toObject(),
-      ...extra.map(field => ({ [field]: city[field] }))
-    );
-    if (!data) return next({ message: 'Not found.', code: 404 });
-    return res.status(200).json({ data: dataWithExtras });
+    return res.status(200).json({
+      data: Object.assign(
+        data.toObject(),
+        ...extra.map(field => ({ [field]: city[field] }))
+      )
+    });
   } catch (err) {
     next(err);
   }

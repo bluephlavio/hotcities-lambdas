@@ -2,7 +2,6 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const chaiDatetime = require('chai-datetime');
 const { app } = require('../../src/server');
-const { getCities } = require('../data/factory');
 
 chai.should();
 chai.use(chaiHttp);
