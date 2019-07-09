@@ -3,7 +3,7 @@ const Record = require('../models/record');
 
 module.exports.statsMiddleware = () => async (req, res, next) => {
   try {
-    const count = await Record.count();
+    const count = await Record.countDocuments();
     const match = res.match || {};
     const sort = res.sort || { score: -1 };
     const skip = res.skip || 0;
@@ -52,7 +52,6 @@ module.exports.statsMiddleware = () => async (req, res, next) => {
       score: score / scoreNormalization
     }));
     res.stats = data;
-    console.log(data);
     next();
   } catch (err) {
     next(err);

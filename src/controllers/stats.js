@@ -2,7 +2,9 @@ const _ = require('lodash');
 
 module.exports.list = () => (req, res, next) => {
   try {
-    const { stats, skip, limit } = res;
+    const { stats } = res;
+    const skip = res.skip || 0;
+    const limit = res.limit || 0;
     res.status(200).send({ data: stats, pagination: { skip, limit } });
   } catch (err) {
     next(err);
