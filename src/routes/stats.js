@@ -1,5 +1,4 @@
 const express = require('express');
-const { statsMiddleware } = require('../middlewares/stats');
 const {
   matchMiddleware,
   filterMiddleware,
@@ -13,18 +12,28 @@ const router = express.Router();
 
 router.get(
   '/',
-  filterMiddleware('geonameid', 'name', 'countrycode'),
+  filterMiddleware(
+    'geonameid',
+    'name',
+    'localname',
+    'coutryname',
+    'countrycode',
+    'timezone',
+    'lat',
+    'lng',
+    'lang',
+    'population'
+  ),
   sortMiddleware(),
   paginationMiddleware(),
   extraMiddleware(),
-  statsMiddleware(),
   list()
 );
 
 router.get(
   '/:id',
-  statsMiddleware(),
   matchMiddleware({ name: 'geonameid', dtype: Number }),
+  extraMiddleware(),
   get()
 );
 

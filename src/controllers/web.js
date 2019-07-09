@@ -1,6 +1,8 @@
+const _ = require('lodash');
 const City = require('../models/city');
 const Record = require('../models/record');
 const Photo = require('../models/photo');
+const { getStats } = require('../helpers/stats');
 
 module.exports.live = () => async (req, res, next) => {
   try {
@@ -15,12 +17,24 @@ module.exports.live = () => async (req, res, next) => {
       .select('-__v -_id');
     const hottestRecord = await Record.findOne({}).sort({ temp: 'desc' });
     const coolestRecord = await Record.findOne({}).sort({ temp: 'asc' });
+    const allStats = await getStats();
+    const stats = _.chain(allStats)
+      .map(({ geonameid, recordfrac, recordtemp, score, rank }) => ({
+        geonameid,
+        recordfrac,
+        recordtemp,
+        score,
+        rank
+      }))
+      .find(entry => entry.geonameid === geonameid)
+      .value();
     const { temp: maxTemp } = hottestRecord;
     const { temp: minTemp } = coolestRecord;
     res.status(200).json({
       record,
       city,
       photos,
+      stats,
       maxTemp,
       minTemp
     });

@@ -28,6 +28,11 @@ describe('GET /web/live', function() {
         res.body.city.should.have.property('population');
         res.body.should.have.property('photos');
         res.body.photos.should.be.an('array');
+        res.body.should.have.property('stats');
+        res.body.stats.should.have.property('recordfrac');
+        res.body.stats.should.have.property('recordtemp');
+        res.body.stats.should.have.property('score');
+        res.body.stats.should.have.property('rank');
         res.body.should.have.property('maxTemp');
         res.body.maxTemp.should.be.a('number');
         res.body.should.have.property('minTemp');
