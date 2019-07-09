@@ -12,6 +12,7 @@ describe('GET /cities', function() {
       .request(app)
       .get('/cities')
       .then(res => {
+        res.should.have.status(200);
         res.body.data.should.be.ok;
         res.body.data.should.be.an('array');
         res.body.pagination.should.be.ok;
@@ -27,6 +28,7 @@ describe('GET /cities', function() {
       .request(app)
       .get('/cities?limit=3&skip=1')
       .then(res => {
+        res.should.have.status(200);
         res.body.data.should.be.ok;
         res.body.data.should.be.an('array');
         res.body.data.length.should.be.eql(3);
@@ -43,6 +45,7 @@ describe('GET /cities', function() {
       .request(app)
       .get('/cities?limit=10&sort=-population')
       .then(res => {
+        res.should.have.status(200);
         res.body.data.length.should.be.eql(10);
         for (let i = 0; i < res.body.data.length - 1; i++) {
           res.body.data[i + 1].population.should.be.lt(
@@ -59,6 +62,7 @@ describe('GET /cities', function() {
       .request(app)
       .get('/cities?population=>10000000')
       .then(res => {
+        res.should.have.status(200);
         for (let i = 0; i < res.body.data.length - 1; i++) {
           res.body.data[i].population.should.be.gt(10000000);
         }
@@ -72,6 +76,7 @@ describe('GET /cities', function() {
       .request(app)
       .get('/cities?name=Sharjah')
       .then(res => {
+        res.should.have.status(200);
         res.body.data.should.be.an('array');
         res.body.data.should.have.lengthOf(1);
         res.body.data[0].name.should.be.eql('Sharjah');
@@ -79,7 +84,9 @@ describe('GET /cities', function() {
       .then(done)
       .catch(console.log);
   });
+});
 
+describe('GET /cities/:id', function() {
   const cities = getCities();
   for (const city of cities) {
     const { name, geonameid } = city;
@@ -88,6 +95,7 @@ describe('GET /cities', function() {
         .request(app)
         .get(`/cities/${geonameid}`)
         .then(res => {
+          res.should.have.status(200);
           res.body.data.should.be.ok;
           res.body.data.should.have.property('geonameid');
           res.body.data.should.have.property('name');
