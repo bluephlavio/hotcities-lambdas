@@ -52,7 +52,9 @@ describe('Weather model', function() {
       for (const variant of variants) {
         const missingDataGeonameids = await Weather.missingDataGeonameids();
         expect(missingDataGeonameids).to.be.an('array');
-        expect(missingDataGeonameids.length).to.be.equal(cities.length - variant.length);
+        expect(missingDataGeonameids.length).to.be.equal(
+          cities.length - variant.length
+        );
       }
     });
   });

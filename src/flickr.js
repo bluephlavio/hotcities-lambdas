@@ -28,7 +28,11 @@ const commonTags = [
 
 const licenses = [
   { id: '0', name: 'All Rights Reserved', url: '' },
-  { id: '4', name: 'Attribution License', url: 'https://creativecommons.org/licenses/by/2.0/' },
+  {
+    id: '4',
+    name: 'Attribution License',
+    url: 'https://creativecommons.org/licenses/by/2.0/'
+  },
   {
     id: '6',
     name: 'Attribution-NoDerivs License',
@@ -59,7 +63,11 @@ const licenses = [
     name: 'No known copyright restrictions',
     url: 'https://www.flickr.com/commons/usage/'
   },
-  { id: '8', name: 'United States Government Work', url: 'http://www.usa.gov/copyright.shtml' },
+  {
+    id: '8',
+    name: 'United States Government Work',
+    url: 'http://www.usa.gov/copyright.shtml'
+  },
   {
     id: '9',
     name: 'Public Domain Dedication (CC0)',
@@ -78,7 +86,8 @@ const taggify = tag => tag.toLowerCase().replace(/\s/g, '');
 
 const getLicenseById = id => _.find(licenses, license => license.id == id);
 
-const getPhotoPage = (ownerid, photoid) => `https://www.flickr.com/photos/${ownerid}/${photoid}`;
+const getPhotoPage = (ownerid, photoid) =>
+  `https://www.flickr.com/photos/${ownerid}/${photoid}`;
 
 const getOwnerPage = id => `https://www.flickr.com/people/${id}`;
 

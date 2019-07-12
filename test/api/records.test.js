@@ -103,11 +103,27 @@ describe('GET /records/current', function() {
   });
 });
 
-describe('GET /records/record', function() {
-  it('should return the record of records', function(done) {
+describe('GET /records/hottest', function() {
+  it('should return the hottest of records', function(done) {
     chai
       .request(app)
-      .get('/records/record')
+      .get('/records/hottest')
+      .then(res => {
+        res.should.have.status(200);
+        res.body.data.should.have.property('geonameid');
+        res.body.data.should.have.property('temp');
+        res.body.data.should.have.property('timestamp');
+      })
+      .then(done)
+      .catch(console.log);
+  });
+});
+
+describe('GET /records/coolest', function() {
+  it('should return the coolest of records', function(done) {
+    chai
+      .request(app)
+      .get('/records/coolest')
       .then(res => {
         res.should.have.status(200);
         res.body.data.should.have.property('geonameid');

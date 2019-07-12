@@ -29,7 +29,9 @@ module.exports.createTweetFromRecord = async function(record) {
   const photos = await Photo.findByGeonameid(geonameid);
   const photo = _.sample(photos);
   const { url: photourl } = photo;
-  const status = `${Math.round(temp)} °C in ${name} (${countrycode}) now! ${tags}`;
+  const status = `${Math.round(
+    temp
+  )} °C in ${name} (${countrycode}) now! ${tags}`;
   return new Tweet({
     geonameid,
     temp,

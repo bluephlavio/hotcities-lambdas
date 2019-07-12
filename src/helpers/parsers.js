@@ -37,7 +37,9 @@ const parseFilterQueryParam = key => value => {
 
 const parseSortQueryParam = value => {
   const elements = value.split(',');
-  const rules = elements.map(e => (e.startsWith('-') ? { [e.slice(1)]: -1 } : { [e]: 1 }));
+  const rules = elements.map(e =>
+    e.startsWith('-') ? { [e.slice(1)]: -1 } : { [e]: 1 }
+  );
   const sort = {};
   rules.forEach(rule => {
     Object.assign(sort, rule);

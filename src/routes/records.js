@@ -9,7 +9,7 @@ const {
 } = require('../middlewares/common');
 
 const { list, get } = require('../controllers/common');
-const { current, record } = require('../controllers/records');
+const { current, hottest, coolest } = require('../controllers/records');
 
 const router = express.Router();
 
@@ -24,7 +24,9 @@ router.get(
 
 router.get('/current', extraMiddleware(), current());
 
-router.get('/record', extraMiddleware(), record());
+router.get('/hottest', extraMiddleware(), hottest());
+
+router.get('/coolest', extraMiddleware(), coolest());
 
 router.get('/:id', matchMiddleware(), extraMiddleware(), get(Record));
 

@@ -43,13 +43,20 @@ WeatherSchema.statics.exists = async function(geonameid) {
 
 WeatherSchema.statics.register = async function(entry) {
   const { geonameid, temp, timestamp } = entry;
-  return await this.findOneAndUpdate({ geonameid }, { temp, timestamp }, { upsert: true });
+  return await this.findOneAndUpdate(
+    { geonameid },
+    { temp, timestamp },
+    { upsert: true }
+  );
 };
 
 WeatherSchema.statics.missingDataGeonameids = async function() {
   const allGeonameids = await City.geonameids();
   const geonameids = await this.geonameids();
-  return _.filter(allGeonameids, geonameid => !_.includes(geonameids, geonameid));
+  return _.filter(
+    allGeonameids,
+    geonameid => !_.includes(geonameids, geonameid)
+  );
 };
 
 WeatherSchema.statics.ready = async function() {
@@ -76,7 +83,11 @@ WeatherSchema.statics.queue = async function(n) {
 };
 
 WeatherSchema.statics.update = async ({ geonameid, temp, timestamp }) => {
-  return await this.findOneAndUpdate({ geonameid }, { temp, timestamp }, { upsert: true });
+  return await this.findOneAndUpdate(
+    { geonameid },
+    { temp, timestamp },
+    { upsert: true }
+  );
 };
 
 WeatherSchema.statics.bulkUpdate = async weather => {
