@@ -30,13 +30,12 @@ module.exports.live = () => async (req, res, next) => {
       .value();
     const { temp: maxTemp } = hottestRecord;
     const { temp: minTemp } = coolestRecord;
+    const range = { minTemp, maxTemp };
     res.status(200).json({
-      record,
-      city,
+      record: Object.assign(record.toObject(), city.toObject()),
       photos,
       stats,
-      maxTemp,
-      minTemp
+      range
     });
   } catch (err) {
     next(err);

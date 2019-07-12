@@ -15,17 +15,16 @@ describe('GET /web/live', function() {
         res.body.should.have.property('record');
         res.body.record.should.have.property('temp');
         res.body.record.should.have.property('timestamp');
-        res.body.should.have.property('city');
-        res.body.city.should.have.property('geonameid');
-        res.body.city.should.have.property('name');
-        res.body.city.should.have.property('localname');
-        res.body.city.should.have.property('countryname');
-        res.body.city.should.have.property('countrycode');
-        res.body.city.should.have.property('timezone');
-        res.body.city.should.have.property('lat');
-        res.body.city.should.have.property('lng');
-        res.body.city.should.have.property('lang');
-        res.body.city.should.have.property('population');
+        res.body.record.should.have.property('geonameid');
+        res.body.record.should.have.property('name');
+        res.body.record.should.have.property('localname');
+        res.body.record.should.have.property('countryname');
+        res.body.record.should.have.property('countrycode');
+        res.body.record.should.have.property('timezone');
+        res.body.record.should.have.property('lat');
+        res.body.record.should.have.property('lng');
+        res.body.record.should.have.property('lang');
+        res.body.record.should.have.property('population');
         res.body.should.have.property('photos');
         res.body.photos.should.be.an('array');
         res.body.should.have.property('stats');
@@ -33,11 +32,9 @@ describe('GET /web/live', function() {
         res.body.stats.should.have.property('recordtemp');
         res.body.stats.should.have.property('score');
         res.body.stats.should.have.property('rank');
-        res.body.should.have.property('maxTemp');
-        res.body.maxTemp.should.be.a('number');
-        res.body.should.have.property('minTemp');
-        res.body.minTemp.should.be.a('number');
-        res.body.minTemp.should.be.lte(res.body.maxTemp);
+        res.body.should.have.property('range');
+        res.body.range.should.have.property('minTemp');
+        res.body.range.should.have.property('maxTemp');
       })
       .then(done)
       .catch(console.log);
