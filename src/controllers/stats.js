@@ -1,15 +1,15 @@
 const _ = require('lodash');
-const { getStats } = require('../helpers/stats');
+const Record = require('../models/record');
 
 module.exports.list = () => async (req, res, next) => {
   try {
-    const stats = await getStats();
+    const ranking = await Record.ranking();
     const skip = res.skip || 0;
     const limit = res.limit || 0;
     const match = res.match;
     const sort = res.sort || {};
     const extra = res.extra || [];
-    const data = _.chain(stats)
+    const data = _.chain(ranking)
       .filter(entry => {
         return !!match
           ? _.every(
@@ -38,10 +38,10 @@ module.exports.list = () => async (req, res, next) => {
 
 module.exports.get = () => async (req, res, next) => {
   try {
-    const stats = await getStats();
+    const ranking = await Record.ranking();
     const match = res.match;
     const extra = res.extra || [];
-    const data = _.chain(stats)
+    const data = _.chain(ranking)
       .map(entry => {
         const { geonameid, recordfrac, recordtemp, score, rank } = entry;
         return Object.assign(

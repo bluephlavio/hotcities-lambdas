@@ -24,8 +24,8 @@ module.exports.handler = async () => {
       const photos = await flickr.searchPhotos(city, 3);
       console.log(`${photos.length} photos fetched for ${name}.`);
       for (const photo of photos) {
-        const { id } = photo;
-        await Photo.findOneAndUpdate({ id }, photo, { upsert: true });
+        const { _id, id, ...rest } = photo;
+        await Photo.findOneAndUpdate({ id }, { id, ...rest }, { upsert: true });
       }
       console.log('Fetched photos saved to db.');
       await State.update();
