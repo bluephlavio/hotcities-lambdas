@@ -65,7 +65,7 @@ module.exports.getRecords = () => {
   return [
     {
       geonameid: 292968,
-      temp: 52,
+      temp: 51,
       timestamp: now - 0
     },
     {
@@ -77,6 +77,16 @@ module.exports.getRecords = () => {
       geonameid: 292968,
       temp: 52,
       timestamp: now - 2
+    },
+    {
+      geonameid: 292223,
+      temp: 50,
+      timestamp: now - 3
+    },
+    {
+      geonameid: 292223,
+      temp: 50,
+      timestamp: now - 4
     }
   ];
 };
@@ -86,7 +96,7 @@ module.exports.getPhotos = () => {
     {
       id: 22996521903,
       geonameid: 292968,
-      url: 'https://live.staticflickr.com/648/22996521903_6419c46526_b.jpg',
+      src: 'https://live.staticflickr.com/648/22996521903_6419c46526_b.jpg',
       title: 'In the holiday spirit @acsabudhabi',
       license: {
         name: 'Attribution License',
@@ -101,7 +111,7 @@ module.exports.getPhotos = () => {
     {
       id: 47944445861,
       geonameid: 292223,
-      url: 'https://live.staticflickr.com/65535/47944445861_4ace478814_b.jpg',
+      src: 'https://live.staticflickr.com/65535/47944445861_4ace478814_b.jpg',
       title: 'Creek side view of Dubai downtown',
       license: {
         name: 'Attribution License',
@@ -116,7 +126,7 @@ module.exports.getPhotos = () => {
     {
       id: 47037942514,
       geonameid: 292223,
-      url: 'https://live.staticflickr.com/65535/47037942514_15615590b0_b.jpg',
+      src: 'https://live.staticflickr.com/65535/47037942514_15615590b0_b.jpg',
       title: 'Burj Khalifa',
       license: {
         name: 'Attribution-ShareAlike License',
@@ -131,7 +141,7 @@ module.exports.getPhotos = () => {
     {
       id: 47944445861,
       geonameid: 292672,
-      url: 'https://live.staticflickr.com/65535/47944445861_4ace478814_b.jpg',
+      src: 'https://live.staticflickr.com/65535/47944445861_4ace478814_b.jpg',
       title: 'Creek side view of Dubai downtown',
       license: {
         name: 'Attribution License',
@@ -146,7 +156,7 @@ module.exports.getPhotos = () => {
     {
       id: 47037942514,
       geonameid: 292672,
-      url: 'https://live.staticflickr.com/65535/47037942514_15615590b0_b.jpg',
+      src: 'https://live.staticflickr.com/65535/47037942514_15615590b0_b.jpg',
       title: 'Burj Khalifa',
       license: {
         name: 'Attribution-ShareAlike License',
