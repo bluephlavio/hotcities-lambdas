@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const Record = require('../models/record');
 
-module.exports.getStats = async () => {
+module.exports.getRanking = async () => {
   const count = await Record.countDocuments();
   const data = await Record.aggregate()
     .group({

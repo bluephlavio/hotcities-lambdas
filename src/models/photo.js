@@ -42,8 +42,8 @@ const PhotoSchema = new mongoose.Schema({
   }
 });
 
-PhotoSchema.statics.findByGeonameid = async function(geonameid) {
-  return await this.find({ geonameid });
+PhotoSchema.statics.findByGeonameid = async function(geonameid, { limit }) {
+  return await this.find({ geonameid }).limit(limit || 0);
 };
 
 module.exports = mongoose.model('Photo', PhotoSchema);

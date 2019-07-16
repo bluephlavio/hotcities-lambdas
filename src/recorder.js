@@ -2,6 +2,7 @@ const db = require('./db');
 const City = require('./models/city');
 const Weather = require('./models/weather');
 const Photo = require('./models/photo');
+const State = require('./models/state');
 const flickr = require('./flickr');
 
 module.exports.handler = async () => {
@@ -27,6 +28,8 @@ module.exports.handler = async () => {
         await Photo.findOneAndUpdate({ id }, photo, { upsert: true });
       }
       console.log('Fetched photos saved to db.');
+      await State.update();
+      console.log('Current state updated.');
     }
     await db.close();
     console.log('Db connection closed.');
