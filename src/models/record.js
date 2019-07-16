@@ -55,7 +55,7 @@ RecordSchema.statics.tempRange = async function() {
   return [minTemp, maxTemp];
 };
 
-RecordSchema.statics.ranking = async () => {
+RecordSchema.statics.ranking = async function() {
   const count = await this.countDocuments();
   const data = await this.aggregate()
     .group({

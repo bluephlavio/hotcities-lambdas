@@ -91,8 +91,7 @@ const RankingItemSchema = new mongoose.Schema(
       required: true
     },
     localname: {
-      type: String,
-      required: true
+      type: String
     },
     lng: {
       type: Number,
@@ -139,7 +138,7 @@ const RankingItemSchema = new mongoose.Schema(
 const StatsSchema = new mongoose.Schema(
   {
     ranking: [RankingItemSchema],
-    tempRange: [Number]
+    temprange: [Number]
   },
   {
     _id: false
@@ -152,7 +151,6 @@ const StateSchema = new mongoose.Schema(
     stats: StatsSchema
   },
   {
-    _id: false,
     capped: { max: 1 }
   }
 );
@@ -166,18 +164,20 @@ StateSchema.statics.build = async function() {
   const cityRank = _.chain(ranking)
     .find(entry => entry.geonameid === geonameid)
     .value();
-  const tempRange = await Record.tempRange();
+  const temprange = await Record.tempRange();
   return await new this({
-    current: Object.assign(
-      {},
-      _.omit(record, ['_id', '__v']),
-      _.omit(city, ['_id', '__v']),
-      { photos: photos.map(photo => _.omit(photo, ['_id', '__v'])) },
-      cityRank
+    current: _.omit(
+      {
+        ...record.toObject(),
+        ...city.toObject(),
+        photos: photos.map(photo => _.omit(photo, ['_id', '__v'])),
+        ...cityRank
+      },
+      ['_id', '__v']
     ),
     stats: {
       ranking,
-      tempRange
+      temprange
     }
   });
 };
