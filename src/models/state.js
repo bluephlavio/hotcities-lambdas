@@ -1,14 +1,35 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
-const City = require('./city');
 const Record = require('./record');
 const Photo = require('./photo');
 
-PhotoSchema = new mongoose.Schema(
+const PhotoSchema = new mongoose.Schema(
   {
     src: {
       type: String,
       required: true
+    },
+    url: {
+      type: String
+    },
+    title: {
+      type: String
+    },
+    owner: {
+      name: {
+        type: String
+      },
+      url: {
+        type: String
+      }
+    },
+    license: {
+      name: {
+        type: String
+      },
+      url: {
+        type: String
+      }
     }
   },
   {
@@ -27,8 +48,7 @@ const CurrentSchema = new mongoose.Schema(
       required: true
     },
     localname: {
-      type: String,
-      required: true
+      type: String
     },
     lng: {
       type: Number,
@@ -145,20 +165,14 @@ const StatsSchema = new mongoose.Schema(
   }
 );
 
-const StateSchema = new mongoose.Schema(
-  {
-    current: CurrentSchema,
-    stats: StatsSchema
-  },
-  {
-    capped: { max: 1 }
-  }
-);
+const StateSchema = new mongoose.Schema({
+  current: CurrentSchema,
+  stats: StatsSchema
+});
 
 StateSchema.statics.build = async function() {
   const record = await Record.current();
   const { geonameid } = record;
-  const city = await City.findByGeonameid(geonameid);
   const photos = await Photo.findByGeonameid(geonameid, { limit: 3 });
   const ranking = await Record.ranking();
   const cityRank = _.chain(ranking)
@@ -168,10 +182,10 @@ StateSchema.statics.build = async function() {
   return await new this({
     current: _.omit(
       {
-        ...record.toObject(),
-        ...city.toObject(),
-        photos: photos.map(photo => _.omit(photo, ['_id', '__v'])),
-        ...cityRank
+        ...cityRank,
+        temp: record.temp,
+        timestamp: record.timestamp,
+        photos: photos.map(photo => _.omit(photo, ['_id', '__v']))
       },
       ['_id', '__v']
     ),
@@ -183,8 +197,11 @@ StateSchema.statics.build = async function() {
 };
 
 StateSchema.statics.update = async function() {
-  const state = await this.build();
-  return state.save();
+  const newState = await this.build();
+  const oldState = await this.findOne();
+  await newState.save();
+  if (oldState) await oldState.remove();
+  return newState;
 };
 
 module.exports = mongoose.model('State', StateSchema);

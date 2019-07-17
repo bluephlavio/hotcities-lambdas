@@ -14,18 +14,25 @@ describe('GET /stats', function() {
       .then(res => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
-        res.body.data.should.be.an('array');
+        res.body.data.should.have.property('ranking');
+        res.body.data.ranking.should.be.an('array');
+        for (let i = 0; i < res.body.data.ranking.length; i++) {
+          res.body.data.ranking[i].should.have.property('geonameid');
+          res.body.data.ranking[i].should.have.property('recordfrac');
+          res.body.data.ranking[i].should.have.property('recordtemp');
+          res.body.data.ranking[i].should.have.property('score');
+        }
+        res.body.data.should.have.property('temprange');
+        res.body.data.temprange.should.be.an('array');
+        res.body.data.temprange.length.should.be.eql(2);
+        for (let i = 0; i < res.body.data.temprange.length; i++) {
+          res.body.data.temprange[i].should.be.a('number');
+        }
         res.body.pagination.should.be.ok;
         res.body.pagination.should.have.property('skip');
         res.body.pagination.should.have.property('limit');
         res.body.pagination.skip.should.be.eql(0);
         res.body.pagination.limit.should.be.eql(0);
-        for (let i = 0; i < res.body.data.length; i++) {
-          res.body.data[i].should.have.property('geonameid');
-          res.body.data[i].should.have.property('recordfrac');
-          res.body.data[i].should.have.property('recordtemp');
-          res.body.data[i].should.have.property('score');
-        }
       })
       .then(done)
       .catch(console.log);
@@ -38,11 +45,9 @@ describe('GET /stats', function() {
       .then(res => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
-        res.body.data.should.be.an('array');
-        res.body.pagination.should.be.ok;
-        res.body.pagination.skip.should.be.eql(0);
-        res.body.pagination.limit.should.be.eql(0);
-        for (const entry of res.body.data) {
+        res.body.data.should.have.property('ranking');
+        res.body.data.ranking.should.be.an('array');
+        for (const entry of res.body.data.ranking) {
           entry.should.have.property('geonameid');
           entry.should.have.property('recordfrac');
           entry.should.have.property('recordtemp');
@@ -50,7 +55,14 @@ describe('GET /stats', function() {
           entry.should.have.property('name');
           entry.should.have.property('countryname');
           entry.should.have.property('countrycode');
+          entry.should.not.have.property('localname');
         }
+        res.body.data.should.have.property('temprange');
+        res.body.data.temprange.should.be.an('array');
+        res.body.data.temprange.length.should.be.eql(2);
+        res.body.pagination.should.be.ok;
+        res.body.pagination.skip.should.be.eql(0);
+        res.body.pagination.limit.should.be.eql(0);
       })
       .then(done)
       .catch(console.log);
@@ -63,8 +75,12 @@ describe('GET /stats', function() {
       .then(res => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
-        res.body.data.should.be.an('array');
-        res.body.data.length.should.be.eql(3);
+        res.body.data.should.have.property('ranking');
+        res.body.data.ranking.should.be.an('array');
+        res.body.data.ranking.length.should.be.eql(3);
+        res.body.data.should.have.property('temprange');
+        res.body.data.temprange.should.be.an('array');
+        res.body.data.temprange.length.should.be.eql(2);
         res.body.pagination.should.be.ok;
         res.body.pagination.skip.should.be.eql(1);
         res.body.pagination.limit.should.be.eql(3);
@@ -80,7 +96,9 @@ describe('GET /stats', function() {
       .then(res => {
         res.should.have.status(200);
         for (let i = 0; i < res.body.data.length - 1; i++) {
-          res.body.data[i + 1].score.should.be.lte(res.body.data[i].score);
+          res.body.data.ranking[i + 1].score.should.be.lte(
+            res.body.data.ranking[i].score
+          );
         }
       })
       .then(done)
@@ -123,6 +141,7 @@ describe('GET /stats/:id', function() {
             res.body.data.should.have.property('name');
             res.body.data.should.have.property('lat');
             res.body.data.should.have.property('lng');
+            res.body.data.should.not.have.property('population');
           }
         })
         .then(done)

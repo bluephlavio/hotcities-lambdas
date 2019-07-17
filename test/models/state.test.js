@@ -1,7 +1,6 @@
 const chai = require('chai');
 const sinon = require('sinon');
 const _ = require('lodash');
-const City = require('../../src/models/city');
 const Record = require('../../src/models/record');
 const Photo = require('../../src/models/photo');
 const State = require('../../src/models/state');
@@ -11,11 +10,6 @@ chai.should();
 
 describe('State model', function() {
   before(function() {
-    sinon
-      .stub(City, 'findByGeonameid')
-      .callsFake(geonameid =>
-        _.find(getCities(), city => city.geonameid === geonameid)
-      );
     sinon.stub(Record, 'current').callsFake(() =>
       _.chain(getRecords())
         .orderBy(['timestamp'], ['desc'])
@@ -81,7 +75,6 @@ describe('State model', function() {
   });
 
   after(function() {
-    City.findByGeonameid.restore();
     Record.current.restore();
     Record.ranking.restore();
     Record.tempRange.restore();

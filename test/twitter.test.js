@@ -6,7 +6,7 @@ const Photo = require('../src/models/photo');
 const twitter = require('../src/twitter');
 const factory = require('./data/factory');
 
-describe('Tweet model', function() {
+describe('twitter', function() {
   before(async function() {
     sinon.stub(City, 'findOne').callsFake(query => {
       const cities = factory.getCities();
@@ -16,19 +16,15 @@ describe('Tweet model', function() {
       }
       return cities;
     });
-    sinon.stub(Photo, 'find').callsFake(query => {
+    sinon.stub(Photo, 'findByGeonameid').callsFake(geonameid => {
       const photos = factory.getPhotos();
-      if (query) {
-        const { geonameid } = query;
-        return _.filter(photos, photo => photo.geonameid == geonameid);
-      }
-      return photos;
+      return _.filter(photos, photo => photo.geonameid == geonameid);
     });
   });
 
   after(async function() {
     City.findOne.restore();
-    Photo.find.restore();
+    Photo.findByGeonameid.restore();
   });
   describe('createTweetFromRecord', function() {
     it('should return nice tweet objects', async function() {

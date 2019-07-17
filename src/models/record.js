@@ -72,8 +72,7 @@ RecordSchema.statics.ranking = async function() {
     .unwind('$city')
     .addFields({
       'city.recordfrac': '$recordfrac',
-      'city.recordtemp': '$recordtemp',
-      'city.score': { $multiply: ['$recordfrac', '$recordtemp'] }
+      'city.recordtemp': '$recordtemp'
     })
     .replaceRoot('$city')
     .exec();
@@ -83,9 +82,11 @@ RecordSchema.statics.ranking = async function() {
   const maxRecordTemp = _.max(recordtemps);
   const scoreNormalization = maxRecordFrac * maxRecordTemp;
   return _.chain(data)
-    .map(({ score, ...rest }) => ({
+    .map(({ score, recordfrac, recordtemp, ...rest }) => ({
       ...rest,
-      score: score / scoreNormalization
+      recordfrac,
+      recordtemp,
+      score: (recordfrac * recordtemp) / scoreNormalization
     }))
     .orderBy(['score'], ['desc'])
     .map((entry, i) => ({
