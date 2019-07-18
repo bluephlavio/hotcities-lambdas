@@ -30,7 +30,7 @@ module.exports.createTweetFromRecord = async function(record) {
     .join(' ');
   const photos = await Photo.findByGeonameid(geonameid);
   const photo = _.sample(photos);
-  const { url: photourl } = photo;
+  const photourl = photo ? photo.url : null;
   const status = emoji.emojify(
     `${formatTemp(
       temp
