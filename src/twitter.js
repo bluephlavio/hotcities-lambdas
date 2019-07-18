@@ -14,7 +14,14 @@ const twitter = new Twit({
   access_token_secret: config.twitter.accessTokenSecret
 });
 
-const commonTags = ['hotcitiesworld', 'hotweather', 'sunny'];
+const commonTags = [
+  'hotcitiesworld',
+  'worldcities',
+  'globalcities',
+  'hotweather',
+  'heatwave',
+  'sunny'
+];
 
 const taggify = tag => `#${tag.toLowerCase().replace(/(\s|\')/g, '')}`;
 
@@ -32,9 +39,9 @@ module.exports.createTweetFromRecord = async function(record) {
   const photo = _.sample(photos);
   const photourl = photo ? photo.url : null;
   const status = emoji.emojify(
-    `${formatTemp(
+    `:fire: ${formatTemp(
       temp
-    )} in ${name} (${countrycode}): hottest city in the world right now :fire::sparkles:! ${tags} :sunny::palm_tree:`
+    )} in ${name} (${countrycode}): hottest city in the world right now! :sparkles: ${tags} :sunny::palm_tree:`
   );
   return new Tweet({
     geonameid,
