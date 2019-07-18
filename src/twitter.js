@@ -1,8 +1,10 @@
 const Twit = require('twit');
 const _ = require('lodash');
+const emoji = require('node-emoji');
 const City = require('./models/city');
 const Photo = require('./models/photo');
 const Tweet = require('./models/tweet');
+const { formatTemp } = require('./helpers/formatters');
 const config = require('./config');
 
 const twitter = new Twit({
@@ -12,16 +14,16 @@ const twitter = new Twit({
   access_token_secret: config.twitter.accessTokenSecret
 });
 
-const commonTags = ['hotcitiesworld'];
+const commonTags = ['hotcitiesworld', 'hotweather', 'sunny'];
 
 const taggify = tag => `#${tag.toLowerCase().replace(/(\s|\')/g, '')}`;
 
 module.exports.createTweetFromRecord = async function(record) {
   const { geonameid, temp } = record;
   const city = await City.findByGeonameid(geonameid);
-  const { name, names, countrycode, countryname } = city;
+  const { name, countrycode, countryname } = city;
   const tags = _.chain(commonTags)
-    .concat(names ? names : [])
+    .concat(name)
     .concat(countryname)
     .map(taggify)
     .value()
@@ -29,9 +31,11 @@ module.exports.createTweetFromRecord = async function(record) {
   const photos = await Photo.findByGeonameid(geonameid);
   const photo = _.sample(photos);
   const { url: photourl } = photo;
-  const status = `${Math.round(
-    temp
-  )} °C in ${name} (${countrycode}) now! ${tags}`;
+  const status = emoji.emojify(
+    `${name} (${countrycode}), with ${formatTemp(
+      temp
+    )}, is the hottest city in the world now :fire::sparkles:! ${tags} :sunny::palm_tree`
+  );
   return new Tweet({
     geonameid,
     temp,
