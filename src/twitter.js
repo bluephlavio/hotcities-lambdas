@@ -32,9 +32,9 @@ module.exports.createTweetFromRecord = async function(record) {
   const photo = _.sample(photos);
   const { url: photourl } = photo;
   const status = emoji.emojify(
-    `${name} (${countrycode}), with ${formatTemp(
+    `${formatTemp(
       temp
-    )}, is the hottest city in the world now :fire::sparkles:! ${tags} :sunny::palm_tree`
+    )} in ${name} (${countrycode}): hottest city in the world right now :fire::sparkles:! ${tags} :sunny::palm_tree:`
   );
   return new Tweet({
     geonameid,
