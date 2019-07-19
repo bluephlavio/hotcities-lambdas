@@ -77,16 +77,16 @@ RecordSchema.statics.ranking = async function() {
     .replaceRoot('$city')
     .exec();
   const recordfracs = data.map(item => item.recordfrac);
-  const recordtemps = data.map(item => item.recordtemp);
   const maxRecordFrac = _.max(recordfracs);
-  const maxRecordTemp = _.max(recordtemps);
-  const scoreNormalization = maxRecordFrac * maxRecordTemp;
+  const [minTemp, maxTemp] = await this.tempRange();
   return _.chain(data)
     .map(({ score, recordfrac, recordtemp, ...rest }) => ({
       ...rest,
       recordfrac,
       recordtemp,
-      score: (recordfrac * recordtemp) / scoreNormalization
+      score:
+        (recordfrac / maxRecordFrac) *
+        ((recordtemp - minTemp) / (maxTemp - minTemp))
     }))
     .orderBy(['score'], ['desc'])
     .map((entry, i) => ({
