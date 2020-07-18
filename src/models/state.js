@@ -172,14 +172,17 @@ const StateSchema = new mongoose.Schema({
 
 StateSchema.statics.build = async function() {
   const record = await Record.current();
+  console.log(`state.build.record: ${record}`);
   const { geonameid } = record;
   const photos = await Photo.findByGeonameid(geonameid, { limit: 3 });
   const ranking = await Record.ranking();
+  console.log(`state.build.ranking: ${ranking}`);
   const cityRank = _.chain(ranking)
     .find(entry => entry.geonameid === geonameid)
     .value();
   const temprange = await Record.tempRange();
-  return await new this({
+  console.log(`state.build.temprange: ${temprange}`);
+  const newState = await new this({
     current: _.omit(
       {
         ...cityRank,
@@ -194,6 +197,8 @@ StateSchema.statics.build = async function() {
       temprange
     }
   });
+  console.log(`state.build.newState: ${newState}`);
+  return newState;
 };
 
 StateSchema.statics.update = async function() {

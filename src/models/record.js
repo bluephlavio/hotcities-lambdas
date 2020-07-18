@@ -76,6 +76,7 @@ RecordSchema.statics.ranking = async function() {
     })
     .replaceRoot('$city')
     .exec();
+  console.log(`record.ranking.data: ${data}`);
   const recordfracs = data.map(item => item.recordfrac);
   const maxRecordFrac = _.max(recordfracs);
   const [minTemp, maxTemp] = await this.tempRange();
