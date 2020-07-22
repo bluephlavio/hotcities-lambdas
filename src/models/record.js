@@ -85,8 +85,8 @@ RecordSchema.statics.ranking = async function() {
       recordfrac,
       recordtemp,
       score:
-        (recordfrac / maxRecordFrac) *
-        ((recordtemp - minTemp) / (maxTemp - minTemp))
+        Math.pow(recordfrac / maxRecordFrac, 1) *
+        Math.pow((recordtemp - minTemp) / (maxTemp - minTemp), 3)
     }))
     .orderBy(['score'], ['desc'])
     .map((entry, i) => ({
