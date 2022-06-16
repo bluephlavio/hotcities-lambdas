@@ -12,27 +12,27 @@ module.exports.list = () => async (req, res, next) => {
     const extra = res.extra || [];
     const data = {
       ranking: _.chain(ranking)
-        .filter(entry => {
+        .filter((entry) => {
           return !!match
             ? _.every(
-                Object.keys(match).map(field => entry[field] === match[field])
+                Object.keys(match).map((field) => entry[field] === match[field])
               )
             : true;
         })
-        .map(entry => {
+        .map((entry) => {
           const { geonameid, recordfrac, recordtemp, score, rank } = entry;
           return Object.assign(
             { geonameid, recordfrac, recordtemp, score, rank },
-            ...extra.map(field => ({ [field]: entry[field] }))
+            ...extra.map((field) => ({ [field]: entry[field] }))
           );
         })
         .orderBy(
           Object.keys(sort),
-          Object.keys(sort).map(key => (sort[key] === 1 ? 'asc' : 'desc'))
+          Object.keys(sort).map((key) => (sort[key] === 1 ? 'asc' : 'desc'))
         )
         .slice(skip, limit ? skip + limit : undefined)
         .value(),
-      temprange
+      temprange,
     };
     res.status(200).send({ data, pagination: { skip, limit } });
   } catch (err) {
@@ -46,18 +46,18 @@ module.exports.get = () => async (req, res, next) => {
     const match = res.match;
     const extra = res.extra || [];
     const data = _.chain(ranking)
-      .map(entry => {
+      .map((entry) => {
         const { geonameid, recordfrac, recordtemp, score, rank } = entry;
         return Object.assign(
           { geonameid, recordfrac, recordtemp, score, rank },
-          ...extra.map(field => ({ [field]: entry[field] }))
+          ...extra.map((field) => ({ [field]: entry[field] }))
         );
       })
-      .find(entry => {
+      .find((entry) => {
         const fields = Object.keys(match);
         return _.some(
           fields,
-          field => String(entry[field]) === String(match[field])
+          (field) => String(entry[field]) === String(match[field])
         );
       })
       .value();

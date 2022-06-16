@@ -1,4 +1,4 @@
-const parseString = s => {
+const parseString = (s) => {
   if (s) {
     const n = Number(s);
     if (n || n === 0) {
@@ -11,9 +11,9 @@ const parseString = s => {
   return s;
 };
 
-const parseFilterQueryParam = key => value => {
+const parseFilterQueryParam = (key) => (value) => {
   const elements = value.split(',');
-  const rules = elements.map(e => {
+  const rules = elements.map((e) => {
     if (e.startsWith('>')) {
       return { [key]: { $gt: parseString(e.slice(1)) } };
     } else if (e.startsWith('<')) {
@@ -23,7 +23,7 @@ const parseFilterQueryParam = key => value => {
     }
   });
   const match = {};
-  rules.forEach(rule => {
+  rules.forEach((rule) => {
     for (const key in rule) {
       if (match[key]) {
         Object.assign(match[key], rule[key]);
@@ -35,13 +35,13 @@ const parseFilterQueryParam = key => value => {
   return match;
 };
 
-const parseSortQueryParam = value => {
+const parseSortQueryParam = (value) => {
   const elements = value.split(',');
-  const rules = elements.map(e =>
+  const rules = elements.map((e) =>
     e.startsWith('-') ? { [e.slice(1)]: -1 } : { [e]: 1 }
   );
   const sort = {};
-  rules.forEach(rule => {
+  rules.forEach((rule) => {
     Object.assign(sort, rule);
   });
   return sort;
@@ -50,5 +50,5 @@ const parseSortQueryParam = value => {
 module.exports = {
   parseString,
   parseFilterQueryParam,
-  parseSortQueryParam
+  parseSortQueryParam,
 };

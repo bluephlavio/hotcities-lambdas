@@ -1,6 +1,6 @@
 const City = require('../models/city');
 
-module.exports.list = model => async (req, res, next) => {
+module.exports.list = (model) => async (req, res, next) => {
   try {
     const match = res.match;
     const sort = res.sort;
@@ -18,17 +18,17 @@ module.exports.list = model => async (req, res, next) => {
           from: 'cities',
           localField: 'geonameid',
           foreignField: 'geonameid',
-          as: 'city'
+          as: 'city',
         })
         .unwind('$city')
         .addFields(
           Object.assign(
             {},
-            ...extra.map(field => ({ [field]: `$city.${field}` }))
+            ...extra.map((field) => ({ [field]: `$city.${field}` }))
           )
         )
         .project({
-          city: 0
+          city: 0,
         });
     }
     cursor.project({ __v: 0 });
@@ -39,7 +39,7 @@ module.exports.list = model => async (req, res, next) => {
   }
 };
 
-module.exports.get = model => async (req, res, next) => {
+module.exports.get = (model) => async (req, res, next) => {
   try {
     const match = res.match;
     const extra = res.extra || [];
@@ -50,8 +50,8 @@ module.exports.get = model => async (req, res, next) => {
     return res.status(200).json({
       data: Object.assign(
         data.toObject(),
-        ...extra.map(field => ({ [field]: city[field] }))
-      )
+        ...extra.map((field) => ({ [field]: city[field] }))
+      ),
     });
   } catch (err) {
     next(err);

@@ -10,7 +10,7 @@ module.exports.getCities = () => {
       localname: 'أبوظبي',
       lng: 54.36667,
       lat: 24.46667,
-      countrycode: 'AE'
+      countrycode: 'AE',
     },
     {
       geonameid: 292223,
@@ -22,7 +22,7 @@ module.exports.getCities = () => {
       localname: 'دبي',
       lng: 55.17128,
       lat: 25.0657,
-      countrycode: 'AE'
+      countrycode: 'AE',
     },
     {
       geonameid: 292672,
@@ -34,8 +34,8 @@ module.exports.getCities = () => {
       localname: 'إمارة الشارقة',
       lng: 55.41206,
       lat: 25.33737,
-      countrycode: 'AE'
-    }
+      countrycode: 'AE',
+    },
   ];
 };
 
@@ -45,18 +45,18 @@ module.exports.getWeather = () => {
     {
       geonameid: 292968,
       temp: 52,
-      timestamp: now - 0
+      timestamp: now - 0,
     },
     {
       geonameid: 292223,
       temp: 51,
-      timestamp: now - 1
+      timestamp: now - 1,
     },
     {
       geonameid: 292672,
       temp: 50,
-      timestamp: now - 2
-    }
+      timestamp: now - 2,
+    },
   ];
 };
 
@@ -66,28 +66,28 @@ module.exports.getRecords = () => {
     {
       geonameid: 292968,
       temp: 51,
-      timestamp: now - 0
+      timestamp: now - 0,
     },
     {
       geonameid: 292223,
       temp: 51,
-      timestamp: now - 1
+      timestamp: now - 1,
     },
     {
       geonameid: 292968,
       temp: 52,
-      timestamp: now - 2
+      timestamp: now - 2,
     },
     {
       geonameid: 292223,
       temp: 50,
-      timestamp: now - 3
+      timestamp: now - 3,
     },
     {
       geonameid: 292223,
       temp: 50,
-      timestamp: now - 4
-    }
+      timestamp: now - 4,
+    },
   ];
 };
 
@@ -100,13 +100,13 @@ module.exports.getPhotos = () => {
       title: 'In the holiday spirit @acsabudhabi',
       license: {
         name: 'Attribution License',
-        url: 'https://creativecommons.org/licenses/by/2.0/'
+        url: 'https://creativecommons.org/licenses/by/2.0/',
       },
       owner: {
         name: 'ToGa Wanderings',
-        url: 'https://www.flickr.com/people/69031678@N00'
+        url: 'https://www.flickr.com/people/69031678@N00',
       },
-      timestamp: '2019-06-16T17:27:31.227Z'
+      timestamp: '2019-06-16T17:27:31.227Z',
     },
     {
       id: 47944445861,
@@ -115,13 +115,13 @@ module.exports.getPhotos = () => {
       title: 'Creek side view of Dubai downtown',
       license: {
         name: 'Attribution License',
-        url: 'https://creativecommons.org/licenses/by/2.0/'
+        url: 'https://creativecommons.org/licenses/by/2.0/',
       },
       owner: {
         name: 'paulmorj',
-        url: 'https://www.flickr.com/people/26812398@N00'
+        url: 'https://www.flickr.com/people/26812398@N00',
       },
-      timestamp: '2019-06-16T17:27:32.162Z'
+      timestamp: '2019-06-16T17:27:32.162Z',
     },
     {
       id: 47037942514,
@@ -130,13 +130,13 @@ module.exports.getPhotos = () => {
       title: 'Burj Khalifa',
       license: {
         name: 'Attribution-ShareAlike License',
-        url: 'https://creativecommons.org/licenses/by-sa/2.0/'
+        url: 'https://creativecommons.org/licenses/by-sa/2.0/',
       },
       owner: {
         name: 'Strocchi',
-        url: 'https://www.flickr.com/people/46383895@N00'
+        url: 'https://www.flickr.com/people/46383895@N00',
       },
-      timestamp: '2019-06-16T17:27:32.164Z'
+      timestamp: '2019-06-16T17:27:32.164Z',
     },
     {
       id: 47944445861,
@@ -145,13 +145,13 @@ module.exports.getPhotos = () => {
       title: 'Creek side view of Dubai downtown',
       license: {
         name: 'Attribution License',
-        url: 'https://creativecommons.org/licenses/by/2.0/'
+        url: 'https://creativecommons.org/licenses/by/2.0/',
       },
       owner: {
         name: 'paulmorj',
-        url: 'https://www.flickr.com/people/26812398@N00'
+        url: 'https://www.flickr.com/people/26812398@N00',
       },
-      timestamp: '2019-06-16T17:27:32.656Z'
+      timestamp: '2019-06-16T17:27:32.656Z',
     },
     {
       id: 47037942514,
@@ -160,13 +160,13 @@ module.exports.getPhotos = () => {
       title: 'Burj Khalifa',
       license: {
         name: 'Attribution-ShareAlike License',
-        url: 'https://creativecommons.org/licenses/by-sa/2.0/'
+        url: 'https://creativecommons.org/licenses/by-sa/2.0/',
       },
       owner: {
         name: 'Strocchi',
-        url: 'https://www.flickr.com/people/46383895@N00'
+        url: 'https://www.flickr.com/people/46383895@N00',
       },
-      timestamp: '2019-06-16T17:27:32.657Z'
-    }
+      timestamp: '2019-06-16T17:27:32.657Z',
+    },
   ];
 };

@@ -8,12 +8,12 @@ chai.should();
 chai.use(chaiHttp);
 chai.use(chaiDatetime);
 
-describe('GET /photos', function() {
-  it('should get all photos', function(done) {
+describe('GET /photos', function () {
+  it('should get all photos', function (done) {
     chai
       .request(app)
       .get('/photos')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
         res.body.data.should.be.an('array');
@@ -25,11 +25,11 @@ describe('GET /photos', function() {
       .catch(console.log);
   });
 
-  it('should paginate correctly', function(done) {
+  it('should paginate correctly', function (done) {
     chai
       .request(app)
       .get('/photos?limit=3&skip=1')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
         res.body.data.should.be.an('array');
@@ -45,11 +45,11 @@ describe('GET /photos', function() {
   const cities = getCities();
   for (const city of cities) {
     const { geonameid } = city;
-    it('should filter correctly by geonameid', function(done) {
+    it('should filter correctly by geonameid', function (done) {
       chai
         .request(app)
         .get(`/photos?geonameid=${geonameid}`)
-        .then(res => {
+        .then((res) => {
           res.should.have.status(200);
           for (let i = 0; i < res.body.data.length - 1; i++) {
             res.body.data[i].geonameid.should.be.eql(geonameid);

@@ -8,13 +8,13 @@ module.exports.MAX_CALLS_PER_MINUTE = 60;
 
 const openweathermap = new OpenWeatherMap(config.openweathermap.key);
 
-module.exports.getWeather = async geonameids => {
+module.exports.getWeather = async (geonameids) => {
   weather = [];
   for (const geonameid of geonameids) {
     try {
       const data = await openweathermap.currentWeatherByCityId({
         cityId: geonameid,
-        units: 'metric'
+        units: 'metric',
       });
       const temp = data && data.main ? data.main.temp : null;
       if (!temp) {
@@ -25,7 +25,7 @@ module.exports.getWeather = async geonameids => {
       weather.push(
         new Weather({
           geonameid,
-          temp
+          temp,
         })
       );
     } catch (err) {

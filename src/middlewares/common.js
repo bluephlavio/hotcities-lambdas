@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const {
   parseFilterQueryParam,
-  parseSortQueryParam
+  parseSortQueryParam,
 } = require('../helpers/parsers');
 
 const ObjectId = mongoose.Types.ObjectId;
 
-module.exports.matchMiddleware = extraIdField => (req, res, next) => {
+module.exports.matchMiddleware = (extraIdField) => (req, res, next) => {
   const {
-    params: { id }
+    params: { id },
   } = req;
   if (id.length === 24) {
     res.match = { _id: ObjectId(id) };
@@ -25,19 +25,21 @@ module.exports.matchMiddleware = extraIdField => (req, res, next) => {
   return next({ message: 'Not found.', code: 404 });
 };
 
-module.exports.filterMiddleware = (...keys) => (req, res, next) => {
-  const { query } = req;
-  keys.forEach(key => {
-    if (key in query) {
-      const { [key]: value } = query;
-      res.match = Object.assign(
-        res.match || {},
-        parseFilterQueryParam(key)(value)
-      );
-    }
-  });
-  next();
-};
+module.exports.filterMiddleware =
+  (...keys) =>
+  (req, res, next) => {
+    const { query } = req;
+    keys.forEach((key) => {
+      if (key in query) {
+        const { [key]: value } = query;
+        res.match = Object.assign(
+          res.match || {},
+          parseFilterQueryParam(key)(value)
+        );
+      }
+    });
+    next();
+  };
 
 module.exports.sortMiddleware = () => (req, res, next) => {
   const { query } = req;

@@ -3,46 +3,46 @@ const mongoose = require('mongoose');
 const PhotoSchema = new mongoose.Schema({
   id: {
     type: String,
-    required: true
+    required: true,
   },
   timestamp: {
     type: Date,
     default: Date.now,
-    required: true
+    required: true,
   },
   geonameid: {
     type: Number,
-    required: true
+    required: true,
   },
   src: {
     type: String,
-    required: true
+    required: true,
   },
   url: {
-    type: String
+    type: String,
   },
   title: {
-    type: String
+    type: String,
   },
   owner: {
     name: {
-      type: String
+      type: String,
     },
     url: {
-      type: String
-    }
+      type: String,
+    },
   },
   license: {
     name: {
-      type: String
+      type: String,
     },
     url: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 });
 
-PhotoSchema.statics.findByGeonameid = async function(geonameid, opts) {
+PhotoSchema.statics.findByGeonameid = async function (geonameid, opts) {
   return await this.find({ geonameid }).limit(opts ? opts.limit || 0 : 0);
 };
 

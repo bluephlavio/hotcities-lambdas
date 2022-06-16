@@ -1,5 +1,9 @@
 module.exports.errorHandler = (err, req, res, next) => {
-  res.status(err.code || 500).send({ error: err.message });
+  console.log(err);
+  const { code } = err;
+  res
+    .status(code > 100 && code < 600 ? code : 500)
+    .send({ error: err.message });
 };
 
 module.exports.missingRouteHandler = (req, res, next) => {

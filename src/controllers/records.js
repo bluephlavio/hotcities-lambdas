@@ -13,8 +13,8 @@ module.exports.current = () => async (req, res, next) => {
     return res.status(200).json({
       data: Object.assign(
         data.toObject(),
-        ...extra.map(field => ({ [field]: city[field] }))
-      )
+        ...extra.map((field) => ({ [field]: city[field] }))
+      ),
     });
   } catch (err) {
     next(err);
@@ -24,17 +24,15 @@ module.exports.current = () => async (req, res, next) => {
 module.exports.hottest = () => async (req, res, next) => {
   try {
     const extra = res.extra || [];
-    const data = await Record.findOne()
-      .sort({ temp: 'desc' })
-      .select(['-__v']);
+    const data = await Record.findOne().sort({ temp: 'desc' }).select(['-__v']);
     const { geonameid } = data;
     const city = await City.findOne({ geonameid });
     if (!data) return next({ message: 'Not found.', code: 404 });
     return res.status(200).json({
       data: Object.assign(
         data.toObject(),
-        ...extra.map(field => ({ [field]: city[field] }))
-      )
+        ...extra.map((field) => ({ [field]: city[field] }))
+      ),
     });
   } catch (err) {
     next(err);
@@ -44,17 +42,15 @@ module.exports.hottest = () => async (req, res, next) => {
 module.exports.coolest = () => async (req, res, next) => {
   try {
     const extra = res.extra || [];
-    const data = await Record.findOne()
-      .sort({ temp: 'asc' })
-      .select(['-__v']);
+    const data = await Record.findOne().sort({ temp: 'asc' }).select(['-__v']);
     const { geonameid } = data;
     const city = await City.findOne({ geonameid });
     if (!data) return next({ message: 'Not found.', code: 404 });
     return res.status(200).json({
       data: Object.assign(
         data.toObject(),
-        ...extra.map(field => ({ [field]: city[field] }))
-      )
+        ...extra.map((field) => ({ [field]: city[field] }))
+      ),
     });
   } catch (err) {
     next(err);

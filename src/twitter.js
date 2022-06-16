@@ -11,7 +11,7 @@ const twitter = new Twit({
   consumer_key: config.twitter.consumerKey,
   consumer_secret: config.twitter.consumerSecret,
   access_token: config.twitter.accessToken,
-  access_token_secret: config.twitter.accessTokenSecret
+  access_token_secret: config.twitter.accessTokenSecret,
 });
 
 const commonTags = [
@@ -20,12 +20,12 @@ const commonTags = [
   'globalcities',
   'hotweather',
   'heatwave',
-  'sunny'
+  'sunny',
 ];
 
-const taggify = tag => `#${tag.toLowerCase().replace(/(\s|\')/g, '')}`;
+const taggify = (tag) => `#${tag.toLowerCase().replace(/(\s|\')/g, '')}`;
 
-module.exports.createTweetFromRecord = async function(record) {
+module.exports.createTweetFromRecord = async function (record) {
   const { geonameid, temp } = record;
   const city = await City.findByGeonameid(geonameid);
   const { name, countrycode, countryname } = city;
@@ -47,11 +47,11 @@ module.exports.createTweetFromRecord = async function(record) {
     geonameid,
     temp,
     photourl,
-    status
+    status,
   });
 };
 
-module.exports.post = async tweet => {
+module.exports.post = async (tweet) => {
   const { status } = tweet;
   return await twitter.post('statuses/update', { status });
 };

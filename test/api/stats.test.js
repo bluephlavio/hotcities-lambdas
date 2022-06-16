@@ -6,12 +6,12 @@ const { getCities } = require('../data/factory');
 chai.should();
 chai.use(chaiHttp);
 
-describe('GET /stats', function() {
-  it('should get stats for all cities', function(done) {
+describe('GET /stats', function () {
+  it('should get stats for all cities', function (done) {
     chai
       .request(app)
       .get('/stats')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
         res.body.data.should.have.property('ranking');
@@ -38,11 +38,11 @@ describe('GET /stats', function() {
       .catch(console.log);
   });
 
-  it('should get stats for all cities with extras', function(done) {
+  it('should get stats for all cities with extras', function (done) {
     chai
       .request(app)
       .get('/stats?extra=name,countryname,countrycode')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
         res.body.data.should.have.property('ranking');
@@ -68,11 +68,11 @@ describe('GET /stats', function() {
       .catch(console.log);
   });
 
-  it('should paginate correctly', function(done) {
+  it('should paginate correctly', function (done) {
     chai
       .request(app)
       .get('/stats?limit=3&skip=1')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
         res.body.data.should.have.property('ranking');
@@ -89,11 +89,11 @@ describe('GET /stats', function() {
       .catch(console.log);
   });
 
-  it('should sort correctly by score', function(done) {
+  it('should sort correctly by score', function (done) {
     chai
       .request(app)
       .get('/stats?sort=-score')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         for (let i = 0; i < res.body.data.length - 1; i++) {
           res.body.data.ranking[i + 1].score.should.be.lte(
@@ -106,15 +106,15 @@ describe('GET /stats', function() {
   });
 });
 
-describe('GET /stats/:id', function() {
+describe('GET /stats/:id', function () {
   const cities = getCities();
   for (const city of cities) {
     const { geonameid } = city;
-    it('should return stats for correct city', function(done) {
+    it('should return stats for correct city', function (done) {
       chai
         .request(app)
         .get(`/stats/${geonameid}`)
-        .then(res => {
+        .then((res) => {
           if (res.statusCode === 200) {
             res.body.data.should.be.ok;
             res.body.data.should.have.property('geonameid');
@@ -127,11 +127,11 @@ describe('GET /stats/:id', function() {
         .catch(console.log);
     });
 
-    it('should return stats for correct city with extras', function(done) {
+    it('should return stats for correct city with extras', function (done) {
       chai
         .request(app)
         .get(`/stats/${geonameid}?extra=name,lat,lng`)
-        .then(res => {
+        .then((res) => {
           if (res.statusCode === 200) {
             res.body.data.should.be.ok;
             res.body.data.should.have.property('geonameid');

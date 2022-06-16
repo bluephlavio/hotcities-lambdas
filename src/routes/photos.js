@@ -4,7 +4,7 @@ const {
   matchMiddleware,
   filterMiddleware,
   sortMiddleware,
-  paginationMiddleware
+  paginationMiddleware,
 } = require('../middlewares/common');
 const { list, get } = require('../controllers/common');
 

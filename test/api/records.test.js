@@ -7,12 +7,12 @@ chai.should();
 chai.use(chaiHttp);
 chai.use(chaiDatetime);
 
-describe('GET /records', function() {
-  it('should get all records', function(done) {
+describe('GET /records', function () {
+  it('should get all records', function (done) {
     chai
       .request(app)
       .get('/records')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
         res.body.data.should.be.an('array');
@@ -24,11 +24,11 @@ describe('GET /records', function() {
       .catch(console.log);
   });
 
-  it('should paginate correctly', function(done) {
+  it('should paginate correctly', function (done) {
     chai
       .request(app)
       .get('/records?limit=3&skip=1')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
         res.body.data.should.be.an('array');
@@ -41,11 +41,11 @@ describe('GET /records', function() {
       .catch(console.log);
   });
 
-  it('should sort correctly by timestamp', function(done) {
+  it('should sort correctly by timestamp', function (done) {
     chai
       .request(app)
       .get('/records?sort=-timestamp')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         for (let i = 0; i < res.body.data.length - 1; i++) {
           new Date(res.body.data[i + 1].timestamp).should.be.beforeTime(
@@ -57,11 +57,11 @@ describe('GET /records', function() {
       .catch(console.log);
   });
 
-  it('should filter correctly by temp', function(done) {
+  it('should filter correctly by temp', function (done) {
     chai
       .request(app)
       .get('/records?temp=>45')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         for (let i = 0; i < res.body.data.length - 1; i++) {
           res.body.data[i].temp.should.be.gt(45);
@@ -71,11 +71,11 @@ describe('GET /records', function() {
       .catch(console.log);
   });
 
-  it('should filter correctly by temp range', function(done) {
+  it('should filter correctly by temp range', function (done) {
     chai
       .request(app)
       .get('/records?temp=>42,<45')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         for (let i = 0; i < res.body.data.length - 1; i++) {
           res.body.data[i].temp.should.be.gt(42);
@@ -87,12 +87,12 @@ describe('GET /records', function() {
   });
 });
 
-describe('GET /records/current', function() {
-  it('should return the latest record', function(done) {
+describe('GET /records/current', function () {
+  it('should return the latest record', function (done) {
     chai
       .request(app)
       .get('/records/current')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.have.property('geonameid');
         res.body.data.should.have.property('temp');
@@ -103,12 +103,12 @@ describe('GET /records/current', function() {
   });
 });
 
-describe('GET /records/hottest', function() {
-  it('should return the hottest of records', function(done) {
+describe('GET /records/hottest', function () {
+  it('should return the hottest of records', function (done) {
     chai
       .request(app)
       .get('/records/hottest')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.have.property('geonameid');
         res.body.data.should.have.property('temp');
@@ -119,12 +119,12 @@ describe('GET /records/hottest', function() {
   });
 });
 
-describe('GET /records/coolest', function() {
-  it('should return the coolest of records', function(done) {
+describe('GET /records/coolest', function () {
+  it('should return the coolest of records', function (done) {
     chai
       .request(app)
       .get('/records/coolest')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.data.should.have.property('geonameid');
         res.body.data.should.have.property('temp');

@@ -7,33 +7,33 @@ const PhotoSchema = new mongoose.Schema(
   {
     src: {
       type: String,
-      required: true
+      required: true,
     },
     url: {
-      type: String
+      type: String,
     },
     title: {
-      type: String
+      type: String,
     },
     owner: {
       name: {
-        type: String
+        type: String,
       },
       url: {
-        type: String
-      }
+        type: String,
+      },
     },
     license: {
       name: {
-        type: String
+        type: String,
       },
       url: {
-        type: String
-      }
-    }
+        type: String,
+      },
+    },
   },
   {
-    _id: false
+    _id: false,
   }
 );
 
@@ -41,142 +41,142 @@ const CurrentSchema = new mongoose.Schema(
   {
     geonameid: {
       type: Number,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     localname: {
-      type: String
+      type: String,
     },
     lng: {
       type: Number,
-      required: true
+      required: true,
     },
     lat: {
       type: Number,
-      required: true
+      required: true,
     },
     countryname: {
       type: String,
-      required: true
+      required: true,
     },
     countrycode: {
       type: String,
-      required: true
+      required: true,
     },
     population: {
       type: Number,
-      required: true
+      required: true,
     },
     temp: {
       type: Number,
-      required: true
+      required: true,
     },
     timestamp: {
       type: Date,
-      required: true
+      required: true,
     },
     photos: [PhotoSchema],
     score: {
       type: Number,
-      required: true
+      required: true,
     },
     recordfrac: {
       type: Number,
-      required: true
+      required: true,
     },
     recordtemp: {
       type: Number,
-      required: true
+      required: true,
     },
     rank: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   {
-    _id: false
+    _id: false,
   }
 );
 
 const RankingItemSchema = new mongoose.Schema(
   {
     geonameid: {
-      type: Number
+      type: Number,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     localname: {
-      type: String
+      type: String,
     },
     lng: {
       type: Number,
-      required: true
+      required: true,
     },
     lat: {
       type: Number,
-      required: true
+      required: true,
     },
     countryname: {
       type: String,
-      required: true
+      required: true,
     },
     countrycode: {
       type: String,
-      required: true
+      required: true,
     },
     population: {
       type: Number,
-      required: true
+      required: true,
     },
     score: {
       type: Number,
-      required: true
+      required: true,
     },
     recordfrac: {
       type: Number,
-      required: true
+      required: true,
     },
     recordtemp: {
       type: Number,
-      required: true
+      required: true,
     },
     rank: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   {
-    _id: false
+    _id: false,
   }
 );
 
 const StatsSchema = new mongoose.Schema(
   {
     ranking: [RankingItemSchema],
-    temprange: [Number]
+    temprange: [Number],
   },
   {
-    _id: false
+    _id: false,
   }
 );
 
 const StateSchema = new mongoose.Schema({
   current: CurrentSchema,
-  stats: StatsSchema
+  stats: StatsSchema,
 });
 
-StateSchema.statics.build = async function() {
+StateSchema.statics.build = async function () {
   const record = await Record.current();
   const { geonameid } = record;
   const photos = await Photo.findByGeonameid(geonameid, { limit: 3 });
   const ranking = await Record.ranking();
   const cityRank = _.chain(ranking)
-    .find(entry => entry.geonameid === geonameid)
+    .find((entry) => entry.geonameid === geonameid)
     .value();
   const temprange = await Record.tempRange();
   const newState = await new this({
@@ -185,19 +185,19 @@ StateSchema.statics.build = async function() {
         ...cityRank,
         temp: record.temp,
         timestamp: record.timestamp,
-        photos: photos.map(photo => _.omit(photo, ['_id', '__v']))
+        photos: photos.map((photo) => _.omit(photo, ['_id', '__v'])),
       },
       ['_id', '__v']
     ),
     stats: {
       ranking,
-      temprange
-    }
+      temprange,
+    },
   });
   return newState;
 };
 
-StateSchema.statics.update = async function() {
+StateSchema.statics.update = async function () {
   const newState = await this.build();
   const oldState = await this.findOne();
   await newState.save();

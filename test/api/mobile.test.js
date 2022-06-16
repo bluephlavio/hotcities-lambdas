@@ -5,12 +5,12 @@ const { app } = require('../../src/server');
 chai.use(chaiHttp);
 chai.should();
 
-describe('GET /mobile/live', function() {
-  it('should return correct data', function(done) {
+describe('GET /mobile/live', function () {
+  it('should return correct data', function (done) {
     chai
       .request(app)
       .get('/mobile/live')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.should.have.property('data');
         res.body.data.should.have.property('current');
@@ -39,12 +39,12 @@ describe('GET /mobile/live', function() {
   });
 });
 
-describe('GET /mobile/stats', function() {
-  it('should return correct data', function(done) {
+describe('GET /mobile/stats', function () {
+  it('should return correct data', function (done) {
     chai
       .request(app)
       .get('/mobile/stats')
-      .then(res => {
+      .then((res) => {
         res.should.have.status(200);
         res.body.should.have.property('data');
         res.body.data.should.have.property('ranking');

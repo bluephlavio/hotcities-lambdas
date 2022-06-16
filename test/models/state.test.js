@@ -8,14 +8,13 @@ const { getCities, getRecords, getPhotos } = require('../data/factory');
 
 chai.should();
 
-describe('State model', function() {
-  before(function() {
-    sinon.stub(Record, 'current').callsFake(() =>
-      _.chain(getRecords())
-        .orderBy(['timestamp'], ['desc'])
-        .first()
-        .value()
-    );
+describe('State model', function () {
+  before(function () {
+    sinon
+      .stub(Record, 'current')
+      .callsFake(() =>
+        _.chain(getRecords()).orderBy(['timestamp'], ['desc']).first().value()
+      );
     sinon.stub(Record, 'ranking').callsFake(() => {
       const records = getRecords();
       const cities = getCities();
@@ -23,13 +22,13 @@ describe('State model', function() {
       const ranking = _.chain(records)
         .groupBy('geonameid')
         .toPairs()
-        .map(entry => ({
+        .map((entry) => ({
           geonameid: Number(entry[0]),
           recordfrac: entry[1].length / count,
           recordtemp: _.chain(entry[1])
             .map(({ temp }) => temp)
             .max()
-            .value()
+            .value(),
         }))
         .value();
       const maxRecordFrac = _.chain(ranking)
@@ -46,12 +45,15 @@ describe('State model', function() {
           recordfrac,
           recordtemp,
           score: (recordfrac * recordtemp) / normalization,
-          ...rest
+          ...rest,
         }))
         .map(({ geonameid, ...rest }) =>
           Object.assign(
             { ...rest },
-            _.omit(_.find(cities, city => city.geonameid === geonameid), '_id')
+            _.omit(
+              _.find(cities, (city) => city.geonameid === geonameid),
+              '_id'
+            )
           )
         )
         .value();
@@ -64,24 +66,24 @@ describe('State model', function() {
       _.chain(getRecords())
         .map(({ temp }) => temp)
         .max()
-        .value()
+        .value(),
     ]);
     sinon.stub(Photo, 'findByGeonameid').callsFake((geonameid, { limit }) =>
       _.chain(getPhotos())
-        .filter(photo => photo.geonameid === geonameid)
+        .filter((photo) => photo.geonameid === geonameid)
         .slice(0, limit)
         .value()
     );
   });
 
-  after(function() {
+  after(function () {
     Record.current.restore();
     Record.ranking.restore();
     Record.tempRange.restore();
     Photo.findByGeonameid.restore();
   });
 
-  it('should return a state object when build is called', async function() {
+  it('should return a state object when build is called', async function () {
     const state = await State.build();
     state.should.be.ok;
     state.should.have.property('current');

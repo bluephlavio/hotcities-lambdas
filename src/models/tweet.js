@@ -3,31 +3,31 @@ const mongoose = require('mongoose');
 const TweetSchema = new mongoose.Schema({
   geonameid: {
     type: Number,
-    required: true
+    required: true,
   },
   temp: {
     type: Number,
-    required: true
+    required: true,
   },
   photourl: {
-    type: String
+    type: String,
   },
   status: {
     type: String,
-    required: true
+    required: true,
   },
   timestamp: {
     type: Date,
     default: Date.now,
-    required: true
-  }
+    required: true,
+  },
 });
 
-TweetSchema.statics.last = async function() {
+TweetSchema.statics.last = async function () {
   return await this.findOne().sort({ timestamp: 'desc' });
 };
 
-TweetSchema.methods.tweetable = async function() {
+TweetSchema.methods.tweetable = async function () {
   const last = await this.model('Tweet').last();
   if (!last) {
     return true;
