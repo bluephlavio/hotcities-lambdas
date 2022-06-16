@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "eslint --fix src/ test/",
     "test": "mocha './test/**/*.test.js' --exit --timeout 10000",
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "deploy": "sls deploy"
   },
   "devDependencies": {
     "chai": "^4.2.0",
