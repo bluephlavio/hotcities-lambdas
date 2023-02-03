@@ -34,7 +34,7 @@
     "lodash": "^4.17.11",
     "mongoose": "^6.3.8",
     "node-emoji": "^1.10.0",
-    "npm": "^8.12.2",
+    "npm": "^8.19.3",
     "openweathermap-api-module": "^0.0.1",
     "serverless-http": "^3.0.1",
     "twit": "^2.2.11"
