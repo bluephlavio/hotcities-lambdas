@@ -1,4 +1,4 @@
-const Twit = require('twit');
+const { TwitterApi } = require('twitter-api-v2');
 const _ = require('lodash');
 const emoji = require('node-emoji');
 const City = require('./models/city');
@@ -7,11 +7,11 @@ const Tweet = require('./models/tweet');
 const { formatTemp } = require('./helpers/formatters');
 const config = require('./config');
 
-const twitter = new Twit({
-  consumer_key: config.twitter.consumerKey,
-  consumer_secret: config.twitter.consumerSecret,
-  access_token: config.twitter.accessToken,
-  access_token_secret: config.twitter.accessTokenSecret,
+const twitterClient = new TwitterApi({
+  appKey: config.twitter.consumerKey,
+  appSecret: config.twitter.consumerSecret,
+  accessToken: config.twitter.accessToken,
+  accessSecret: config.twitter.accessTokenSecret,
 });
 
 const commonTags = [
@@ -53,5 +53,9 @@ module.exports.createTweetFromRecord = async function (record) {
 
 module.exports.post = async (tweet) => {
   const { status } = tweet;
-  return await twitter.post('statuses/update', { status });
+  try {
+    return await twitterClient.v2.tweet(status);
+  } catch (err) {
+    console.log(`twitter.post: ${err}`);
+  }
 };

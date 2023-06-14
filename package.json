@@ -37,6 +37,7 @@
     "npm": "^8.12.2",
     "openweathermap-api-module": "^0.0.1",
     "serverless-http": "^3.0.1",
-    "twit": "^2.2.11"
+    "twit": "^2.2.11",
+    "twitter-api-v2": "^1.15.0"
   }
 }

@@ -24,7 +24,7 @@ module.exports.stats = () => async (req, res, next) => {
 
 module.exports.all = () => async (req, res, next) => {
   try {
-    const { stats: data } = await State.findOne();
+    const data = await State.findOne();
     if (!data) res.status(500).json({ error: 'Server error.' });
     res.status(200).json({ data });
   } catch (err) {
