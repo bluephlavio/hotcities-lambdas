@@ -15,6 +15,8 @@ const config = {
     accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+    clientId: process.env.TWITTER_CLIENT_ID,
+    clientSecret: process.env.TWITTER_CLIENT_SECRET,
   },
 };
 

@@ -35,7 +35,8 @@ functions:
     handler: src/twitterbot.handler
     timeout: 60
     events:
-      - schedule: cron(0 * * * ? *)
+      - schedule:
+          rate: rate(60 minutes)
 
 plugins:
   - serverless-offline
