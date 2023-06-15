@@ -2,11 +2,9 @@ service: hotcities-lambdas
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
-  accessKeyId: ${self:custom.secrets.AWS_KEY}
-  secretAccessKey: ${self:custom.secrets.AWS_SECRET}
   environment:
     MONGO_CONNECTION: ${self:custom.secrets.MONGO_CONNECTION}
     OPENWEATHERMAP_KEY: ${self:custom.secrets.OPENWEATHERMAP_KEY}
@@ -20,8 +18,9 @@ functions:
   server:
     handler: src/server.handler
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http:
+          path: /{proxy+}
+          method: ANY
   fetcher:
     handler: src/fetcher.handler
     timeout: 60
