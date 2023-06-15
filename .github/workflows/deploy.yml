@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
       - name: Install Serverless Framework
         run: npm install -g serverless
       - name: Deploy to prod
