@@ -16,4 +16,6 @@ jobs:
       - name: Install Serverless Framework
         run: npm install -g serverless
       - name: Deploy to prod
+        env:
+          SLS_SECRETS: ${{ secrets.SLS_SECRETS }}
         run: sls deploy --stage prod
