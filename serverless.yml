@@ -25,12 +25,14 @@ functions:
     handler: src/fetcher.handler
     timeout: 60
     events:
-      - rate: rate(2 minutes)
+      - schedule:
+          rate: rate(2 minutes)
   recorder:
     handler: src/recorder.handler
     timeout: 60
     events:
-      - rate: rate(10 minutes)
+      - schedule:
+          rate: rate(10 minutes)
   twitterbot:
     handler: src/twitterbot.handler
     timeout: 60
