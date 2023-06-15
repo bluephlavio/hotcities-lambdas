@@ -15,7 +15,12 @@ jobs:
         uses: actions/setup-node@v3
       - name: Install Serverless Framework
         run: npm install -g serverless
+      - name: Serverless AWS authentication
+        run: sls config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
+      - name: Create env file
+        run: |
+          cat > serverless.env.yml << EOF
+          ${{ secrets.SLS_ENV }}
+          EOF
       - name: Deploy to prod
-        env:
-          SLS_SECRETS: ${{ secrets.SLS_SECRETS }}
         run: sls deploy --stage prod
