@@ -6,8 +6,8 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
   environment:
-    AWS_KEY: ${self:custom.secrets.AWS_KEY}
-    AWS_SECRET: ${self:custom.secrets.AWS_SECRET}
+    AWS_ACCESS_KEY_ID: ${self:custom.secrets.AWS_KEY}
+    AWS_SECRET_ACCESS_KEY: ${self:custom.secrets.AWS_SECRET}
     MONGO_CONNECTION: ${self:custom.secrets.MONGO_CONNECTION}
     OPENWEATHERMAP_KEY: ${self:custom.secrets.OPENWEATHERMAP_KEY}
     FLICKR_KEY: ${self:custom.secrets.FLICKR_KEY}
