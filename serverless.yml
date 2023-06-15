@@ -5,8 +5,9 @@ provider:
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
-  profile: hotcities-${self:provider.stage}
   environment:
+    AWS_KEY: ${self:custom.secrets.AWS_KEY}
+    AWS_SECRET: ${self:custom.secrets.AWS_SECRET}
     MONGO_CONNECTION: ${self:custom.secrets.MONGO_CONNECTION}
     OPENWEATHERMAP_KEY: ${self:custom.secrets.OPENWEATHERMAP_KEY}
     FLICKR_KEY: ${self:custom.secrets.FLICKR_KEY}
