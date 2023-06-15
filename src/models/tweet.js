@@ -28,18 +28,19 @@ TweetSchema.statics.last = async function () {
 };
 
 TweetSchema.methods.tweetable = async function () {
-  const last = await this.model('Tweet').last();
-  if (!last) {
-    return true;
-  }
-  const { geonameid, temp, timestamp } = last;
-  if (this.timestamp > timestamp) {
-    if (this.geonameid == geonameid) {
-      return this.temp > temp;
-    }
-    return true;
-  }
-  return false;
+  // const last = await this.model('Tweet').last();
+  // if (!last) {
+  //   return true;
+  // }
+  // const { geonameid, temp, timestamp } = last;
+  // if (this.timestamp > timestamp) {
+  //   if (this.geonameid == geonameid) {
+  //     return this.temp > temp;
+  //   }
+  //   return true;
+  // }
+  // return false;
+  return true;
 };
 
 module.exports = mongoose.model('Tweet', TweetSchema);
