@@ -2,10 +2,9 @@ service: hotcities-lambdas
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   stage: ${opt:stage, 'dev'}
   region: eu-west-2
-  profile: hotcities-${self:provider.stage}
   environment:
     MONGO_CONNECTION: ${self:custom.secrets.MONGO_CONNECTION}
     OPENWEATHERMAP_KEY: ${self:custom.secrets.OPENWEATHERMAP_KEY}
@@ -19,26 +18,29 @@ functions:
   server:
     handler: src/server.handler
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http:
+          path: /{proxy+}
+          method: ANY
   fetcher:
     handler: src/fetcher.handler
     timeout: 60
     events:
-      - schedule: cron(0/2 * * * ? *)
+      - schedule:
+          rate: rate(2 minutes)
   recorder:
     handler: src/recorder.handler
     timeout: 60
     events:
-      - schedule: cron(0/10 * * * ? *)
+      - schedule:
+          rate: rate(10 minutes)
   twitterbot:
     handler: src/twitterbot.handler
     timeout: 60
     events:
-      - schedule: cron(0 * * * ? *)
+      - schedule:
+          rate: rate(60 minutes)
 
 plugins:
   - serverless-offline
-
 custom:
   secrets: ${file(./serverless.env.yml):${self:provider.stage}}
