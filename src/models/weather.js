@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const _ = require('lodash');
-const City = require('./city');
-const Record = require('./record');
+const mongoose = require("mongoose");
+const _ = require("lodash");
+const City = require("./city");
+const Record = require("./record");
 
 const WeatherSchema = new mongoose.Schema({
   timestamp: {
@@ -66,7 +66,7 @@ WeatherSchema.statics.ready = async function () {
 
 WeatherSchema.statics.withOlderDataGeonameids = async function (n) {
   const all = await this.find();
-  older = _.chain(all).sortBy('timestamp').slice(0, n).value();
+  older = _.chain(all).sortBy("timestamp").slice(0, n).value();
   return older.map((entry) => entry.geonameid);
 };
 
@@ -113,4 +113,4 @@ WeatherSchema.statics.record = async function () {
   });
 };
 
-module.exports = mongoose.model('Weather', WeatherSchema);
+module.exports = mongoose.model("Weather", WeatherSchema);

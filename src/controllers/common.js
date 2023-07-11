@@ -1,4 +1,4 @@
-const City = require('../models/city');
+const City = require("../models/city");
 
 module.exports.list = (model) => async (req, res, next) => {
   try {
@@ -15,12 +15,12 @@ module.exports.list = (model) => async (req, res, next) => {
     if (extra) {
       cursor
         .lookup({
-          from: 'cities',
-          localField: 'geonameid',
-          foreignField: 'geonameid',
-          as: 'city',
+          from: "cities",
+          localField: "geonameid",
+          foreignField: "geonameid",
+          as: "city",
         })
-        .unwind('$city')
+        .unwind("$city")
         .addFields(
           Object.assign(
             {},
@@ -43,8 +43,8 @@ module.exports.get = (model) => async (req, res, next) => {
   try {
     const match = res.match;
     const extra = res.extra || [];
-    const data = await model.findOne(match).select('-__v');
-    if (!data) return next({ message: 'Not found.', code: 404 });
+    const data = await model.findOne(match).select("-__v");
+    if (!data) return next({ message: "Not found.", code: 404 });
     const { geonameid } = data;
     const city = await City.findOne({ geonameid });
     return res.status(200).json({

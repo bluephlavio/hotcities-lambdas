@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const _ = require('lodash');
-const Record = require('./record');
-const Photo = require('./photo');
+const mongoose = require("mongoose");
+const _ = require("lodash");
+const Record = require("./record");
+const Photo = require("./photo");
 
 const PhotoSchema = new mongoose.Schema(
   {
@@ -185,9 +185,9 @@ StateSchema.statics.build = async function () {
         ...cityRank,
         temp: record.temp,
         timestamp: record.timestamp,
-        photos: photos.map((photo) => _.omit(photo, ['_id', '__v'])),
+        photos: photos.map((photo) => _.omit(photo, ["_id", "__v"])),
       },
-      ['_id', '__v']
+      ["_id", "__v"]
     ),
     stats: {
       ranking,
@@ -205,4 +205,4 @@ StateSchema.statics.update = async function () {
   return newState;
 };
 
-module.exports = mongoose.model('State', StateSchema);
+module.exports = mongoose.model("State", StateSchema);

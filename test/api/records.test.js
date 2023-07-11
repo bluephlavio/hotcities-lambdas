@@ -1,21 +1,21 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const chaiDatetime = require('chai-datetime');
-const { app } = require('../../src/server');
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+const chaiDatetime = require("chai-datetime");
+const { app } = require("../../src/server");
 
 chai.should();
 chai.use(chaiHttp);
 chai.use(chaiDatetime);
 
-describe('GET /records', function () {
-  it('should get all records', function (done) {
+describe("GET /records", function () {
+  it("should get all records", function (done) {
     chai
       .request(app)
-      .get('/records')
+      .get("/records")
       .then((res) => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
-        res.body.data.should.be.an('array');
+        res.body.data.should.be.an("array");
         res.body.pagination.should.be.ok;
         res.body.pagination.skip.should.be.eql(0);
         res.body.pagination.limit.should.be.eql(0);
@@ -24,14 +24,14 @@ describe('GET /records', function () {
       .catch(console.log);
   });
 
-  it('should paginate correctly', function (done) {
+  it("should paginate correctly", function (done) {
     chai
       .request(app)
-      .get('/records?limit=3&skip=1')
+      .get("/records?limit=3&skip=1")
       .then((res) => {
         res.should.have.status(200);
         res.body.data.should.be.ok;
-        res.body.data.should.be.an('array');
+        res.body.data.should.be.an("array");
         res.body.data.length.should.be.eql(3);
         res.body.pagination.should.be.ok;
         res.body.pagination.skip.should.be.eql(1);
@@ -41,10 +41,10 @@ describe('GET /records', function () {
       .catch(console.log);
   });
 
-  it('should sort correctly by timestamp', function (done) {
+  it("should sort correctly by timestamp", function (done) {
     chai
       .request(app)
-      .get('/records?sort=-timestamp')
+      .get("/records?sort=-timestamp")
       .then((res) => {
         res.should.have.status(200);
         for (let i = 0; i < res.body.data.length - 1; i++) {
@@ -57,10 +57,10 @@ describe('GET /records', function () {
       .catch(console.log);
   });
 
-  it('should filter correctly by temp', function (done) {
+  it("should filter correctly by temp", function (done) {
     chai
       .request(app)
-      .get('/records?temp=>45')
+      .get("/records?temp=>45")
       .then((res) => {
         res.should.have.status(200);
         for (let i = 0; i < res.body.data.length - 1; i++) {
@@ -71,10 +71,10 @@ describe('GET /records', function () {
       .catch(console.log);
   });
 
-  it('should filter correctly by temp range', function (done) {
+  it("should filter correctly by temp range", function (done) {
     chai
       .request(app)
-      .get('/records?temp=>42,<45')
+      .get("/records?temp=>42,<45")
       .then((res) => {
         res.should.have.status(200);
         for (let i = 0; i < res.body.data.length - 1; i++) {
@@ -87,48 +87,48 @@ describe('GET /records', function () {
   });
 });
 
-describe('GET /records/current', function () {
-  it('should return the latest record', function (done) {
+describe("GET /records/current", function () {
+  it("should return the latest record", function (done) {
     chai
       .request(app)
-      .get('/records/current')
+      .get("/records/current")
       .then((res) => {
         res.should.have.status(200);
-        res.body.data.should.have.property('geonameid');
-        res.body.data.should.have.property('temp');
-        res.body.data.should.have.property('timestamp');
+        res.body.data.should.have.property("geonameid");
+        res.body.data.should.have.property("temp");
+        res.body.data.should.have.property("timestamp");
       })
       .then(done)
       .catch(console.log);
   });
 });
 
-describe('GET /records/hottest', function () {
-  it('should return the hottest of records', function (done) {
+describe("GET /records/hottest", function () {
+  it("should return the hottest of records", function (done) {
     chai
       .request(app)
-      .get('/records/hottest')
+      .get("/records/hottest")
       .then((res) => {
         res.should.have.status(200);
-        res.body.data.should.have.property('geonameid');
-        res.body.data.should.have.property('temp');
-        res.body.data.should.have.property('timestamp');
+        res.body.data.should.have.property("geonameid");
+        res.body.data.should.have.property("temp");
+        res.body.data.should.have.property("timestamp");
       })
       .then(done)
       .catch(console.log);
   });
 });
 
-describe('GET /records/coolest', function () {
-  it('should return the coolest of records', function (done) {
+describe("GET /records/coolest", function () {
+  it("should return the coolest of records", function (done) {
     chai
       .request(app)
-      .get('/records/coolest')
+      .get("/records/coolest")
       .then((res) => {
         res.should.have.status(200);
-        res.body.data.should.have.property('geonameid');
-        res.body.data.should.have.property('temp');
-        res.body.data.should.have.property('timestamp');
+        res.body.data.should.have.property("geonameid");
+        res.body.data.should.have.property("temp");
+        res.body.data.should.have.property("timestamp");
       })
       .then(done)
       .catch(console.log);

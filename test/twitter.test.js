@@ -1,14 +1,14 @@
-const { expect } = require('chai');
-const sinon = require('sinon');
-const _ = require('lodash');
-const City = require('../src/models/city');
-const Photo = require('../src/models/photo');
-const twitter = require('../src/twitter');
-const factory = require('./data/factory');
+const { expect } = require("chai");
+const sinon = require("sinon");
+const _ = require("lodash");
+const City = require("../src/models/city");
+const Photo = require("../src/models/photo");
+const twitter = require("../src/twitter");
+const factory = require("./data/factory");
 
-describe('twitter', function () {
+describe("twitter", function () {
   before(async function () {
-    sinon.stub(City, 'findOne').callsFake((query) => {
+    sinon.stub(City, "findOne").callsFake((query) => {
       const cities = factory.getCities();
       if (query) {
         const { geonameid } = query;
@@ -16,7 +16,7 @@ describe('twitter', function () {
       }
       return cities;
     });
-    sinon.stub(Photo, 'findByGeonameid').callsFake((geonameid) => {
+    sinon.stub(Photo, "findByGeonameid").callsFake((geonameid) => {
       const photos = factory.getPhotos();
       return _.filter(photos, (photo) => photo.geonameid == geonameid);
     });
@@ -26,8 +26,8 @@ describe('twitter', function () {
     City.findOne.restore();
     Photo.findByGeonameid.restore();
   });
-  describe('createTweetFromRecord', function () {
-    it('should return nice tweet objects', async function () {
+  describe("createTweetFromRecord", function () {
+    it("should return nice tweet objects", async function () {
       const records = factory.getRecords();
       for (const record of records) {
         const tweet = await twitter.createTweetFromRecord(record);

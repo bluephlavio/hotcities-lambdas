@@ -1,28 +1,28 @@
-const express = require('express');
+const express = require("express");
 const {
   matchMiddleware,
   filterMiddleware,
   sortMiddleware,
   paginationMiddleware,
   extraMiddleware,
-} = require('../middlewares/common');
-const { list, get } = require('../controllers/stats');
+} = require("../middlewares/common");
+const { list, get } = require("../controllers/stats");
 
 const router = express.Router();
 
 router.get(
-  '/',
+  "/",
   filterMiddleware(
-    'geonameid',
-    'name',
-    'localname',
-    'coutryname',
-    'countrycode',
-    'timezone',
-    'lat',
-    'lng',
-    'lang',
-    'population'
+    "geonameid",
+    "name",
+    "localname",
+    "coutryname",
+    "countrycode",
+    "timezone",
+    "lat",
+    "lng",
+    "lang",
+    "population"
   ),
   sortMiddleware(),
   paginationMiddleware(),
@@ -31,8 +31,8 @@ router.get(
 );
 
 router.get(
-  '/:id',
-  matchMiddleware({ name: 'geonameid', dtype: Number }),
+  "/:id",
+  matchMiddleware({ name: "geonameid", dtype: Number }),
   extraMiddleware(),
   get()
 );

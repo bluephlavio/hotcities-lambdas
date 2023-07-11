@@ -4,5 +4,5 @@ module.exports.errorHandler = (err, req, res, next) => {
 };
 
 module.exports.missingRouteHandler = (req, res, next) => {
-  return next({ message: 'Not found.', code: 404 });
+  return next({ message: "Not found.", code: 404 });
 };

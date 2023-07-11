@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const Record = require('../models/record');
+const _ = require("lodash");
+const Record = require("../models/record");
 
 module.exports.list = () => async (req, res, next) => {
   try {
@@ -28,7 +28,7 @@ module.exports.list = () => async (req, res, next) => {
         })
         .orderBy(
           Object.keys(sort),
-          Object.keys(sort).map((key) => (sort[key] === 1 ? 'asc' : 'desc'))
+          Object.keys(sort).map((key) => (sort[key] === 1 ? "asc" : "desc"))
         )
         .slice(skip, limit ? skip + limit : undefined)
         .value(),
@@ -61,7 +61,7 @@ module.exports.get = () => async (req, res, next) => {
         );
       })
       .value();
-    if (!data) return next({ message: 'Not found.', code: 404 });
+    if (!data) return next({ message: "Not found.", code: 404 });
     res.status(200).json({ data });
   } catch (err) {
     next(err);

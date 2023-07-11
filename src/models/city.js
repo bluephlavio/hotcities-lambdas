@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const CitySchema = new mongoose.Schema({
   geonameid: {
@@ -41,7 +41,7 @@ const CitySchema = new mongoose.Schema({
   },
 });
 
-CitySchema.virtual('names').get(function () {
+CitySchema.virtual("names").get(function () {
   const names = [this.name];
   if (this.localname && this.localname !== this.name) {
     names.push(this.localname);
@@ -62,4 +62,4 @@ CitySchema.statics.geonameids = async function () {
   return cities.map((city) => city.geonameid);
 };
 
-module.exports = mongoose.model('City', CitySchema);
+module.exports = mongoose.model("City", CitySchema);

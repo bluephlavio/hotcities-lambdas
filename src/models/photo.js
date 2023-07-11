@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const PhotoSchema = new mongoose.Schema({
   id: {
@@ -46,4 +46,4 @@ PhotoSchema.statics.findByGeonameid = async function (geonameid, opts) {
   return await this.find({ geonameid }).limit(opts ? opts.limit || 0 : 0);
 };
 
-module.exports = mongoose.model('Photo', PhotoSchema);
+module.exports = mongoose.model("Photo", PhotoSchema);

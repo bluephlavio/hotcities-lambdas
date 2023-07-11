@@ -1,26 +1,26 @@
-const chai = require('chai');
-const sinon = require('sinon');
-const _ = require('lodash');
-const Record = require('../../src/models/record');
-const Photo = require('../../src/models/photo');
-const State = require('../../src/models/state');
-const { getCities, getRecords, getPhotos } = require('../data/factory');
+const chai = require("chai");
+const sinon = require("sinon");
+const _ = require("lodash");
+const Record = require("../../src/models/record");
+const Photo = require("../../src/models/photo");
+const State = require("../../src/models/state");
+const { getCities, getRecords, getPhotos } = require("../data/factory");
 
 chai.should();
 
-describe('State model', function () {
+describe("State model", function () {
   before(function () {
     sinon
-      .stub(Record, 'current')
+      .stub(Record, "current")
       .callsFake(() =>
-        _.chain(getRecords()).orderBy(['timestamp'], ['desc']).first().value()
+        _.chain(getRecords()).orderBy(["timestamp"], ["desc"]).first().value()
       );
-    sinon.stub(Record, 'ranking').callsFake(() => {
+    sinon.stub(Record, "ranking").callsFake(() => {
       const records = getRecords();
       const cities = getCities();
       const count = records.length;
       const ranking = _.chain(records)
-        .groupBy('geonameid')
+        .groupBy("geonameid")
         .toPairs()
         .map((entry) => ({
           geonameid: Number(entry[0]),
@@ -52,13 +52,13 @@ describe('State model', function () {
             { ...rest },
             _.omit(
               _.find(cities, (city) => city.geonameid === geonameid),
-              '_id'
+              "_id"
             )
           )
         )
         .value();
     });
-    sinon.stub(Record, 'tempRange').callsFake(() => [
+    sinon.stub(Record, "tempRange").callsFake(() => [
       _.chain(getRecords())
         .map(({ temp }) => temp)
         .min()
@@ -68,7 +68,7 @@ describe('State model', function () {
         .max()
         .value(),
     ]);
-    sinon.stub(Photo, 'findByGeonameid').callsFake((geonameid, { limit }) =>
+    sinon.stub(Photo, "findByGeonameid").callsFake((geonameid, { limit }) =>
       _.chain(getPhotos())
         .filter((photo) => photo.geonameid === geonameid)
         .slice(0, limit)
@@ -83,10 +83,10 @@ describe('State model', function () {
     Photo.findByGeonameid.restore();
   });
 
-  it('should return a state object when build is called', async function () {
+  it("should return a state object when build is called", async function () {
     const state = await State.build();
     state.should.be.ok;
-    state.should.have.property('current');
-    state.should.have.property('stats');
+    state.should.have.property("current");
+    state.should.have.property("stats");
   });
 });

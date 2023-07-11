@@ -12,11 +12,11 @@ const parseString = (s) => {
 };
 
 const parseFilterQueryParam = (key) => (value) => {
-  const elements = value.split(',');
+  const elements = value.split(",");
   const rules = elements.map((e) => {
-    if (e.startsWith('>')) {
+    if (e.startsWith(">")) {
       return { [key]: { $gt: parseString(e.slice(1)) } };
-    } else if (e.startsWith('<')) {
+    } else if (e.startsWith("<")) {
       return { [key]: { $lt: parseString(e.slice(1)) } };
     } else {
       return { [key]: parseString(e) };
@@ -36,9 +36,9 @@ const parseFilterQueryParam = (key) => (value) => {
 };
 
 const parseSortQueryParam = (value) => {
-  const elements = value.split(',');
+  const elements = value.split(",");
   const rules = elements.map((e) =>
-    e.startsWith('-') ? { [e.slice(1)]: -1 } : { [e]: 1 }
+    e.startsWith("-") ? { [e.slice(1)]: -1 } : { [e]: 1 }
   );
   const sort = {};
   rules.forEach((rule) => {

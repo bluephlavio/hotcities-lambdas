@@ -1,5 +1,5 @@
-const City = require('../models/city');
-const Record = require('../models/record');
+const City = require("../models/city");
+const Record = require("../models/record");
 
 const resolvers = {
   Query: {
@@ -16,14 +16,14 @@ const resolvers = {
         },
         {
           $lookup: {
-            from: 'cities',
-            localField: 'geonameid',
-            foreignField: 'geonameid',
-            as: 'city',
+            from: "cities",
+            localField: "geonameid",
+            foreignField: "geonameid",
+            as: "city",
           },
         },
         {
-          $unwind: '$city',
+          $unwind: "$city",
         },
         {
           $sort: sort ? JSON.parse(sort) : {},

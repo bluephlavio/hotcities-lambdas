@@ -1,11 +1,11 @@
-const { expect } = require('chai');
-const sinon = require('sinon');
-const _ = require('lodash');
-const City = require('../../src/models/city');
-const Weather = require('../../src/models/weather');
-const { getWeather, getCities } = require('../data/factory');
+const { expect } = require("chai");
+const sinon = require("sinon");
+const _ = require("lodash");
+const City = require("../../src/models/city");
+const Weather = require("../../src/models/weather");
+const { getWeather, getCities } = require("../data/factory");
 
-describe('Weather model', function () {
+describe("Weather model", function () {
   const cities = getCities();
   const weather = getWeather();
   const variant1 = _.slice(weather, 0, 1);
@@ -16,12 +16,12 @@ describe('Weather model', function () {
   const hottests = _.filter(weather, (entry) => entry.temp == maxTemp);
 
   before(async function () {
-    sinon.stub(City, 'find').returns(cities);
+    sinon.stub(City, "find").returns(cities);
   });
 
-  describe('temperatures', function () {
+  describe("temperatures", function () {
     before(async function () {
-      sinon.stub(Weather, 'find').returns(weather);
+      sinon.stub(Weather, "find").returns(weather);
     });
 
     after(async function () {
@@ -30,17 +30,17 @@ describe('Weather model', function () {
 
     it(`should return a list with ${weather.length} numbers`, async function () {
       const temperatures = await Weather.temperatures();
-      expect(temperatures).to.be.an('array');
+      expect(temperatures).to.be.an("array");
       expect(temperatures.length).to.be.equal(weather.length);
       temperatures.forEach((temperature) => {
-        expect(temperature).to.be.a('number');
+        expect(temperature).to.be.a("number");
       });
     });
   });
 
-  describe('missingDataGeonameids', function () {
+  describe("missingDataGeonameids", function () {
     before(function () {
-      const fakeWeather = sinon.stub(Weather, 'find');
+      const fakeWeather = sinon.stub(Weather, "find");
       variants.forEach((variant, i) => fakeWeather.onCall(i).returns(variant));
     });
 
@@ -48,10 +48,10 @@ describe('Weather model', function () {
       Weather.find.restore();
     });
 
-    it('should return a list with correct number of elements', async function () {
+    it("should return a list with correct number of elements", async function () {
       for (const variant of variants) {
         const missingDataGeonameids = await Weather.missingDataGeonameids();
-        expect(missingDataGeonameids).to.be.an('array');
+        expect(missingDataGeonameids).to.be.an("array");
         expect(missingDataGeonameids.length).to.be.equal(
           cities.length - variant.length
         );
@@ -59,9 +59,9 @@ describe('Weather model', function () {
     });
   });
 
-  describe('withOlderDataGeonameids', function () {
+  describe("withOlderDataGeonameids", function () {
     beforeEach(function () {
-      const fakeWeather = sinon.stub(Weather, 'find');
+      const fakeWeather = sinon.stub(Weather, "find");
       variants.forEach((variant, i) => fakeWeather.onCall(i).returns(variant));
     });
 
@@ -69,16 +69,16 @@ describe('Weather model', function () {
       Weather.find.restore();
     });
 
-    it('should return a list with correct number of elements', async function () {
+    it("should return a list with correct number of elements", async function () {
       const older = await Weather.withOlderDataGeonameids(1);
-      expect(older).to.be.an('array');
+      expect(older).to.be.an("array");
       expect(older.length).to.be.equal(1);
     });
 
-    it('should return the correct geonameids', async function () {
+    it("should return the correct geonameids", async function () {
       for (const variant of variants) {
         const expected = _.chain(variant)
-          .sortBy('timestamp')
+          .sortBy("timestamp")
           .map((entry) => entry.geonameid)
           .value();
         const older = await Weather.withOlderDataGeonameids(2);
@@ -89,9 +89,9 @@ describe('Weather model', function () {
     });
   });
 
-  describe('record', function () {
+  describe("record", function () {
     before(async function () {
-      sinon.stub(Weather, 'find').callsFake(function (query) {
+      sinon.stub(Weather, "find").callsFake(function (query) {
         if (query && query.temp == maxTemp) {
           return hottests;
         }
@@ -103,15 +103,15 @@ describe('Weather model', function () {
       Weather.find.restore();
     });
 
-    it('should return the correct structure', async function () {
+    it("should return the correct structure", async function () {
       const record = await Weather.record();
       expect(record).to.be.ok;
-      expect(record).to.have.property('geonameid');
-      expect(record).to.have.property('temp');
-      expect(record).to.have.property('timestamp');
+      expect(record).to.have.property("geonameid");
+      expect(record).to.have.property("temp");
+      expect(record).to.have.property("timestamp");
     });
 
-    it('should return the correct data', async function () {
+    it("should return the correct data", async function () {
       const record = await Weather.record();
       const { temp } = record;
       expect(temp).to.be.equal(maxTemp);

@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const _ = require('lodash');
+const mongoose = require("mongoose");
+const _ = require("lodash");
 
 const RecordSchema = new mongoose.Schema({
   geonameid: {
@@ -18,15 +18,15 @@ const RecordSchema = new mongoose.Schema({
 });
 
 RecordSchema.statics.current = async function () {
-  return await this.findOne().sort({ timestamp: 'desc' });
+  return await this.findOne().sort({ timestamp: "desc" });
 };
 
 RecordSchema.statics.first = async function () {
-  return await this.findOne().sort({ timestamp: 'asc' });
+  return await this.findOne().sort({ timestamp: "asc" });
 };
 
 RecordSchema.statics.last = async function () {
-  return await this.findOne().sort({ timestamp: 'desc' });
+  return await this.findOne().sort({ timestamp: "desc" });
 };
 
 RecordSchema.statics.startTime = async function () {
@@ -42,11 +42,11 @@ RecordSchema.statics.stopTime = async function () {
 };
 
 RecordSchema.statics.hottest = async function () {
-  return await this.findOne().sort({ temp: 'desc' });
+  return await this.findOne().sort({ temp: "desc" });
 };
 
 RecordSchema.statics.coolest = async function () {
-  return await this.findOne().sort({ temp: 'asc' });
+  return await this.findOne().sort({ temp: "asc" });
 };
 
 RecordSchema.statics.tempRange = async function () {
@@ -59,22 +59,22 @@ RecordSchema.statics.ranking = async function () {
   const count = await this.countDocuments();
   const data = await this.aggregate()
     .group({
-      _id: '$geonameid',
+      _id: "$geonameid",
       recordfrac: { $sum: 1 / count },
-      recordtemp: { $max: '$temp' },
+      recordtemp: { $max: "$temp" },
     })
     .lookup({
-      from: 'cities',
-      localField: '_id',
-      foreignField: 'geonameid',
-      as: 'city',
+      from: "cities",
+      localField: "_id",
+      foreignField: "geonameid",
+      as: "city",
     })
-    .unwind('$city')
+    .unwind("$city")
     .addFields({
-      'city.recordfrac': '$recordfrac',
-      'city.recordtemp': '$recordtemp',
+      "city.recordfrac": "$recordfrac",
+      "city.recordtemp": "$recordtemp",
     })
-    .replaceRoot('$city')
+    .replaceRoot("$city")
     .exec();
   const recordfracs = data.map((item) => item.recordfrac);
   const maxRecordFrac = _.max(recordfracs);
@@ -90,7 +90,7 @@ RecordSchema.statics.ranking = async function () {
         Math.pow((recordtemp - minTemp) / deltaTemp, 5) *
         100,
     }))
-    .orderBy(['score'], ['desc'])
+    .orderBy(["score"], ["desc"])
     .map((entry, i) => ({
       ...entry,
       rank: i + 1,
@@ -98,4 +98,4 @@ RecordSchema.statics.ranking = async function () {
     .value();
 };
 
-module.exports = mongoose.model('Record', RecordSchema);
+module.exports = mongoose.model("Record", RecordSchema);

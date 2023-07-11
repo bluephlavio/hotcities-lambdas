@@ -1,7 +1,7 @@
-const OpenWeatherMap = require('openweathermap-api-module');
-const Weather = require('./models/weather');
-const City = require('./models/city');
-const config = require('./config');
+const OpenWeatherMap = require("openweathermap-api-module");
+const Weather = require("./models/weather");
+const City = require("./models/city");
+const config = require("./config");
 
 module.exports.MAX_CITIES_PER_CALL = 20;
 module.exports.MAX_CALLS_PER_MINUTE = 60;
@@ -14,7 +14,7 @@ module.exports.getWeather = async (geonameids) => {
     try {
       const data = await openweathermap.currentWeatherByCityId({
         cityId: geonameid,
-        units: 'metric',
+        units: "metric",
       });
       const temp = data && data.main ? data.main.temp : null;
       if (!temp) {

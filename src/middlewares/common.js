@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const {
   parseFilterQueryParam,
   parseSortQueryParam,
-} = require('../helpers/parsers');
+} = require("../helpers/parsers");
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -22,7 +22,7 @@ module.exports.matchMiddleware = (extraIdField) => (req, res, next) => {
       }
     } catch (err) {}
   }
-  return next({ message: 'Not found.', code: 404 });
+  return next({ message: "Not found.", code: 404 });
 };
 
 module.exports.filterMiddleware =
@@ -43,7 +43,7 @@ module.exports.filterMiddleware =
 
 module.exports.sortMiddleware = () => (req, res, next) => {
   const { query } = req;
-  if ('sort' in query) {
+  if ("sort" in query) {
     const { sort: value } = query;
     res.sort = Object.assign(res.sort || {}, parseSortQueryParam(value));
   }
@@ -52,11 +52,11 @@ module.exports.sortMiddleware = () => (req, res, next) => {
 
 module.exports.paginationMiddleware = () => (req, res, next) => {
   const { query } = req;
-  if ('skip' in query) {
+  if ("skip" in query) {
     const { skip } = query;
     res.skip = parseInt(skip, 10);
   }
-  if ('limit' in query) {
+  if ("limit" in query) {
     const { limit } = query;
     res.limit = parseInt(limit, 10);
   }
@@ -65,9 +65,9 @@ module.exports.paginationMiddleware = () => (req, res, next) => {
 
 module.exports.extraMiddleware = () => (req, res, next) => {
   const { query } = req;
-  if ('extra' in query) {
+  if ("extra" in query) {
     const { extra: value } = query;
-    res.extra = value.split(',');
+    res.extra = value.split(",");
   }
   next();
 };

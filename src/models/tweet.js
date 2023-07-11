@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const TweetSchema = new mongoose.Schema({
   geonameid: {
@@ -24,11 +24,11 @@ const TweetSchema = new mongoose.Schema({
 });
 
 TweetSchema.statics.last = async function () {
-  return await this.findOne().sort({ timestamp: 'desc' });
+  return await this.findOne().sort({ timestamp: "desc" });
 };
 
 TweetSchema.methods.tweetable = async function () {
-  const last = await this.model('Tweet').last();
+  const last = await this.model("Tweet").last();
   if (!last) {
     return true;
   }
@@ -42,4 +42,4 @@ TweetSchema.methods.tweetable = async function () {
   return false;
 };
 
-module.exports = mongoose.model('Tweet', TweetSchema);
+module.exports = mongoose.model("Tweet", TweetSchema);
