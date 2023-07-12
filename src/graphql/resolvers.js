@@ -1,4 +1,5 @@
 const { GraphQLScalarType, Kind } = require("graphql");
+const _ = require("lodash");
 const City = require("../models/city");
 const Record = require("../models/record");
 const State = require("../models/state");
@@ -65,7 +66,7 @@ const resolvers = {
       ]);
       return result;
     },
-    currentRecord: async () => {
+    current: async () => {
       const results = await Record.aggregate([
         {
           $sort: { timestamp: -1 },
@@ -90,6 +91,46 @@ const resolvers = {
     state: async () => {
       const result = await State.findOne();
       return result;
+    },
+    ranking: async () => {
+      const count = await Record.countDocuments();
+      const data = await Record.aggregate()
+        .group({
+          _id: "$geonameid",
+          recordfrac: { $sum: 1 / count },
+          recordtemp: { $max: "$temp" },
+        })
+        .lookup({
+          from: "cities",
+          localField: "_id",
+          foreignField: "geonameid",
+          as: "city",
+        })
+        .unwind("$city")
+        .exec();
+      const recordfracs = data.map((item) => item.recordfrac);
+      const maxRecordFrac = _.max(recordfracs);
+      const [minTemp, maxTemp] = await Record.tempRange();
+      const deltaTemp = maxTemp - minTemp;
+      return _.chain(data)
+        .map(({ recordfrac, recordtemp, ...rest }) => ({
+          ...rest,
+          recordfrac,
+          recordtemp,
+          score:
+            (recordfrac / maxRecordFrac) *
+            Math.pow((recordtemp - minTemp) / deltaTemp, 5) *
+            100,
+        }))
+        .orderBy(["score"], ["desc"])
+        .map((entry, i) => ({
+          ...entry,
+          rank: i + 1,
+        }))
+        .value();
+    },
+    temprange: async () => {
+      return await Record.tempRange();
     },
   },
 

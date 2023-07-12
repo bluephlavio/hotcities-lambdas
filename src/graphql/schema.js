@@ -15,8 +15,10 @@ const typeDefs = `
       endDate: Date = null,
       period: String = null
     ): [Record]
-    currentRecord: Record
+    current: Record
     state: State
+    ranking: [CityStats]
+    temprange: [Float]
   }
 
   type City {
@@ -58,16 +60,9 @@ const typeDefs = `
     rank: Int!
   }
 
-  type RankingItem {
+  type CityStats {
     _id: ID!
-    geonameid: Int!
-    name: String!
-    localname: String!
-    lng: Float!
-    lat: Float!
-    countryname: String!
-    countrycode: String!
-    population: Float!
+    city: City!
     score: Float!
     recordfrac: Float!
     recordtemp: Float!
@@ -75,7 +70,8 @@ const typeDefs = `
   }
 
   type Stats {
-    ranking: [RankingItem]
+    _id: ID!
+    ranking: [CityStats]
     temprange: [Float]
   }
 
