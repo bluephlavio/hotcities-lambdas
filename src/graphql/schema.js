@@ -57,6 +57,24 @@ const typeDefs = `
     temprange: [Float]
   }
 
+  type Current {
+    _id: ID!
+    geonameid: Int!
+    name: String!
+    localname: String!
+    lng: Float!
+    lat: Float!
+    countryname: String!
+    countrycode: String!
+    population: Int!
+    temp: Float!
+    timestamp: Date!
+    score: Float!
+    recordfrac: Float!
+    recordtemp: Float!
+    rank: Int!
+  }
+
   type State {
     _id: ID!
     current: Current
