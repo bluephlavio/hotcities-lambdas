@@ -11,7 +11,13 @@ db.open();
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: "https://hotcities.world",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", restApi);
