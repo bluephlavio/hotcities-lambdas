@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const config = require("./config");
 
+mongoose.set("strictQuery", false);
+
 module.exports.open = async () => {
   try {
     return await mongoose.connect(config.mongo.connection, {});
