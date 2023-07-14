@@ -12,7 +12,7 @@ db.open();
 const app = express();
 
 const corsOptions = {
-  origin: "https://hotcities.world",
+  origin: "https://www.hotcities.world",
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
