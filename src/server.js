@@ -13,7 +13,7 @@ const app = express();
 
 const corsOptions = {
   origin: "https://www.hotcities.world",
-  methods: ["GET", "POST"],
+  methods: ["GET", "POST", "OPTION"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 
